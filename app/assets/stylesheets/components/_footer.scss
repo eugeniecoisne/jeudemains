@@ -5,7 +5,7 @@
   text-align: center;
   height: 140px;
   font-size: 12px;
-  color: #DAEEEA;
+  color: $light-green;
   h2 {
   font-size: 14px;
   font-weight: bold;
@@ -21,7 +21,7 @@
   text-decoration: none;
   display: block;
   font-size: 12px;
-  color: #DAEEEA;
+  color: $light-green;
   text-align: left;
   }
   a:hover {
@@ -32,10 +32,11 @@
 }
 
 .footer-media a {
-  color: #FFB700;
+  color: $light-green;
   font-size: 20px;
   margin-top: 14px;
   padding: 0px 10px;
+  text-align: left;
 }
 
 .footer-media {
@@ -44,7 +45,11 @@
   color: black;
 }
 
+.logo-footer {
+  width: 100px;
+
+}
+
 .content-wrapper {
   min-height: calc(100vh - 60px - 70px);
 }
-
