@@ -10,3 +10,44 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+#navbarDropdown {
+  background-color: #F4F4F4;
+}
+
+#sideMenu {
+  position: absolute;
+  right: -300px;
+  position: absolute;
+  width: 300px;
+  height: 100vh;
+  background-color: #808080;
+}
+
+#sideMenu.open {
+  right: 0px;
+  width: 300px;
+  background-color: white;
+  transition: all 0.75s ease-out;
+}
+
+#sideMenu ul li {
+  list-style-type: none;
+}
+
+.button {
+  background-color: white;
+  margin-right: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  color: black;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
