@@ -1,8 +1,9 @@
 .footer {
-  background: $blue;
+  background-size: cover;
+  background-position: top;
+  padding: 150px 120px;
   text-align: center;
   height: 140px;
-  padding: 20px 200px;
   font-size: 12px;
   color: $light-green;
   h2 {
@@ -14,7 +15,7 @@
 
 .footer-links {
   justify-content: space-between;
- a {
+  a {
   color: black;
   opacity: 0.80;
   text-decoration: none;
@@ -23,13 +24,12 @@
   color: $light-green;
   text-align: left;
   }
-}
-
-.footer-links a:hover {
+  a:hover {
   opacity: 1;
   text-decoration:none;
+  color: #DAEEEA;
+  }
 }
-
 
 .footer-media a {
   color: $light-green;
