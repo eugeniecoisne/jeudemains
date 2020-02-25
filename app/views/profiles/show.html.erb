@@ -17,6 +17,7 @@
                   <%= workshop.name %>
                   <%= link_to 'Editer', edit_workshop_path(workshop) %>
                   <%= link_to 'Supprimer', workshop_path(workshop), method: :delete, data: { confirm: 'Confirmez-vous la suppression ?' } %>
+                  <%= link_to 'Ajouter une date', new_workshop_workshop_date_path(workshop) %>
                 </li>
               <% end %>
             </ul>
