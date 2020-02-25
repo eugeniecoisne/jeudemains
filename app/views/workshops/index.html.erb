@@ -1,0 +1,32 @@
+<div class="workshops-container">
+<div class="workshops-cards">
+  <% @workshops.each do |workshop| %>
+      <%= link_to workshop_path(workshop), data: { turbolinks: false } do %>
+      <div class="workshops-card">
+        <div class="img-worshops-card">
+          <%= image_tag "https://cdn.shopify.com/s/files/1/0135/6627/9738/articles/header_310b8395-f711-42cb-89f9-db495e34012f.jpg?v=1540918920", alt: "image workshop", class: "img-workshops-card" %>
+        </div>
+        <div class="workshops-card-infos">
+          <div>
+            <h2><%= workshop.name %></h2>
+            <p><%=  %></p>
+          </div>
+          <div>
+            <h2 class="text-center"><%=  %> €</h2>
+            <p><i class="fas fa-star" style="color:#25A5AD"></i> <%=  %>/5</p>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div id="map"
+       style="width: 100%;
+       height: 100vh;
+       position: sticky;
+       top: 0;"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="pk.eyJ1IjoidGhvbWFzLXJvc2U3NiIsImEiOiJjazYyOGRieWgwYWlyM2Zxd29rZ2hiOGJsIn0.uq_GyWQAqSz7DsRV2rLLTg">
+  </div>
+</div>

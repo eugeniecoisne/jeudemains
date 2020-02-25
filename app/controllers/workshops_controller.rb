@@ -4,6 +4,15 @@ class WorkshopsController < ApplicationController
 
   def index
     @workshops = policy_scope(Workshop)
+
+    @places_geo = Place.all.map { |place| place if place.workshops.count > 0 }
+    @markers = @places_geo.map do |place|
+      {
+        lat: place.latitude,
+        lng: place.longitude,
+        # infoWindow: render_to_string(partial: "info_window", locals: { workshop.place: workshop.place })
+      }
+    end
   end
 
   def show
@@ -13,18 +22,41 @@ class WorkshopsController < ApplicationController
   def new
     @workshop = Workshop.new
     authorize @workshop
+    @animators = Profile.where(animator: true)
+    @places = current_user.profile.places
   end
 
   def create
+    @workshop = Workshop.new(workshop_params)
+    authorize @workshop
+    @place = Place.find(params[:workshop][:place_id])
+    @animator = Profile.find(params[:workshop][:profile_id])
+    @workshop.place = @place
+    @workshop.profile = @animator
+    if @workshop.save
+      redirect_to profile_path(@place.profile)
+    else
+      render :new
+    end
   end
 
   def edit
     authorize @workshop
+    @animators = Profile.where(animator: true)
+    @places = current_user.profile.places
   end
 
   def update
     authorize @workshop
     @workshop.update(workshop_params)
+    if @workshop.place.id != params[:workshop][:place_id]
+      @place = Place.find(params[:workshop][:place_id])
+      @workshop.place = @place
+    end
+    if @workshop.profile.id != params[:workshop][:profile_id]
+      @animator = Profile.find(params[:workshop][:profile_id])
+      @workshop.profile = @animator
+    end
     if @workshop.save
       redirect_to workshop_path(@workshop)
     else
@@ -35,7 +67,7 @@ class WorkshopsController < ApplicationController
   def destroy
     authorize @workshop
     @workshop.destroy
-    redirect_to workshops_path
+    redirect_to profile_path(@workshop.place.profile)
   end
 
   private

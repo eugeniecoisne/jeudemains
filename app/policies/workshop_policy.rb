@@ -9,7 +9,7 @@ class WorkshopPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    user
   end
 
   def new?
@@ -25,7 +25,7 @@ class WorkshopPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.place.profile.user == user
+    update?
   end
 
   class Scope < Scope

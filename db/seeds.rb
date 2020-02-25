@@ -5,22 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 Workshop.destroy_all
 Place.destroy_all
 Profile.destroy_all
 User.destroy_all
-
 
 #   CAMILLE : PARTICIPANT
 User.create!(email: 'a@a.com', password: '123456')
 Profile.last.update!(
   last_name: 'Bison',
   first_name: 'Camille',
-  organizer: false,
-  animator: false,
-  participant: true,
-  )
-
+)
 
 # LES HERBES HAUTES : ORGANISATEUR
 User.create!(email: 'hello@herbes.com', password: '123456')
@@ -36,8 +32,7 @@ Profile.last.update!(
   facebook: 'https://www.facebook.com/LesHerbesHautes/',
   instagram: 'https://www.instagram.com/atelier_lesherbeshautes/',
   organizer: true,
-  animator: false,
-  participant: false,
+  animator: true,
   )
 
 place1 = Place.new(name: 'Les Herbes Hautes', address: '85 Boulevard Voltaire', zip_code: '75011', city: 'PARIS', phone_number: '0952090027')
@@ -74,9 +69,6 @@ workshop2.place = Place.last
 workshop2.profile = Profile.last
 workshop2.save!
 
-
-
-
 # HAPPY FOLK : ORGANISATEUR
 User.create!(email: 'hello@happy.com', password: '123456')
 Profile.last.update!(
@@ -91,14 +83,11 @@ Profile.last.update!(
   facebook: 'https://www.facebook.com/happyfolk.fr/',
   instagram: 'https://www.instagram.com/happyfolk.fr/',
   organizer: true,
-  animator: false,
-  participant: false,
-  )
+)
+
 place2 = Place.new(name: 'Happy Folk', address: '64 Boulevard Voltaire', zip_code: '75011', city: 'PARIS', phone_number: '0184790117')
 place2.profile = Profile.last
 place2.save!
-
-
 
 #   FLOWRETTE : ANIMATEUR
 User.create!(email: 'hello@flowrette.com', password: '123456')
@@ -110,9 +99,7 @@ Profile.last.update!(
   site_web: 'https://flowrette.com/',
   facebook: 'https://www.facebook.com/flowretteparis/',
   instagram: 'https://www.instagram.com/flowrette_com/',
-  organizer: false,
   animator: true,
-  participant: false,
   )
 
 workshop3 = Workshop.new(
@@ -132,7 +119,6 @@ workshop3.place = Place.last
 workshop3.profile = Profile.last
 workshop3.save!
 
-
 #   PONOIE : ANIMATEUR
 User.create!(email: 'hello@ponoie.com', password: '123456')
 Profile.last.update!(
@@ -142,11 +128,8 @@ Profile.last.update!(
   phone_number: '0111111113',
   site_web: 'https://www.ponoie.com/',
   instagram: 'https://www.instagram.com/ponoie/',
-  organizer: false,
   animator: true,
-  participant: false,
   )
-
 
 workshop4 = Workshop.new(
   name: 'Réalisez votre bougie fleurie',
