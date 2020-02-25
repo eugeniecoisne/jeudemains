@@ -17,9 +17,6 @@ User.create!(email: 'a@a.com', password: '123456')
 Profile.last.update!(
   last_name: 'Bison',
   first_name: 'Camille',
-  organizer: false,
-  animator: false,
-  participant: true,
   )
 
 
@@ -37,8 +34,7 @@ Profile.last.update!(
   facebook: 'https://www.facebook.com/LesHerbesHautes/',
   instagram: 'https://www.instagram.com/atelier_lesherbeshautes/',
   organizer: true,
-  animator: false,
-  participant: false,
+  animator: true,
   )
 
 place1 = Place.new(name: 'Les Herbes Hautes', address: '85 Boulevard Voltaire', zip_code: '75011', city: 'PARIS', phone_number: '0952090027')
@@ -92,8 +88,6 @@ Profile.last.update!(
   facebook: 'https://www.facebook.com/happyfolk.fr/',
   instagram: 'https://www.instagram.com/happyfolk.fr/',
   organizer: true,
-  animator: false,
-  participant: false,
   )
 place2 = Place.new(name: 'Happy Folk', address: '64 Boulevard Voltaire', zip_code: '75011', city: 'PARIS', phone_number: '0184790117')
 place2.profile = Profile.last
@@ -111,9 +105,7 @@ Profile.last.update!(
   site_web: 'https://flowrette.com/',
   facebook: 'https://www.facebook.com/flowretteparis/',
   instagram: 'https://www.instagram.com/flowrette_com/',
-  organizer: false,
   animator: true,
-  participant: false,
   )
 
 workshop3 = Workshop.new(
@@ -143,9 +135,7 @@ Profile.last.update!(
   phone_number: '0111111113',
   site_web: 'https://www.ponoie.com/',
   instagram: 'https://www.instagram.com/ponoie/',
-  organizer: false,
   animator: true,
-  participant: false,
   )
 
 
