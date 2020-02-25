@@ -1,50 +1,97 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-8 mt-3">
-      <h1>Profiles#show</h1>
-      <%= link_to 'Editer le profile', edit_profile_path(@profile) %>
-    </div>
-    <div class="col-8">
-      <ul>
-        <% @profile.places.each do |place| %>
-          <li>
-            <%= place.name %>
-            <%= link_to 'Editer', edit_place_path(place) %>
-            <%= link_to 'Supprimer', place_path(place), method: :delete, data: { confirm: 'Confirmez-vous la suppression ?' } %>
-            <ul>
-              <% place.workshops.each do |workshop| %>
-                <li>
-                  <%= workshop.name %>
-                  <%= link_to 'Editer', edit_workshop_path(workshop) %>
-                  <%= link_to 'Supprimer', workshop_path(workshop), method: :delete, data: { confirm: 'Confirmez-vous la suppression ?' } %>
-                </li>
-              <% end %>
-            </ul>
-          </li>
-        <% end %>
-      </ul>
+<div class="container my-4">
+  <div class="profile-show-container">
+
+  <!-- WELCOME MESSAGE -->
+
+    <div class="profile-show-welcome">
+      <h3 class="pt-3">Bonjour <%= @profile.company %>,</h3>
+      <h4>bienvenue sur ton dashboard !</h4>
     </div>
 
-    <div class="col-8 mt-3">
-      <h5>Créer un nouveau lieu</h5>
-      <%= simple_form_for([@profile, @place]) do |f| %>
-        <%= f.input :name, label: false, placeholder: 'Nom du lieu' %>
-        <div class="form-row">
-          <div class="form-group col-md-4">
-            <%= f.input :address, label: false, placeholder: 'Numéro + Rue' %>
+    <div class="row justify-content-center profile-show-grid">
+
+  <!-- LEFT SIDE -->
+
+      <div class="py-4 d-flex justify-content-center">
+        <div class="card profile-show-card">
+
+          <!-- AVATAR -->
+
+          <div class="card-header profile-show-card-header">
+            <%= image_tag "https://www.lesherbeshautes.fr/app/uploads/2020/01/MK4_2725-scaled.jpg", alt: "profile picture", id: "avatar" %>
           </div>
-          <div class="form-group col-md-4">
-            <%= f.input :zip_code, label: false, placeholder: 'Code postal' %>
-          </div>
-          <div class="form-group col-md-4">
-            <%= f.input :city, label: false, placeholder: 'Ville' %>
+
+          <!-- BODY -->
+
+          <div class="card-body profile-show-card-body">
+            <div class="d-flex">
+              <i class="fas fa-calendar-alt" id="check-icon"></i>
+              <div class="button btn-white">
+                <p><strong>20</strong> réservations à venir</p>
+              </div>
+            </div>
+            <div class="d-flex">
+              <i class="fas fa-clipboard-check"></i>
+              <div class="button btn-white">
+                <p><strong>8</strong> ateliers diffusés</p>
+              </div>
+            </div>
+            <div class="d-flex">
+              <i class="fas fa-map-marker-alt"></i>
+              <div class="button btn-white">
+                <p><strong>1</strong> lieu</p>
+              </div>
+            </div>
           </div>
         </div>
-        <%= f.input :phone_number, label: false, placeholder: 'Téléphone' %>
-        <%= f.submit 'Valider', class: 'btn btn-primary rounded-pill' %>
-        <%= link_to 'Annuler', profile_path(@profile), class: 'btn btn-primary rounded-pill' %>
-      <% end %>
+      </div>
+
+
+  <!-- RIGHT SIDE -->
+
+      <div class="col-right">
+
+        <!-- MY PLACES -->
+
+        <div class="public-show-my-places">
+          <h3>Mes lieux</h3>
+          <% @profile.places.each do |place| %>
+            <div class="card">
+              <h5><%= place.name %></h5>
+              <%= link_to 'Editer', edit_place_path(place) %>
+              <%= link_to 'Supprimer', place_path(place), method: :delete, data: { confirm: 'Confirmez-vous la suppression ?' } %>
+              <ul>
+                <% place.workshops.each do |workshop| %>
+                  <li>
+                    <%= workshop.name %>
+                    <%= link_to 'Editer', edit_workshop_path(workshop) %>
+                    <%= link_to 'Supprimer', workshop_path(workshop), method: :delete, data: { confirm: 'Confirmez-vous la suppression ?' } %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+        </div>
+
+        <h5>Créer un nouveau lieu</h5>
+        <%= simple_form_for([@profile, @place]) do |f| %>
+          <%= f.input :name, label: false, placeholder: 'Nom du lieu' %>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <%= f.input :address, label: false, placeholder: 'Numéro + Rue' %>
+            </div>
+            <div class="form-group col-md-4">
+              <%= f.input :zip_code, label: false, placeholder: 'Code postal' %>
+            </div>
+            <div class="form-group col-md-4">
+              <%= f.input :city, label: false, placeholder: 'Ville' %>
+            </div>
+          </div>
+          <%= f.input :phone_number, label: false, placeholder: 'Téléphone' %>
+          <%= f.submit 'Valider', class: 'btn btn-primary' %>
+          <%= link_to 'Annuler', profile_path(@profile), class: 'btn btn-primary' %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
-
