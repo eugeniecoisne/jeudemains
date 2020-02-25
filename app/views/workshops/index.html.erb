@@ -1,0 +1,27 @@
+<div class="workshops-container">
+  <div class="workshops-cards">
+    <div class="workshops-card">
+      <div class="img-worshops-card">
+        <%= image_tag "https://cdn.shopify.com/s/files/1/1576/9993/collections/IMG_9980_600x600_crop_center.JPG?v=1535882905", alt: "image workshop", class: "img-workshops-card" %>
+      </div>
+      <div class="workshops-card-infos">
+        <div>
+          <h2><%=  %></h2>
+          <p><%=  %></p>
+        </div>
+        <div>
+          <h2 class="text-center"> €</h2>
+          <p><i class="fas fa-star" style="color:#25A5AD"></i> /5</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="map"
+       style="width: 100%;
+       height: 100vh;
+       position: sticky;
+       top: 0;"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="pk.eyJ1IjoidGhvbWFzLXJvc2U3NiIsImEiOiJjazYyOGRieWgwYWlyM2Zxd29rZ2hiOGJsIn0.uq_GyWQAqSz7DsRV2rLLTg">
+  </div>
+</div>

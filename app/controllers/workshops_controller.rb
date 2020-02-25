@@ -4,6 +4,15 @@ class WorkshopsController < ApplicationController
 
   def index
     @workshops = policy_scope(Workshop)
+
+    @workshops_geo = @workshops.places.geocoded
+    @markers = @workshops_geo.map do |worshop|
+      {
+        lat: worshop.latitude,
+        lng: worshop.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { workshop.place: workshop.place })
+      }
+    end
   end
 
   def show
