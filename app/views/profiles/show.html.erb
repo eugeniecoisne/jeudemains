@@ -1,3 +1,4 @@
+
 <div class="container my-4">
   <div class="profile-show-container">
 
@@ -6,6 +7,7 @@
     <div class="profile-show-welcome">
       <h3 class="pt-3">Bonjour <%= @profile.company %>,</h3>
       <h4>bienvenue sur ton dashboard !</h4>
+
     </div>
 
     <div class="row justify-content-center profile-show-grid">
@@ -92,6 +94,36 @@
           <%= link_to 'Annuler', profile_path(@profile), class: 'btn btn-primary' %>
         <% end %>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8 mt-3">
+      <h1>Profiles#show</h1>
+      <%= link_to 'Editer le profile', edit_profile_path(@profile) %>
+    </div>
+    <div class="col-8">
+      <ul>
+        <% @profile.places.each do |place| %>
+          <li>
+            <%= place.name %>
+            <%= link_to 'Editer', edit_place_path(place) %>
+            <%= link_to 'Supprimer', place_path(place), method: :delete, data: { confirm: 'Confirmez-vous la suppression ?' } %>
+            <ul>
+              <% place.workshops.each do |workshop| %>
+                <li>
+                  <%= workshop.name %>
+                  <%= link_to 'Editer', edit_workshop_path(workshop) %>
+                  <%= link_to 'Supprimer', workshop_path(workshop), method: :delete, data: { confirm: 'Confirmez-vous la suppression ?' } %>
+                  <%= link_to 'Ajouter une date', new_workshop_workshop_date_path(workshop) %>
+                </li>
+              <% end %>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>
