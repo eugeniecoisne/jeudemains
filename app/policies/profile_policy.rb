@@ -4,7 +4,7 @@ class ProfilePolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
+    show?
   end
 
   class Scope < Scope
