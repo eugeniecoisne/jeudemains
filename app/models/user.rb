@@ -13,6 +13,5 @@ class User < ApplicationRecord
     @profile = Profile.new
     @profile.user = @user
     @profile.save
-    render :edit
   end
 end
