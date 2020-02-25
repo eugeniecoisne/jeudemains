@@ -1,0 +1,29 @@
+<%= simple_form_for(workshop) do |f| %>
+  <%= f.input :name, label: false, placeholder: "Intitulé de l'atelier" %>
+  <%= f.input :description, label: false, placeholder: "Description" %>
+  <%= f.input :thematic, label: false, placeholder: "Thématique principale" %>
+  <%= f.input :subtheme, label: false, placeholder: "Sous-thème" %>
+  <%= f.input :level, label: false, collection: ['Débutant', 'Intermédiaire', 'Avancé'], include_blank: false %>
+  <%= f.input :price, label: false, placeholder: "Prix par personne" %>
+  <%= f.input :duration, label: false, placeholder: "Durée de l'atelier (min)" %>
+  <%= f.input :participants, label: false, placeholder: "Nombre maximum de participants" %>
+  <%= f.input :status, label: false, collection: ['En ligne', 'Hors ligne'], include_blank: false %>
+  <div class="form-group select required workshop_profile">
+    <label class="select required" for="workshop_profile_id">Animateur <abbr title="required">*</abbr></label>
+    <select class="form-control select required" name="workshop[profile_id]" id="workshop_profile_id">
+      <% @animators.sort_by { |animator| animator.last_name }.each do |animator| %>
+        <option value="<%= animator.id %>"><%= animator.last_name %> <%= animator.first_name %></option>
+      <% end %>
+    </select>
+  </div>
+
+  <div class="form-group select required workshop_place">
+    <label class="select required" for="workshop_place_id">Place <abbr title="required">*</abbr></label>
+    <select class="form-control select required" name="workshop[place_id]" id="workshop_place_id">
+      <% @places.sort_by { |place| place.name }.each do |place| %>
+        <option value="<%= place.id %>"><%= place.name %></option>
+      <% end %>
+    </select>
+  </div>
+  <%= f.submit 'Valider', class: 'btn btn-primary rounded-pill' %>
+<% end %>

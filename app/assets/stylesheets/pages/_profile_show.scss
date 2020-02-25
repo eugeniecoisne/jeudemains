@@ -1,0 +1,90 @@
+.profile-show-container {
+  background-color: $green;
+  border-radius: 10px;
+  padding: 30px;
+  margin: 60px 0;
+}
+
+ul {
+  padding-left: 0;
+}
+
+.profile-show-card {
+  width: 350px;
+  background-color: transparent;
+  border: none;
+  .card-header {
+    border: none;
+  }
+}
+
+.profile-show-card-header {
+  background-color: transparent;
+  display: flex;
+  justify-content: left;
+  margin-left: 32px;
+  #avatar {
+    border-radius: 10px;
+    width: 120px;
+    height: 120px;
+    border: solid 1px white;
+  }
+}
+
+.profile-show-card-body {
+  i {
+    font-size: 25px;
+    padding-top: 9px;
+    margin-right: 10px;
+    color: white;
+  }
+  p {
+    margin-bottom: 0;
+  }
+  .button {
+    margin-bottom: 10px;
+    width: 235px;
+    text-align: left;
+    // background: linear-gradient(to right, white, rgba(255,255,255,0.75));
+  }
+  #check-icon {
+    font-size: 23px;
+  }
+}
+
+.public-show-my-places {
+  flex-grow: 1;
+  grid-gap: 12px;
+  background-color: white;
+  padding: 20px;
+}
+
+.profile-show-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 12px;
+  .col-right {
+    padding: 20px;
+  }
+}
+
+.profile-show-welcome {
+  color: white;
+  h3 {
+    font-weight: bolder;
+  }
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 768px) {
+  .profile-show-grid {
+    grid-template-columns: 1fr;
+  }
+  .profile-show-welcome {
+    text-align: center;
+   }
+  .profile-show-card-header {
+    justify-content: center;
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,3 @@
+class WorkshopDatesController < ApplicationController
+
+end
