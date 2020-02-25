@@ -11,14 +11,12 @@ Place.destroy_all
 Profile.destroy_all
 User.destroy_all
 
-
 #   CAMILLE : PARTICIPANT
 User.create!(email: 'a@a.com', password: '123456')
 Profile.last.update!(
   last_name: 'Bison',
   first_name: 'Camille',
-  )
-
+)
 
 # LES HERBES HAUTES : ORGANISATEUR
 User.create!(email: 'hello@herbes.com', password: '123456')
@@ -71,9 +69,6 @@ workshop2.place = Place.last
 workshop2.profile = Profile.last
 workshop2.save!
 
-
-
-
 # HAPPY FOLK : ORGANISATEUR
 User.create!(email: 'hello@happy.com', password: '123456')
 Profile.last.update!(
@@ -88,12 +83,11 @@ Profile.last.update!(
   facebook: 'https://www.facebook.com/happyfolk.fr/',
   instagram: 'https://www.instagram.com/happyfolk.fr/',
   organizer: true,
-  )
+)
+
 place2 = Place.new(name: 'Happy Folk', address: '64 Boulevard Voltaire', zip_code: '75011', city: 'PARIS', phone_number: '0184790117')
 place2.profile = Profile.last
 place2.save!
-
-
 
 #   FLOWRETTE : ANIMATEUR
 User.create!(email: 'hello@flowrette.com', password: '123456')
@@ -125,7 +119,6 @@ workshop3.place = Place.last
 workshop3.profile = Profile.last
 workshop3.save!
 
-
 #   PONOIE : ANIMATEUR
 User.create!(email: 'hello@ponoie.com', password: '123456')
 Profile.last.update!(
@@ -137,7 +130,6 @@ Profile.last.update!(
   instagram: 'https://www.instagram.com/ponoie/',
   animator: true,
   )
-
 
 workshop4 = Workshop.new(
   name: 'Réalisez votre bougie fleurie',
