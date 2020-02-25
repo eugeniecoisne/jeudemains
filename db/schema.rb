@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_25_111141) do
+ActiveRecord::Schema.define(version: 2020_02_25_134900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,9 +51,9 @@ ActiveRecord::Schema.define(version: 2020_02_25_111141) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
-    t.boolean "organizer"
-    t.boolean "animator"
-    t.boolean "participant"
+    t.boolean "organizer", default: false
+    t.boolean "animator", default: false
+    t.boolean "participant", default: true
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 2020_02_25_111141) do
 
   create_table "workshops", force: :cascade do |t|
     t.string "name"
-    t.string "description"
+    t.text "description"
     t.string "thematic"
     t.string "subtheme"
     t.string "level"
