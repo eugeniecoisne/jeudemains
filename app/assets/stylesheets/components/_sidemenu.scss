@@ -5,6 +5,10 @@
   width: 300px;
   height: 100vh;
   background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 60px;
 }
 
 #sideMenu.open {
@@ -32,6 +36,11 @@
   right: 30px;
   top: 20px;
   color: $blue;
+}
+
+#log-out-menu {
+  padding-left: 16px;
+  font-size: 18px;
 }
 
 

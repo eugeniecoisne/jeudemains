@@ -5,12 +5,14 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <%= link_to "S'inscrire", "#", class: "nav-link button btn-navbar", id: "btn-navbar" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Se connecter", "#", class: "nav-link button btn-navbar", id: "btn-navbar" %>
-      </li>
+      <% if user_signed_in? == false %>
+        <li class="nav-item active">
+          <%= link_to "S'inscrire", new_user_registration_path, class: "nav-link button btn-navbar", id: "btn-navbar" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Se connecter", new_user_session_path, class: "nav-link button btn-navbar", id: "btn-navbar" %>
+        </li>
+      <% end %>
       <li class="nav-item">
         <%= link_to "#", class: "nav-link button", id: "menuButton" do %>
           <i class="fas fa-bars"></i>
@@ -22,9 +24,29 @@
 </div>
 
   <div id="sideMenu">
-    <i class="fas fa-times" id="menuClose"></i>
+    <div>
+      <i class="fas fa-times" id="menuClose"></i>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item"><%= link_to "Ateliers", "#" %></li>
-        <li class="list-group-item"><%= link_to "Thématiques", "#" %></li>
+        <% if user_signed_in? %>
+          <li class="list-group-item"><%= link_to "Tous les ateliers", workshops_path %></li>
+          <li class="list-group-item"><%= link_to "Proposer un atelier", new_workshop_path %></li>
+          <li class="list-group-item"><%= link_to "Mon profil", edit_profile_path(current_user.profile) %></li>
+          <% if current_user.profile.organizer %>
+            <li class="list-group-item"><%= link_to "Mon dashboard", profile_path(current_user.profile) %></li>
+          <% else %>
+            <li class="list-group-item"><%= link_to "Mes réservations", profile_path(current_user.profile) %></li>
+          <% end %>
+        <% else %>
+          <li class="list-group-item"><%= link_to "Tous les ateliers", workshops_path %></li>
+          <li class="list-group-item"><%= link_to "Proposer un atelier", new_workshop_path %></li>
+          <li class="list-group-item"><%= link_to "Se connecter", new_user_session_path %></li>
+          <li class="list-group-item"><%= link_to "S'inscrire", new_user_registration_path %></li>
+        <% end %>
       </ul>
+    </div>
+    <div>
+      <% if user_signed_in? %>
+        <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, id: "log-out-menu" %>
+      <% end %>
+    </div>
   </div>
