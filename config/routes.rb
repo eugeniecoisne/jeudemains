@@ -9,5 +9,9 @@ Rails.application.routes.draw do
 
   resources :places, except: [:new, :index, :show, :create]
 
-  resources :workshops
+  resources :workshops do
+    resources :workshop_dates, only: :create
+  end
+
+  resources :workshop_dates, only: :destroy
 end

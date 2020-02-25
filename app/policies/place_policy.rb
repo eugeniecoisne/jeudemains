@@ -9,7 +9,7 @@ class PlacePolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.profile.user == user
+    update?
   end
 
   class Scope < Scope
