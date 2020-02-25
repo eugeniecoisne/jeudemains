@@ -1,0 +1,53 @@
+.container-big {
+  margin-top: 30px;
+  background-color: #F4F4F4;
+  margin: 40px;
+}
+
+.show-card-name {
+  font-weight: bolder;
+}
+
+.price-workshop .btn {
+  border-radius: 5px;
+}
+
+.show-card-organizer {
+  font-weight: bolder;
+}
+
+.show-card-animator {
+  font-weight: bolder;
+}
+
+.place-booking-card {
+  margin-left: 0;
+  height: 120px;
+  width: 300px;
+  text-align: center;
+  border-radius: 10px;
+  h3 {
+    color: black;
+    margin: 0.8em;
+  }
+  .btn {
+    font-weight: bolder;
+    color: black;
+    margin:auto;
+    display:block;
+    border-radius: 10px;
+  }
+  input {
+    width: 300px;
+    text-align: center;
+    margin-right: 3rem;
+    margin-top: 2rem;
+  }
+}
+
+.card .show-card {
+  width: 50%;
+  border-radius: 5px;
+  margin-right: 100px;
+  margin-left: 100px;
+}

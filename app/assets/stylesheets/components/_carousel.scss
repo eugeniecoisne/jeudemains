@@ -1,0 +1,28 @@
+.carousel-inner {
+  display: flex;
+  align-items: center;
+  height: 440px;
+  width: 440px;
+}
+
+.carousel-inner a {
+    position: absolute;
+    left: 47.5%;
+    font-size: 80px;
+    color: white;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+.carousel-inner a:hover {
+    opacity: 1;
+}
+
+.carousel-item img {
+    object-fit: cover;
+}
+
+#showCarouselPlantes {
+  border: 1px solid black;
+  height: 440px;
+  width: 440px;
+}
