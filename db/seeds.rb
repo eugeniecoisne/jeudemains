@@ -21,3 +21,8 @@ workshop = Workshop.new(name: 'Workshop 1')
 workshop.place = Place.first
 workshop.profile = Profile.last
 workshop.save!
+
+workshop = Workshop.new(name: 'Workshop 2')
+workshop.place = Place.first
+workshop.profile = Profile.last
+workshop.save!
