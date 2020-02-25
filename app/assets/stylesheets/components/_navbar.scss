@@ -1,53 +1,57 @@
-.navbar-lewagon {
+.navbar-jdm {
   justify-content: space-between;
   background: white;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+#navbar-homepage {
+  background: transparent;
 }
 
 .dropdown-toggle::after {
   display: none;
 }
 
-#navbarDropdown {
-  background-color: #F4F4F4;
+
+.navbar-jdm .navbar-collapse {
+  flex-grow: 0;
 }
 
-#sideMenu {
-  position: absolute;
-  right: -300px;
-  position: absolute;
-  width: 300px;
-  height: 100vh;
-  background-color: #808080;
+.navbar-jdm .navbar-brand img {
+  height: 36px;
 }
 
-#sideMenu.open {
-  right: 0px;
-  width: 300px;
+#btn-navbar, #menuButton {
   background-color: white;
-  transition: all 0.75s ease-out;
-}
-
-#sideMenu ul li {
-  list-style-type: none;
-}
-
-.button {
-  background-color: white;
+  color: $blue;
+  font-weight: 600;
+  padding: 10px 20px;
   margin-right: 10px;
-  border: 1px solid black;
-  border-radius: 5px;
-  color: black;
-  padding: 10px 15px;
-  text-align: center;
   text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#btn-navbar:hover, #menuButton:hover {
+  background-color: $light-gray;
+  color: $green;
+  i {
+    color: $blue;
+  }
+}
+
+#menuButton {
+  i {
+    padding-right: 8px;
+    font-size: 20px;
+  }
+}
+
+
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 767px) {
+  #btn-navbar {
+    display: none;
+  }
 }

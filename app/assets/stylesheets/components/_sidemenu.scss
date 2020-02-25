@@ -1,16 +1,37 @@
-#sideMenu li {
-  font-size: 25px;
-  margin-bottom: 30px;
+#sideMenu {
+  position: absolute;
+  top: 0px;
+  right: -300px;
+  width: 300px;
+  height: 100vh;
+  background-color: white;
+}
+
+#sideMenu.open {
+  right: 0px;
+  width: 300px;
+  background-color: white;
+  transition: all 0.75s ease-out;
+}
+
+#sideMenu ul {
   margin-top: 60px;
-  height: 32px;
+  list-style-type: none;
+}
+
+
+#sideMenu li {
+  color: $blue;
+  font-size: 18px;
+  padding: 10px 0 10px 16px;
 }
 
 #sideMenu #menuClose {
-  font-size: 25px;
+  font-size: 20px;
   position: absolute;
   right: 30px;
   top: 20px;
-  color: black;
+  color: $blue;
 }
 
 

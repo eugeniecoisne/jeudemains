@@ -1,35 +1,30 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-jdm" id="navbar-homepage">
   <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-    <% end %>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
+    <%= image_tag "logo_1ligne/logo jdm-1l-white.png", alt: "logo jeu de mains" %>
+  <% end %>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link button" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Menu", "#", class: "nav-link button", id: "menuButton" %>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
+      <li class="nav-item active">
+        <%= link_to "S'inscrire", "#", class: "nav-link button btn-navbar", id: "btn-navbar" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Se connecter", "#", class: "nav-link button btn-navbar", id: "btn-navbar" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "#", class: "nav-link button", id: "menuButton" do %>
+          <i class="fas fa-bars"></i>
+          <span>Menu</span>
+        <% end %>
+      </li>
     </ul>
   </div>
 </div>
 
   <div id="sideMenu">
-    <p id="menuClose">X</p>
-      <ul>
-        <li><%= link_to "Ateliers", "#", class: "text-dark"%></li>
-        <li><%= link_to "Thématiques", "#", class: "text-dark" %></li>
+    <i class="fas fa-times" id="menuClose"></i>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><%= link_to "Ateliers", "#" %></li>
+        <li class="list-group-item"><%= link_to "Thématiques", "#" %></li>
       </ul>
   </div>
