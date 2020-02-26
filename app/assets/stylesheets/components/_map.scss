@@ -1,11 +1,11 @@
-#map {
+#workshops-index {
   height: 100vh;
   position: sticky;
   top: 0;
 }
 
 @media (min-width: 100px) and (max-width: 960px) {
-  #map {
+  #workshops-index {
     position: initial;
   }
 }

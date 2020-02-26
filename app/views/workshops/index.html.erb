@@ -1,19 +1,22 @@
-<div class="workshops-container">
-<div class="workshops-cards">
+<div class="workshops-index-container">
+<div class="workshops-index-cards">
   <% @workshops.each do |workshop| %>
       <%= link_to workshop_path(workshop), data: { turbolinks: false } do %>
-      <div class="workshops-card">
-        <div class="img-worshops-card">
-          <%= image_tag "https://cdn.shopify.com/s/files/1/0135/6627/9738/articles/header_310b8395-f711-42cb-89f9-db495e34012f.jpg?v=1540918920", alt: "image workshop", class: "img-workshops-card" %>
+      <div class="workshops-index-card">
+        <div class="img-workshops-index-card">
+          <%= image_tag "https://cdn.shopify.com/s/files/1/0135/6627/9738/articles/header_310b8395-f711-42cb-89f9-db495e34012f.jpg?v=1540918920", alt: "image workshop", class: "img-workshops-index-card" %>
         </div>
-        <div class="workshops-card-infos">
+        <div class="workshops-index-card-infos">
           <div>
-            <h2><%= workshop.name %></h2>
-            <p><%=  %></p>
+            <h1><%= workshop.name %></h1>
           </div>
-          <div>
-            <h2 class="text-center"><%=  %> €</h2>
-            <p><i class="fas fa-star" style="color:#25A5AD"></i> <%=  %>/5</p>
+          <div class="d-flex justify-content-between mb-1">
+            <h2><i class="fas fa-map-marker-alt"></i> <%= workshop.place.city %></h2>
+            <p>niveau <%= workshop.level %>débutant</p>
+          </div>
+          <div class="d-flex justify-content-between">
+            <div class=" rating d-flex"><h2><i class="fas fa-star" style="color:$blue"></i> 4,7<%=  %>/5</h2><p>(<%=  %> 28 avis)</p></div>
+            <h2><%= workshop.price %> 65€/per</h2>
           </div>
         </div>
       </div>
@@ -21,8 +24,8 @@
     <% end %>
   </div>
 
-  <div id="map"
-       style="width: 100%;
+  <div id="workshops-index-map"
+       style="width: 38%;
        height: 100vh;
        position: sticky;
        top: 0;"

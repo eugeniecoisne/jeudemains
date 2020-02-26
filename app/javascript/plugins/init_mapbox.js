@@ -2,7 +2,7 @@ import mapboxgl from 'mapbox-gl';
 // import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
 const initMapbox = () => {
-  const mapElement = document.getElementById('map');
+  const mapElement = document.getElementById('workshops-index-map');
 
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
@@ -13,7 +13,7 @@ const fitMapToMarkers = (map, markers) => {
 if (mapElement) {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   const map = new mapboxgl.Map({
-    container: 'map',
+    container: 'workshops-index-map',
     style: 'mapbox://styles/mapbox/streets-v10'
   });
   const markers = JSON.parse(mapElement.dataset.markers);
