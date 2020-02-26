@@ -74,44 +74,102 @@
                 </div>
               </div>
 
-              <%= link_to "#", id: "buttonWorkshops", class: "button" do %>
+              <%= link_to "#", id: "buttonWorkshops", class: "button btn-blue" do %>
                 <span>Voir les ateliers de ce lieu</span>
               <% end %>
 
               <!-- HIDDEN ASSOCIATED WORKSHOPS -->
-              <ul id="listOfWorkshops" class="hidden-list">
+
+              <ul id="listOfWorkshops" class="hidden-list list-group list-group-flush list-of-place-workshops">
                 <% place.workshops.each do |workshop| %>
-                <li>
-                  <%= workshop.name %>
-                  <%= link_to 'Editer', edit_workshop_path(workshop) %>
-                  <%= link_to 'Supprimer', workshop_path(workshop), method: :delete, data: { confirm: 'Confirmez-vous la suppression ?' } %>
-                  <%= link_to 'Ajouter une date', new_workshop_workshop_date_path(workshop) %>
-                </li>
+
+                    <li class="list-group-item">
+                      <div class="d-flex justify-content-between">
+
+                        <% if workshop.workshop_dates.count > 0 %>
+
+                          <div class="d-flex flex-column green-bar">
+                            <span id="place-workshop-name"><%= workshop.name %></span>
+                            <% if workshop.workshop_dates.count > 1 %>
+                              <span id="dates-status">En ligne, <%= workshop.workshop_dates.count %> dates proposées</span>
+                            <% else %>
+                                <span id="dates-status">En ligne, <%= workshop.workshop_dates.count %> date proposée</span>
+                            <% end %>
+                          </div>
+
+                        <% else %>
+
+                          <div class="d-flex flex-column red-bar">
+                            <span id="place-workshop-name"><%= workshop.name %></span>
+                            <span id="dates-status">Hors-ligne, en attente des informations manquantes</span>
+                          </div>
+
+                        <% end %>
+
+                        <div class="workshop-actions-quickaccess">
+                          <%= link_to new_workshop_workshop_date_path(workshop) do %><i class="fas fa-calendar-plus"></i><% end %>
+                          <%= link_to workshop_path(workshop) do %><i class="fas fa-eye"></i><% end %>
+                          <%= link_to edit_workshop_path(workshop) do %><i class="fas fa-pen"></i><% end %>
+                          <%= link_to workshop_path(workshop),
+                                method: :delete,
+                                data: { confirm: 'Confirmez-vous la suppression ?' } do %>
+                                <i class="fas fa-trash"></i>
+                              <% end %>
+                        </div>
+
+                      </div>
+                    </li>
+
                 <% end %>
               </ul>
             </div>
           <% end %>
         </div>
 
-        <!-- <h5>Créer un nouveau lieu</h5>
-        <%= simple_form_for([@profile, @place]) do |f| %>
-          <%= f.input :name, label: false, placeholder: 'Nom du lieu' %>
-          <div class="form-row">
-            <div class="form-group col-md-4">
-              <%= f.input :address, label: false, placeholder: 'Numéro + Rue' %>
-            </div>
-            <div class="form-group col-md-4">
-              <%= f.input :zip_code, label: false, placeholder: 'Code postal' %>
-            </div>
-            <div class="form-group col-md-4">
-              <%= f.input :city, label: false, placeholder: 'Ville' %>
-            </div>
+        <!-- ADD PLACE -->
+
+        <div class="add-new-place">
+
+          <%= link_to "#", id: "buttonAddPlace", class: "d-flex flex-row align-items-center" do %>
+            <i class="fas fa-plus"></i>
+            <h5>Ajouter un lieu</h5>
+          <% end %>
+
+          <!-- HIDDEN ADD PLACE FORM -->
+
+          <div id="formAddPlace" class="hidden-form-place">
+            <%= simple_form_for([@profile, @place]) do |f| %>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                <%= f.input :name, label: false, placeholder: 'Nom du lieu' %>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-8">
+                  <%= f.input :address, label: false, placeholder: 'Numéro + Rue' %>
+                </div>
+                <div class="form-group col-md-4">
+                  <%= f.input :zip_code, label: false, placeholder: 'Code postal' %>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <%= f.input :city, label: false, placeholder: 'Ville' %>
+                </div>
+                <div class="form-group col-md-6">
+                  <%= f.input :phone_number, label: false, placeholder: 'Téléphone' %>
+                </div>
+              </div>
+              <%= f.submit 'Valider', class: 'button btn-white' %>
+              <%= link_to 'Annuler', profile_path(@profile), class: 'button btn-transparent' %>
+            <% end %>
           </div>
-          <%= f.input :phone_number, label: false, placeholder: 'Téléphone' %>
-          <%= f.submit 'Valider', class: 'btn btn-primary' %>
-          <%= link_to 'Annuler', profile_path(@profile), class: 'btn btn-primary' %>
-        <% end %>
-      </div> -->
+        </div>
+
+
+      </div>
+
     </div>
+
   </div>
 </div>
