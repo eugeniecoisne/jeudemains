@@ -3,7 +3,17 @@ class WorkshopsController < ApplicationController
   before_action :set_workshop, only: [:show, :edit, :update, :destroy]
 
   def index
-    @workshops = policy_scope(Workshop)
+    if params[:filter].present?
+      keyword = params[:filter][:keyword]
+      place = params[:filter][:place]
+      date = params[:filter][:date]
+      @workshops = policy_scope(Workshop)
+      @workshops = @workshops.search_by_keyword(keyword) if keyword.present?
+      @workshops = @workshops.search_by_place(place) if place.present?
+      @workshops = @workshops.search_by_date(date) if date.present?
+    else
+      @workshops = policy_scope(Workshop)
+    end
 
     @places_geo = Place.all.map { |place| place if place.workshops.count > 0 }
     @markers = @places_geo.map do |place|

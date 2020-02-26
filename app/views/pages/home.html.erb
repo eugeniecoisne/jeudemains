@@ -1,5 +1,33 @@
 <div class="banner", id="homebanner-margintop", style="background: url(<%= image_path "homebanner1.svg" %>)">
   <div class="container banner-container">
     <h1>Vous avez tout à faire vous-même, sauf chercher !</h1>
+    <div class="col-5 mt-4 bg-white p-3 ">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Chercher un atelier</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Chercher un lieu / animateur</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <%= simple_form_for :filter, url: workshops_path, method: :get do |f| %>
+            <%= f.input :keyword, class: "form-control", required: false, label: false, placeholder: "Que cherchez-vous ?" %>
+            <%= f.input :place, class: "form-control", required: false, label: false, placeholder: "Code postal / Ville" %>
+            <div class="form-group string optional filter_date">
+              <input type="date" name="filter[date]" class="form-control optional" placeholder="Date souhaitée" id="filter_date" min="<%= Date.today %>">
+            </div>
+            <%= submit_tag "Rechercher", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <%= simple_form_for :filter, url: workshops_path, method: :get do |f| %>
+            <%= f.input :profile, class: "form-control", required: false, label: false, placeholder: "Que cherchez-vous ?" %>
+            <%= submit_tag "Rechercher", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
