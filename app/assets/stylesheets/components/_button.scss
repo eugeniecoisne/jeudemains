@@ -12,13 +12,33 @@
   color: $white;
 }
 
+.btn-blue:hover {
+  opacity: 0.7;
+  color: $white;
+}
+
 .btn-yellow {
   background-color: $yellow;
   color: $white;
 }
 
+.btn-yellow:hover {
+  color: white;
+  opacity: 0.7;
+}
+
 .btn-white {
   background-color: white;
   color: $blue;
+}
+
+.btn-white:hover {
+  opacity: 0.7;
+}
+
+.btn-transparent {
+  background-color: transparent;
+  color: $blue;
+  border: 1px solid $blue;
 }
 
