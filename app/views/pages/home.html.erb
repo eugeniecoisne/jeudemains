@@ -22,10 +22,7 @@
           <% end %>
         </div>
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-          <%= simple_form_for :filter, url: workshops_path, method: :get do |f| %>
-            <%= f.input :profile, class: "form-control", required: false, label: false, placeholder: "Que cherchez-vous ?" %>
-            <%= submit_tag "Rechercher", class: "btn btn-primary" %>
-          <% end %>
+          <input type="text" placeholder="Rechercher un lieu ou un animateur" class="form-control string" id="profile_search">
         </div>
       </div>
     </div>
