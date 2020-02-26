@@ -48,8 +48,6 @@ class Workshop < ApplicationRecord
     if reviews.present?
       reviews.each { |review| ratings << review.rating }
       average = ratings.sum.fdiv(reviews.count).round(1).to_i
-    else
-      average = "-"
     end
   end
 end

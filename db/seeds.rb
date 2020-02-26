@@ -10,7 +10,9 @@ Workshop.destroy_all
 Place.destroy_all
 Profile.destroy_all
 User.destroy_all
+Review.destroy_all
 
+puts "CREATING 3 PARTICIPANTS"
 #   CAMILLE : PARTICIPANT
 User.create!(email: 'a@a.com', password: '123456')
 Profile.last.update!(
@@ -18,6 +20,19 @@ Profile.last.update!(
   first_name: 'Camille',
 )
 
+User.create!(email: 'b@b.com', password: '123456')
+Profile.last.update!(
+  last_name: 'Dupont',
+  first_name: 'Alexia',
+)
+
+User.create!(email: 'c@c.com', password: '123456')
+Profile.last.update!(
+  last_name: 'Janin',
+  first_name: 'Héloïse',
+)
+
+puts "CREATING Les Herbes Hautes"
 # LES HERBES HAUTES : ORGANISATEUR
 User.create!(email: 'hello@herbes.com', password: '123456')
 Profile.last.update!(
@@ -69,6 +84,7 @@ workshop2.place = Place.last
 workshop2.profile = Profile.last
 workshop2.save!
 
+puts "CREATING Happy Folk"
 # HAPPY FOLK : ORGANISATEUR
 User.create!(email: 'hello@happy.com', password: '123456')
 Profile.last.update!(
@@ -89,6 +105,7 @@ place2 = Place.new(name: 'Happy Folk', address: '64 Boulevard Voltaire', zip_cod
 place2.profile = Profile.last
 place2.save!
 
+puts "CREATING Flowrette"
 #   FLOWRETTE : ANIMATEUR
 User.create!(email: 'hello@flowrette.com', password: '123456')
 Profile.last.update!(
@@ -119,6 +136,7 @@ workshop3.place = Place.last
 workshop3.profile = Profile.last
 workshop3.save!
 
+puts "CREATING Ponoie"
 #   PONOIE : ANIMATEUR
 User.create!(email: 'hello@ponoie.com', password: '123456')
 Profile.last.update!(
@@ -145,3 +163,62 @@ Vous repartez avec votre bougie à la fin de l’atelier !',
 workshop4.place = Place.last
 workshop4.profile = Profile.last
 workshop4.save!
+
+puts "CREATING 11 REVIEWS"
+
+review1 = Review.new(rating: 4, animator_rating: 4, content: "Super atelier couronne de fleurs animé par la douce Hélène, les fleurs étaient de qualité et je suis ravie du résultat")
+review.workshop = Workshop.find_by(thematic: "Couronne de fleurs")
+review1.profile = Profile.find_by(last_name: "Bison")
+review1.save!
+
+review2 = Review.new(rating: 5, animator_rating: 4, content: "Atelier très sympathique, j'ai appris plein de choses et je suis contente du résultat !")
+review2.workshop = Workshop.find_by(thematic: "Couronne de fleurs")
+review2.profile = Profile.find_by(last_name: "Dupont")
+review2.save!
+
+review3 = Review.new(rating: 4, animator_rating: 3, content: "Plutôt cool et bien expliqué")
+review3.workshop = Workshop.find_by(thematic: "Couronne de fleurs")
+review3.profile = Profile.find_by(last_name: "Janin")
+review3.save!
+
+review4 = Review.new(rating: 5, animator_rating: 5, content: "Je rêvais de créer mon terrarium et c'est chose faite sous les bons conseils de Hélène")
+review4.workshop = Workshop.find_by(thematic: "Terrarium")
+review4.profile = Profile.find_by(last_name: "Bison")
+review4.save!
+
+review5 = Review.new(rating: 4, animator_rating: 5, content: "Bonne ambiance, un large choix de plantes, je recommande !")
+review5.workshop = Workshop.find_by(thematic: "Terrarium")
+review5.profile = Profile.find_by(last_name: "Dupont")
+review5.save!
+
+review6 = Review.new(rating: 5, animator_rating: 5, content: "J'ai A-DO-RÉ")
+review6.workshop = Workshop.find_by(thematic: "Terrarium")
+review6.profile = Profile.find_by(last_name: "Janin")
+review6.save!
+
+review7 = Review.new(rating: 3, animator_rating: 3, content: "J'avais préféré l'atelier bougie fleurie mais je suis quand même contente de ma cloche")
+review7.workshop = Workshop.find_by(thematic: "Cloche florale")
+review7.profile = Profile.find_by(last_name: "Bison")
+review7.save!
+
+review8 = Review.new(rating: 5, animator_rating: 5, content: "Atelier très créatif sous le signe de la bonne humeur")
+review8.workshop = Workshop.find_by(thematic: "Cloche florale")
+review8.profile = Profile.find_by(last_name: "Dupont")
+review8.save!
+
+review9 = Review.new(rating: 4, animator_rating: 5, content: "Je remercie Elodie de Flowrette pour son bon goût et ses précieux conseils")
+review9.workshop = Workshop.find_by(thematic: "Cloche florale")
+review9.profile = Profile.find_by(last_name: "Janin")
+review9.save!
+
+review10 = Review.new(rating: 5, animator_rating: 4, content: "La cire est végétale et les fleurs toutes mignonnes je recommande")
+review10.workshop = Workshop.find_by(thematic: "Bougie florale")
+review10.profile = Profile.find_by(last_name: "Bison")
+review10.save!
+
+review11 = Review.new(rating: 3, animator_rating: 3, content: "Un peu cher pour le résultat")
+review11.workshop = Workshop.find_by(thematic: "Bougie florale")
+review11.profile = Profile.find_by(last_name: "Dupont")
+review11.save!
+
+puts "FINISHED"
