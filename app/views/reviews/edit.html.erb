@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <%= simple_form_for(@review) do |f| %>
+        <%= f.input :rating, collection: [0, 1, 2, 3, 4], label: "Note de l'atelier" %>
+        <%= f.input :animator_rating, collection: [0, 1, 2, 3, 4], label: "Note de l'animateur" %>
+        <%= f.input :content, label: "Commentaire" %>
+        <%= f.submit 'Valider' %>
+      <% end %>
+    </div>
+  </div>
+</div>

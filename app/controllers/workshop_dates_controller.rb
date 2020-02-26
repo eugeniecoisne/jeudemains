@@ -17,6 +17,12 @@ class WorkshopDatesController < ApplicationController
     end
   end
 
+  def destroy
+    @workshop_date = WorkshopDate.find(params[:id])
+    @workshop_date.destroy
+    redirect_to profile_path(@workshop_date.workshop.place.profile)
+  end
+
   private
 
   def workshop_date_params

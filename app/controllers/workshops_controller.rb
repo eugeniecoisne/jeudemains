@@ -17,6 +17,7 @@ class WorkshopsController < ApplicationController
 
   def show
     authorize @workshop
+    @booking = Booking.new
   end
 
   def new

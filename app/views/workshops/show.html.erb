@@ -44,9 +44,24 @@
 
     <div class="card show-card place-booking-card">
       <h3>Book this place !</h3>
-        <%= simple_form_for([@workshop]) do |f| %>
+        <%= simple_form_for([@workshop, @booking]) do |f| %>
+          <div class="form-group select required">
+            <label class="select required" for="date_id">Date <abbr title="required">*</abbr></label>
+            <select class="form-control select required" name="date" id="date_id">
+              <% @workshop.workshop_dates.sort_by { |date| date.date }.each do |date| %>
+                <option value="<%= date.id %>"><%= date.date.strftime('%d/%m/%Y - %H : %M') %></option>
+              <% end %>
+            </select>
+          </div>
+          <div class="form-group select required">
+            <select class="form-control select required" name="nb_part" id="workshop_level">
+              <% (1..@workshop.participants - @workshop.bookings.count).to_a.each do |nb| %>
+                <option value="<%= nb %>"><%= nb %></option>
+              <% end %>
+            </select>
+          </div>
           <%= f.submit 'Book', class: 'btn w-50' %>
-          <% end %>
+        <% end %>
         <form class="input">
           <input type="text" id="fname" name="fname" placeholder="AJOUTER AU PANIER">
           <input type="text" id="lname" name="lname" placeholder="FAIRE UNE CARTE CADEAU">
