@@ -1,7 +1,21 @@
 .container-big {
   margin-top: 30px;
   background-color: #F4F4F4;
-  margin: 40px;
+  margin-left: 80px;
+  margin-right: 80px;
+  .top-of-show-page {
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 10px;
+  }
+}
+
+#showCarouselPlantes{
+  border: 1px solid gray;
+  border-radius: 10px;
 }
 
 .show-card-name {
@@ -30,24 +44,56 @@
     color: black;
     margin: 0.8em;
   }
-  .btn {
+  .button {
     font-weight: bolder;
+    border: 1px solid black;
     color: black;
-    margin:auto;
-    display:block;
+    margin: auto;
+    display: block;
     border-radius: 10px;
+    background-color: white;
   }
   input {
-    width: 300px;
+    width: 100%;
     text-align: center;
-    margin-right: 3rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
 }
 
-.card .show-card {
-  width: 50%;
+.card.show-card  {
   border-radius: 5px;
-  margin-right: 100px;
-  margin-left: 100px;
+  margin: 7px;
+  color: 1px solid black;
+  p {
+    padding: 5px;
+    margin-bottom: 0px;
+    font-size: 13px;
+    font-weight: 400;
+  }
 }
+
+.thematic {
+  margin: 9px;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  color: black;
+  background-color: #a2b9bc;
+  text-align: center;
+  justify-content: center;
+}
+
+.carousel-item img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.price-workshop {
+  position: relative;
+  bottom: -30px;
+}
+
+li {
+  list-style: none;
+}
+
