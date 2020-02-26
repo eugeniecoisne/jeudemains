@@ -22,7 +22,23 @@
           <% end %>
         </div>
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-          <input type="text" placeholder="Rechercher un lieu ou un animateur" class="form-control string" id="profile_search">
+          <%= simple_form_for :filter, url: search_path, method: :get do |f| %>
+            <select class="form-control select2" name="profile">
+              <optgroup label="Animateurs">
+                <% @profiles.sort_by { |profile| profile.last_name }.each do |profile| %>
+                  <option value="<%= profile.id %>"><%= "#{profile.last_name.upcase} #{profile.first_name.capitalize}" %></option>
+                <% end %>
+              </optgroup>
+            </select>
+            <select class="form-control select2" name="place">
+              <optgroup label="Lieux">
+                <% @places.sort_by { |place| place.name }.each do |place| %>
+                  <option value="<%= place.id %>"><%= place.name %></option>
+                <% end %>
+              </optgroup>
+            </select>
+            <%= f.submit 'Rechercher' %>
+          <% end %>
         </div>
       </div>
     </div>
