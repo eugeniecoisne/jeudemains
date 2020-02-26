@@ -5,8 +5,10 @@
           <h5 class="rating"><% @workshop.average_rating.times do %>
             <i class="fas fa-star"></i>
           <% end %>
-          <% (5 - @workshop.average_rating).times do %>
-            <i class="far fa-star"></i>
+          <% if @workshop.average_rating %>
+            <% (5 - @workshop.average_rating).times do %>
+              <i class="far fa-star"></i>
+            <% end %>
           <% end %>
           </h5>
         <% end %>
@@ -93,11 +95,15 @@
   <div class="further-information m-3 my-0">
     <h2>Programme de l'atelier</h2>
       <p><%= @workshop.description %></p>
-    <h2>Avis sur l'atelier</h2>
-      <p>Note: <% @workshop.average_rating.times do %>
+      <% if @workshop.average_rating %>
+        <h2>Avis sur l'atelier</h2>
+        <p>
+          Note: <% @workshop.average_rating.times do %>
             <i class="fas fa-star"></i>
-            <% end %>
-            <em>(<%= @workshop.reviews.count %> avis)</em></p>
+          <% end %>
+          <em>(<%= @workshop.reviews.count %> avis)</em>
+        </p>
+      <% end %>
     <div class="card-reviews mb-3">
       <% if @workshop.reviews.present? %>
         <h3>Reviews</h3>
