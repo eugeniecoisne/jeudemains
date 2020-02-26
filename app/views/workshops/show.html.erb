@@ -1,8 +1,8 @@
 <div class="container-big">
   <div class="top-of-show-page col-12 mb-3">
       <h2 class="show-card-name"><%= @workshop.name %></h2>
-      <p class="show-card-organizer">Organisé par: <%= @workshop.profile.first_name %> <%= @workshop.profile.last_name %></p>
-      <p class="show-card-animator">Animé par: <%= @workshop.place.profile.first_name %> <%= @workshop.place.profile.last_name %> </p>
+      <p class="show-card-organizer">Organisé par: <%= @workshop.profile.company %></p>
+      <p class="show-card-animator">Animé par: <%= @workshop.place.profile.company %></p>
     <div class="d-flex justify-content-between">
       <div>
         <p class="show-card-address"><i class="fas fa-map-marker-alt"></i> Adresse du lieu: <%= @workshop.place.address %></p>
