@@ -1,6 +1,17 @@
 .navbar-jdm {
   justify-content: space-between;
   background: white;
+} .fa-search {
+    position: absolute;
+    color: gray;
+    z-index: 100;
+    font-size: 16px;
+    top: 27px;
+    margin-left: 12px;
+  }
+
+.navbar-jdm .search-navbar {
+  font-size: 200px;
 }
 
 #navbar-homepage {
@@ -10,7 +21,6 @@
 .dropdown-toggle::after {
   display: none;
 }
-
 
 .navbar-jdm .navbar-collapse {
   flex-grow: 0;
@@ -46,6 +56,19 @@
     font-size: 20px;
   }
 }
+
+.search-navbar #filter_address {
+  height: 44px;
+  border-radius: 5px;
+  margin-right: 10px;
+  width: 250px;
+  padding-left: 35px;
+}
+
+.search-navbar .form-group {
+  margin-bottom: auto;
+}
+
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 767px) {
