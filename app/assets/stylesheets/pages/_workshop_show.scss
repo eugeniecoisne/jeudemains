@@ -34,7 +34,7 @@
 .place-booking-card {
   margin-left: 0;
   background-color: #DAEEEA;
-  height: 380px;
+  height: 400px;
   text-align: center;
   border-radius: 10px;
   h3 {
@@ -59,7 +59,6 @@
 
 .card.show-card  {
   border-radius: 5px;
-  margin: 7px;
   color: 1px solid black;
   p {
     padding: 5px;
@@ -95,9 +94,22 @@ li {
 }
 
 .card.show-card {
-  margin: 1em;
   border: none;
   padding: 1em;
   border-radius: 6px;
+
+}
+
+.card-reviews {
+  background-color: #F4F4F4;
+}
+
+.reviews {
+  background-color: #00566C;
+  color: white;
+  border-radius: 10px;
+  p {
+    margin-top: 9px;
+  }
 }
 
