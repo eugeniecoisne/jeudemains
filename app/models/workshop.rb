@@ -10,4 +10,34 @@ class Workshop < ApplicationRecord
   validates :name, presence: true, allow_blank: false
 
   # validates :price, :duration, :participants, numericality: true
+
+  include PgSearch::Model
+  pg_search_scope :search_by_keyword, against: [
+    [:name, 'A'],
+    [:description, 'B']
+  ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
+  pg_search_scope :search_by_place,
+    against: [],
+    associated_against: {
+          place: [
+            [:zip_code, 'A'],
+            [:city, 'B']
+          ]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
+
+  pg_search_scope :search_by_date,
+    against: [],
+    associated_against: {
+          workshop_dates: [ :date ]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
 end
