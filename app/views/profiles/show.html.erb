@@ -51,31 +51,49 @@
 
   <!-- RIGHT SIDE -->
 
-      <div class="col-right">
+      <div class="public-show-col-right">
 
         <!-- MY PLACES -->
 
+        <h4><strong>Mes lieux</strong></h4>
         <div class="public-show-my-places">
-          <h3>Mes lieux</h3>
           <% @profile.places.each do |place| %>
+
+            <!-- ONE PLACE -->
+
             <div class="card">
-              <h5><%= place.name %></h5>
-              <%= link_to 'Editer', edit_place_path(place) %>
-              <%= link_to 'Supprimer', place_path(place), method: :delete, data: { confirm: 'Confirmez-vous la suppression ?' } %>
-              <ul>
+              <div class="public-show-place-name">
+                <h5><%=place.address%> <%=place.zip_code%> <%=place.city%></h5>
+                <div>
+                  <%= link_to edit_place_path(place) do %>
+                    <i class="fas fa-pen"></i>
+                  <% end %>
+                  <%= link_to place_path(place), method: :delete, data: { confirm: 'Confirmez-vous la suppression ?' } do %>
+                    <i class="fas fa-trash"></i>
+                  <% end %>
+                </div>
+              </div>
+
+              <%= link_to "#", id: "buttonWorkshops", class: "button" do %>
+                <span>Voir les ateliers de ce lieu</span>
+              <% end %>
+
+              <!-- HIDDEN ASSOCIATED WORKSHOPS -->
+              <ul id="listOfWorkshops" class="hidden-list">
                 <% place.workshops.each do |workshop| %>
-                  <li>
-                    <%= workshop.name %>
-                    <%= link_to 'Editer', edit_workshop_path(workshop) %>
-                    <%= link_to 'Supprimer', workshop_path(workshop), method: :delete, data: { confirm: 'Confirmez-vous la suppression ?' } %>
-                  </li>
+                <li>
+                  <%= workshop.name %>
+                  <%= link_to 'Editer', edit_workshop_path(workshop) %>
+                  <%= link_to 'Supprimer', workshop_path(workshop), method: :delete, data: { confirm: 'Confirmez-vous la suppression ?' } %>
+                  <%= link_to 'Ajouter une date', new_workshop_workshop_date_path(workshop) %>
+                </li>
                 <% end %>
               </ul>
             </div>
           <% end %>
         </div>
 
-        <h5>Créer un nouveau lieu</h5>
+        <!-- <h5>Créer un nouveau lieu</h5>
         <%= simple_form_for([@profile, @place]) do |f| %>
           <%= f.input :name, label: false, placeholder: 'Nom du lieu' %>
           <div class="form-row">
@@ -93,37 +111,7 @@
           <%= f.submit 'Valider', class: 'btn btn-primary' %>
           <%= link_to 'Annuler', profile_path(@profile), class: 'btn btn-primary' %>
         <% end %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-8 mt-3">
-      <h1>Profiles#show</h1>
-      <%= link_to 'Editer le profile', edit_profile_path(@profile) %>
-    </div>
-    <div class="col-8">
-      <ul>
-        <% @profile.places.each do |place| %>
-          <li>
-            <%= place.name %>
-            <%= link_to 'Editer', edit_place_path(place) %>
-            <%= link_to 'Supprimer', place_path(place), method: :delete, data: { confirm: 'Confirmez-vous la suppression ?' } %>
-            <ul>
-              <% place.workshops.each do |workshop| %>
-                <li>
-                  <%= workshop.name %>
-                  <%= link_to 'Editer', edit_workshop_path(workshop) %>
-                  <%= link_to 'Supprimer', workshop_path(workshop), method: :delete, data: { confirm: 'Confirmez-vous la suppression ?' } %>
-                  <%= link_to 'Ajouter une date', new_workshop_workshop_date_path(workshop) %>
-                </li>
-              <% end %>
-            </ul>
-          </li>
-        <% end %>
-      </ul>
+      </div> -->
     </div>
   </div>
 </div>
