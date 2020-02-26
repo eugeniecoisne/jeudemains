@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   height: 440px;
-  width: 440px;
 }
 
 .carousel-inner a {
@@ -19,10 +18,4 @@
 
 .carousel-item img {
     object-fit: cover;
-}
-
-#showCarouselPlantes {
-  border: 1px solid black;
-  height: 440px;
-  width: 440px;
 }
