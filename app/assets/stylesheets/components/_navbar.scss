@@ -1,36 +1,28 @@
-.navbar-jdm {
+// NAVBAR HOME //
+.navbar-jdm-home {
   justify-content: space-between;
   background: white;
-} .fa-search {
-    position: absolute;
-    color: gray;
-    z-index: 100;
-    font-size: 16px;
-    top: 27px;
-    margin-left: 12px;
-  }
-
-.navbar-jdm .search-navbar {
-  font-size: 200px;
+  height: 80px;
 }
+
 
 #navbar-homepage {
   background: transparent;
 }
 
-.dropdown-toggle::after {
+.navbar-jdm-home .dropdown-toggle::after {
   display: none;
 }
 
-.navbar-jdm .navbar-collapse {
+.navbar-jdm-home .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-jdm .navbar-brand img {
+.navbar-jdm-home .navbar-brand img {
   width: 120px;
 }
 
-#btn-navbar, #menuButton {
+.navbar-jdm-home #btn-navbar, #menuButton {
   background-color: white;
   color: $blue;
   font-weight: 600;
@@ -42,22 +34,82 @@
   align-items: center;
 }
 
-#btn-navbar:hover, #menuButton:hover {
-  background-color: $light-gray;
+
+.navbar-jdm-home #btn-navbar:hover, #menuButton:hover {
   color: $green;
   i {
     color: $blue;
   }
 }
 
-#menuButton {
+.navbar-jdm-home #menuButton {
   i {
     padding-right: 8px;
     font-size: 20px;
   }
 }
 
-.search-navbar #filter_address {
+// Smallest device
+@media (min-width: 100px) and (max-width: 767px) {
+  .navbar-jdm-home #btn-navbar {
+    display: none;
+  }
+}
+
+// NAVBAR REST OF THE PAGES //
+.navbar-jdm-rest {
+  justify-content: space-between;
+  background: $blue;
+  height: 80px;
+} .fa-search {
+    position: absolute;
+    color: $blue ;
+    z-index: 100;
+    font-size: 16px;
+    top: 33px;
+    margin-left: 12px;
+  }
+
+.navbar-jdm-rest .dropdown-toggle::after {
+  display: none;
+}
+
+.navbar-jdm-rest .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-jdm-rest .navbar-brand img {
+  width: 120px;
+}
+
+.navbar-jdm-rest #btn-navbar, #menuButton {
+  background-color: white;
+  color: $blue;
+  font-weight: 600;
+  padding: 10px 20px;
+  margin-right: 10px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-jdm-rest #btn-navbar:hover, #menuButton:hover {
+  background-color: $white;
+  color: $green;
+  i {
+    color: $blue;
+  }
+}
+
+.navbar-jdm-rest #menuButton {
+  i {
+    padding-right: 8px;
+    font-size: 20px;
+  }
+}
+
+.navbar-jdm-rest .search-navbar #filter_address {
   height: 44px;
   border-radius: 5px;
   margin-right: 10px;

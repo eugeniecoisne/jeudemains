@@ -10,10 +10,16 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
   <body>
-
-    <%= render 'shared/navbar' %>
+    <!-- NAVBAR ⬇ -->
+    <% if controller.controller_name == 'pages' %>
+    <%= render 'shared/navbar_home' %>
+    <% else %>
+    <%= render 'shared/navbar_rest' %>
+    <% end %>
     <%= render 'shared/flashes' %>
+    <!-- NAVBAR ⬆ -->
 
+    <!-- La div "content-wrapper permet de fixer le footer en bas de la page" -->
     <div class="content-wrapper">
       <%= yield %>
     </div>
