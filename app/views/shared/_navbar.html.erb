@@ -1,10 +1,18 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-jdm" id="navbar-homepage">
-  <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "logo-white.svg", alt: "logo jeu de mains" %>
-  <% end %>
+  <div>
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "logo-white.svg", alt: "logo jeu de mains" %>
+    <% end %>
+  </div>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+      <li class="nav-item search-navbar">
+      <%= simple_form_for :filter, url: workshops_path, method: :get, id: "navbar-search-form" do |f| %>
+        <i class="fas fa-search"></i>
+          <%= f.input :address, placeholder: "Code postal / ville", label: false %>
+          <% end %>
+      </li>
       <li class="nav-item active">
         <%= link_to "Tous les ateliers", workshops_path, class: "nav-link button btn-navbar", id: "btn-navbar" %>
       </li>
