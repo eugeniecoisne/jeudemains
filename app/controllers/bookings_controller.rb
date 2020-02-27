@@ -1,12 +1,12 @@
 class BookingsController < ApplicationController
   def create
-    @date = Booking.find(params[:date])
+    @date = WorkshopDate.find(params[:date])
     @workshop = Workshop.find(params[:workshop_id])
     @profile = current_user.profile
-    params[:nb_part].times do
+    params[:nb_part].to_i.times do
       @booking = Booking.new
       authorize @booking
-      @booking = @date.date
+      @booking.date = @date.date
       @booking.workshop = @workshop
       @booking.profile = @profile
       @booking.save
