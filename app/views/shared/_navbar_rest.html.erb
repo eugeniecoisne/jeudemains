@@ -10,7 +10,7 @@
       <li class="nav-item search-navbar">
       <%= simple_form_for :filter, url: workshops_path, method: :get, id: "navbar-search-form" do |f| %>
         <i class="fas fa-search"></i>
-          <%= f.input :address, placeholder: "Code postal / ville", label: false %>
+          <%= f.input :place, placeholder: "Code postal / ville", label: false %>
           <% end %>
       </li>
       <li class="nav-item active">
