@@ -7,6 +7,10 @@ class ProfilePolicy < ApplicationPolicy
     show?
   end
 
+  def public?
+    true
+  end
+
   class Scope < Scope
     def resolve
       scope.all
