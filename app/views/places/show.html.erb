@@ -1,1 +1,84 @@
-<h1>Places#show</h1>
+<div class="container my-5">
+  <div class="row justify-content-center">
+
+    <!-- LEFT PART -->
+
+    <div class="col-3">
+
+      <div class="card public-card-place">
+
+        <div class="card-place-header">
+          <div class="place-card-avatar" >
+            <% if @place.photo.attached? %>
+              <%= cl_image_tag @place.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, height: 150, width: 150, crop: :fill%>
+            <% else %>
+              <%= image_tag "homebanner2.jpg", class: "avatar dropdown-toggle avatar_place_navbar", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, height: 150, width: 150, crop: :fill %>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="card-body card-place-body mx-3">
+          <div class="bookings-and-average-rating">
+            <div class="card-place-important-info">
+              <h4><i class="fas fa-calendar-check"></i><%= @place.workshops.count %></h4>
+              <p><strong>Ateliers à venir</strong></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body place-show-card-body">
+            <div class="d-flex">
+              <i class="fas fa-calendar-alt" id="check-icon"></i>
+              <div class="button btn-white">
+                <p><strong>20</strong> places restantes</p>
+              </div>
+            </div>
+            <div class="d-flex">
+              <i class="fas fa-clipboard-check"></i>
+              <div class="button btn-white">
+                <p><strong>8</strong> ateliers organisés depuis 2016</p>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="col-1">
+    </div>
+
+    <!-- RIGHT PART -->
+
+    <div class="col-6">
+
+      <div class="public-welcome-message">
+        <h2 class="mb-3"><%= @place.name %></h2>
+        <% if @place.address.present? %>
+          <h5 class="pb-2">  <i class="fas fa-home mr-2"></i> <%= @place.address %></h5>
+        <% end %>
+      </div>
+
+      <!-- PLACES'S WORKSHOP -->
+
+      <% if @place.workshops.present? %>
+        <h4 class="public-places mt-4">Nos ateliers</h4>
+        <div class="my-dashboard-cards my-workshop-cards">
+          <% @place.workshops.each do |workshop| %>
+            <div class="my-dashboard-card align-items-end">
+              <div class="my-dashboard-card-place">
+                <% if workshop.photos.attached? %>
+                  <%= image_tag @workshop.photos.key, alt: "Jeu de Mains", crop: :fill %>
+                <% else %>
+                  <%= image_tag "homebanner2.jpg", alt: "Jeu de Mains" %>
+                <% end %>
+                <div class="my-dashboard-card-infos">
+                  <h2><%= link_to workshop.name, place_path(workshop)%></h2>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
