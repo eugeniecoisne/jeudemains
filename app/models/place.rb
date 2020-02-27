@@ -1,6 +1,6 @@
 class Place < ApplicationRecord
   belongs_to :profile
-  has_many :workshops
+  has_many :workshops, dependent: :destroy
 
   geocoded_by :full_address
   after_validation :geocode, if: :will_save_change_to_address?
