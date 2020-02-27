@@ -50,10 +50,11 @@
 
     <div class="col-6">
 
-      <div class="public-welcome-message">
+      <div class="public-message-name-place">
         <h2 class="mb-3"><%= @place.name %></h2>
         <% if @place.address.present? %>
-          <h5 class="pb-2">  <i class="fas fa-home mr-2"></i> <%= @place.address %></h5>
+          <h5>  <i class="fas fa-home mr-2"></i> <%= @place.address %>, <%= @place.zip_code %>, <%= @place.city %></h5>
+          <h5 class="pb-2">  <i class="fas fa-phone mr-2"></i> <%= @place.phone_number %></h5>
         <% end %>
       </div>
 
@@ -71,7 +72,7 @@
                   <%= image_tag "homebanner2.jpg", alt: "Jeu de Mains" %>
                 <% end %>
                 <div class="my-dashboard-card-infos">
-                  <h2><%= link_to workshop.name, place_path(workshop)%></h2>
+                  <h2><%= link_to workshop.name, workshop_path(workshop)%></h2>
                 </div>
               </div>
             </div>
