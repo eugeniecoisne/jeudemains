@@ -1,4 +1,10 @@
 class ReviewsController < ApplicationController
+  def new
+    @review = Review.new
+    authorize @review
+    @workshop = Workshop.find(params[:workshop_id])
+  end
+
   def create
     @review = Review.new(review_params)
     authorize @review
@@ -9,7 +15,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to workshop_path(@workshop)
     else
-      render 'workshops/show'
+      render :new
     end
   end
 
