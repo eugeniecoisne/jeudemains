@@ -2,11 +2,11 @@ const ShowWorkshops = () => {
   const buttonWorkshops = document.getElementById("buttonWorkshops");
   const listOfWorkshops = document.getElementById("listOfWorkshops");
 
-  if (buttonWorkshops) {
-  buttonWorkshops.addEventListener("click", (event) => {
-    event.preventDefault();
-    listOfWorkshops.classList.toggle("display-list");
-  });
+  if (buttonWorkshops != null ) {
+    buttonWorkshops.addEventListener("click", (event) => {
+      event.preventDefault();
+      listOfWorkshops.classList.toggle("display-list");
+    });
   }
 }
 

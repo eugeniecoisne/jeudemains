@@ -1,0 +1,121 @@
+.public-card-place {
+  width: 300px;
+  background-color: $green;
+  border-radius: 10px;
+}
+
+.card-place-header {
+background: white;
+border: none;
+display: flex;
+justify-content: center;
+margin: auto;
+margin-top: 20px;
+  .avatar {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.card-place-body {
+  border: none;
+  i {
+    color: $orange;
+    margin-right: 5px;
+  }
+  p {
+    margin-bottom: 0;
+    font-size: 16px;
+    text-align: center;
+    color: white;
+  }
+  h4 {
+    text-align: center;
+  }
+  .bookings-and-average-rating {
+    display: flex;
+    justify-content: center;
+    .card-owner-important-info {
+      margin: 0 10px;
+    }
+  }
+
+  h4 {
+    font-size: 24px;
+    font-weight: bolder;
+    color: white;
+  }
+  h6 {
+    margin-bottom: 2px;
+  }
+}
+
+.card-place-footer {
+  background: white;
+  border: none;
+  .simple_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .col-form-label {
+    display: none;
+  }
+  .btn {
+    margin-top: 0;
+  }
+}
+
+.public-welcome-message {
+  h5 {
+    font-size: 16px;
+    font-style: italic;
+  }
+  i {
+    color: $green;
+  }
+}
+
+.public-places {
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bolder;
+  color: $green;
+  margin-bottom: 10px;
+}
+
+
+@media (min-width: 100px) and (max-width: 920px) {
+  .my-reviews-owner-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 920px) {
+  .my-reviews-owner-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.place-show-card-body {
+  i {
+    font-size: 25px;
+    padding-top: 9px;
+    margin-right: 10px;
+    color: white;
+  }
+  p {
+    margin-bottom: 0;
+    font-size: 15px;
+  }
+  .button {
+    margin-bottom: 10px;
+    width: 235px;
+    text-align: left;
+  }
+  #check-icon {
+    font-size: 23px;
+  }
+}
+
