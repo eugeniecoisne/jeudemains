@@ -26,7 +26,7 @@
         <%= f.input :site_web, label: false, placeholder: 'Site web' %>
         <%= f.input :facebook, label: false, placeholder: 'Page Facebook' %>
         <%= f.input :instagram, label: false, placeholder: 'Page Instagram' %>
-        <%= f.input :photo, as: :file %>
+        <%= f.input :photo, as: :file, label: 'Photo de profil' %>
         <%= f.submit 'Valider', class: 'btn btn-primary rounded-pill' %>
         <%= link_to 'Annuler', profile_path(@profile), class: 'btn btn-primary rounded-pill' %>
       <% end %>
