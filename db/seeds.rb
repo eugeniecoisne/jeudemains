@@ -60,7 +60,7 @@ Profile.last.update!(
   animator: true,
   )
 
-place1 = Place.new(name: 'Les Herbes Hautes', address: '85 Boulevard Voltaire', zip_code: '75011', city: 'PARIS', phone_number: '0952090027')
+place1 = Place.new(name: 'Les Herbes Hautes', address: '85 Boulevard Voltaire', zip_code: '75011', city: 'PARIS', phone_number: '0952090027', description: "Quibus occurrere bene pertinax miles explicatis ordinibus parans hastisque feriens scuta qui habitus iram pugnantium concitat et dolorem proximos.")
 place1.profile = Profile.last
 place1.save!
 file = URI.open('https://www.lesherbeshautes.fr/app/uploads/2019/07/ATELIERS-solo.jpg')
@@ -75,6 +75,7 @@ Nous vous guiderons pour réaliser une création esthétique et raffinée. Repar
   level: 'Débutant',
   price: 69,
   duration: 120,
+  description: "Quibus occurrere bene pertinax miles explicatis ordinibus parans hastisque feriens scuta qui habitus iram pugnantium concitat et dolorem proximos."
   )
 workshop1.place = Place.last
 workshop1.profile = Profile.last
@@ -105,6 +106,7 @@ Que vous ayez la main verte ou pas, suivez les conseils de nos passionnées du m
   level: 'Débutant',
   price: 79,
   duration: 90,
+  description: "Quibus occurrere bene pertinax miles explicatis ordinibus parans hastisque feriens scuta qui habitus iram pugnantium concitat et dolorem proximos."
   )
 workshop2.place = Place.last
 workshop2.profile = Profile.last
@@ -143,7 +145,7 @@ Profile.last.update!(
   organizer: true,
 )
 
-place2 = Place.new(name: 'Happy Folk', address: '64 Boulevard Voltaire', zip_code: '75011', city: 'PARIS', phone_number: '0184790117')
+place2 = Place.new(name: 'Happy Folk', address: '64 Boulevard Voltaire', zip_code: '75011', city: 'PARIS', phone_number: '0184790117', description: "Quibus occurrere bene pertinax miles explicatis ordinibus parans hastisque feriens scuta qui habitus iram pugnantium concitat et dolorem proximos.")
 place2.profile = Profile.last
 place2.save!
 file = URI.open('https://www.happyfolk.fr/wp-content/uploads/2019/01/facebook_cover_affiche.jpg')
@@ -174,6 +176,7 @@ Tout le matériel est fourni, boisson offerte',
   level: 'Débutant',
   price: 50,
   duration: 120,
+  description: "Quibus occurrere bene pertinax miles explicatis ordinibus parans hastisque feriens scuta qui habitus iram pugnantium concitat et dolorem proximos."
   )
 
 workshop3.place = Place.last
@@ -218,6 +221,7 @@ Vous repartez avec votre bougie à la fin de l’atelier !',
   level: 'Débutant',
   price: 45,
   duration: 150,
+  description: "Quibus occurrere bene pertinax miles explicatis ordinibus parans hastisque feriens scuta qui habitus iram pugnantium concitat et dolorem proximos."
   )
 workshop4.place = Place.last
 workshop4.profile = Profile.last
