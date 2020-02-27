@@ -1,7 +1,7 @@
 class Workshop < ApplicationRecord
   belongs_to :place
   belongs_to :profile
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   has_many :workshop_dates, dependent: :destroy
   has_many :bookings, dependent: :destroy
 
