@@ -126,32 +126,37 @@
     <% if @workshop.place.profile.company == @workshop.profile.company %>
     <h2>À propos de l'organisateur</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-      <p>Plus d'infos:</p>
-        <%= link_to (@workshop.place.profile.instagram) do %>
-          <i class="fab fa-instagram fa-2x"></i>
-        <% end %>
-        <%= link_to (@workshop.place.profile.facebook) do %>
-          <i class="fab fa-facebook fa-2x"></i>
-        <% end %>
-        <%= link_to (@workshop.place.profile.site_web) do %>
-          <i class="fas fa-link fa-2x"></i>
-        <% end %>
+      <div class="links-show">
+        <p>Plus d'infos:</p>
+          <%= link_to (@workshop.place.profile.instagram) do %>
+            <i class="fab fa-instagram fa-2x"></i>
+          <% end %>
+          <%= link_to (@workshop.place.profile.facebook) do %>
+            <i class="fab fa-facebook fa-2x"></i>
+          <% end %>
+          <%= link_to (@workshop.place.profile.site_web) do %>
+            <i class="fas fa-link fa-2x"></i>
+          <% end %>
+      </div>
     <% else %>
     <h2>À propos de l'organisateur</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-      <p>Plus d'infos:</p>
-        <%= link_to (@workshop.place.profile.instagram) do %>
-          <i class="fab fa-instagram fa-2x"></i>
-        <% end %>
-        <%= link_to (@workshop.place.profile.facebook) do %>
-          <i class="fab fa-facebook fa-2x"></i>
-        <% end %>
-        <%= link_to (@workshop.place.profile.site_web) do %>
-          <i class="fas fa-link fa-2x"></i>
-        <% end %>
+      <div class="links-show">
+        <p>Plus d'infos:</p>
+          <%= link_to (@workshop.place.profile.instagram) do %>
+            <i class="fab fa-instagram fa-2x"></i>
+          <% end %>
+          <%= link_to (@workshop.place.profile.facebook) do %>
+            <i class="fab fa-facebook fa-2x"></i>
+          <% end %>
+          <%= link_to (@workshop.place.profile.site_web) do %>
+            <i class="fas fa-link fa-2x"></i>
+          <% end %>
+      </div>
     <h2>À propos de l'animateur</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
       <p>Plus d'infos:</p>
+      <div class="links-show">
         <%= link_to (@workshop.place.profile.instagram) do %>
           <i class="fab fa-instagram fa-2x"></i>
         <% end %>
@@ -161,6 +166,7 @@
         <%= link_to (@workshop.place.profile.site_web) do %>
           <i class="fas fa-link fa-2x"></i>
         <% end %>
+      </div>
     <% end %>
   </div>
 </div>
