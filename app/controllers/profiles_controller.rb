@@ -10,6 +10,7 @@ class ProfilesController < ApplicationController
   def public
     @profile = Profile.find(params[:profile_id])
     authorize @profile
+    @reviews = Review.joins(:workshop).where("workshops.profile_id=?", @profile)
   end
 
   def edit
