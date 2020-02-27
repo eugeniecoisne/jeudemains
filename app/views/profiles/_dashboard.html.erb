@@ -146,13 +146,13 @@
               <%= f.input :phone_number, label: false, placeholder: 'Téléphone' %>
             </div>
           </div>
-          <%= f.input :photo, as: :file %>
+          <div class="form-row my-3 ml-1">
+            <%= f.input :photo, as: :file, label: "Photo de profil du lieu" %>
+          </div>
           <%= f.submit 'Valider', class: 'button btn-white' %>
           <%= link_to 'Annuler', profile_path(@profile), class: 'button btn-transparent' %>
         <% end %>
       </div>
     </div>
-
-
   </div>
 
