@@ -1,34 +1,41 @@
 <div class="workshops-index-container">
-<div class="workshops-index-cards">
-  <% @workshops.each do |workshop| %>
-      <%= link_to workshop_path(workshop), data: { turbolinks: false } do %>
-      <div class="workshops-index-card">
-        <div class="img-workshops-index-card">
-          <%= image_tag "https://cdn.shopify.com/s/files/1/0135/6627/9738/articles/header_310b8395-f711-42cb-89f9-db495e34012f.jpg?v=1540918920", alt: "image workshop", class: "img-workshops-index-card" %>
+  <% if @workshops.empty? %>
+    <div class="text-center">
+        <img src="https://media.giphy.com/media/fV8iuSEwLQ6005diSh/giphy.gif" alt="sorry" class="m-3">
+        <h4>Désolé, nous ne sommes pas encore présents dans cette ville</h4>
+    </div>
+  <% else %>
+    <div class="workshops-index-cards">
+      <% @workshops.each do |workshop| %>
+        <%= link_to workshop_path(workshop), data: { turbolinks: false } do %>
+        <div class="workshops-index-card">
+          <div class="img-workshops-index-card">
+            <%= image_tag "https://cdn.shopify.com/s/files/1/0135/6627/9738/articles/header_310b8395-f711-42cb-89f9-db495e34012f.jpg?v=1540918920", alt: "image workshop", class: "img-workshops-index-card" %>
+          </div>
+          <div class="workshops-index-card-infos">
+            <div>
+              <h1><%= workshop.name[0..30] %></h1>
+            </div>
+            <div class="d-flex justify-content-between mb-1">
+              <h2><i class="fas fa-map-marker-alt"></i> <%= workshop.place.name %></h2>
+            </div>
+            <div class="d-flex justify-content-between">
+              <div class=" rating d-flex"><h3><i class="fas fa-star" style="color:$blue"></i> 4,7<%=  %>/5</h3><p>(<%=  %>28 avis)</p></div>
+              <h1><%= workshop.price %>€</h1>
+            </div>
+          </div>
         </div>
-        <div class="workshops-index-card-infos">
-          <div>
-            <h1><%= workshop.name[0..30] %></h1>
-          </div>
-          <div class="d-flex justify-content-between mb-1">
-            <h2><i class="fas fa-map-marker-alt"></i> <%= workshop.place.name %></h2>
-          </div>
-          <div class="d-flex justify-content-between">
-            <div class=" rating d-flex"><h3><i class="fas fa-star" style="color:$blue"></i> 4,7<%=  %>/5</h3><p>(<%=  %>28 avis)</p></div>
-            <h1><%= workshop.price %>€</h1>
-          </div>
-        </div>
-      </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
 
-  <div id="workshops-index-map"
-       style="width: 30%;
-       height: 100vh;
-       position: sticky;
-       top: 0;"
-       data-markers="<%= @markers.to_json %>"
-       data-mapbox-api-key="pk.eyJ1IjoidGhvbWFzLXJvc2U3NiIsImEiOiJjazYyOGRieWgwYWlyM2Zxd29rZ2hiOGJsIn0.uq_GyWQAqSz7DsRV2rLLTg">
-  </div>
+    <div id="workshops-index-map"
+         style="width: 30%;
+         height: 100vh;
+         position: sticky;
+         top: 0;"
+         data-markers="<%= @markers.to_json %>"
+         data-mapbox-api-key="pk.eyJ1IjoidGhvbWFzLXJvc2U3NiIsImEiOiJjazYyOGRieWgwYWlyM2Zxd29rZ2hiOGJsIn0.uq_GyWQAqSz7DsRV2rLLTg">
+    </div>
+  <% end %>
 </div>
