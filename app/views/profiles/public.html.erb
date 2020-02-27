@@ -1,1 +1,81 @@
-<h1>Profiles#public</h1>
+<!-- PUBLIC OWNER PROFILE -->
+
+<div class="container my-5">
+  <div class="row justify-content-center">
+
+    <!-- LEFT PART -->
+
+    <div class="col-3">
+
+      <!-- OWNER AVATER, NUMBER OF BOOKINGS, RATING, MEMBER SINCE **** -->
+
+      <div class="card public-card-owner">
+
+        <div class="card-header card-owner-header">
+          <div class="user-card-avatar" >
+            <% if @profile.photo.attached? %>
+              <%= cl_image_tag @profile.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, height: 150, width: 150, crop: :fill%>
+            <% else %>
+              <%= image_tag "https://i48.servimg.com/u/f48/16/78/05/90/myster10.png", class: "avatar dropdown-toggle avatar_user_navbar", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="card-body card-owner-body mx-3 border-bottom">
+          <div class="bookings-and-average-rating">
+            <div class="card-owner-important-info">
+              <h4><i class="fas fa-brush"></i><%= @profile.workshops.count %></h4>
+              <p>Ateliers animés</p>
+            </div>
+            <div class="card-owner-important-info">
+              <div class="d-flex inline-flex align-items-center">
+                <h4>
+                  <i class="fas fa-star"></i><%= @profile.average_rating(@reviews) %>
+                </h4>
+                <h6 class="ml-1">/5</h6>
+              </div>
+              <p>Note moyenne</p>
+            </div>
+          </div>
+          <div class="member-since-info">
+            <h6>Membre depuis <%= @profile.created_at.year %></h6>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-1">
+    </div>
+
+    <!-- RIGHT PART -->
+
+    <div class="col-7">
+
+      <!-- HELLO MESSAGE & OWNER CITY -->
+      <div class="public-owner-welcome-message">
+        <h2 class="mb-3">Hello ! Je m'apelle <%= @profile.first_name.capitalize %></h2>
+        <% if @profile.city.present? %>
+          <h5 class="border-bottom pb-4">  <i class="fas fa-home mr-2"></i> De <%= @profile.city %></h5>
+        <% end %>
+      </div>
+
+      <!-- OWNER'S REVIEWS -->
+
+      <% if @reviews.present? %>
+        <h4 class="public-owner-listing mt-4">Les derniers avis sur mes animations</h4>
+        <div class="my-reviews-owner-cards">
+          <% @reviews.sort_by { |review| review.created_at }.reverse.each do |review| %>
+            <div class="my-dashboard-card align-items-end">
+              <div class="card-body d-flex">
+                <div class="rating-in-card-review-public">
+                  <h5 class="card-text pr-3"><i class="fas fa-star"></i> <%= review.animator_rating %> <span style="font-size: 11px;">/5</span></h5>
+                </div>
+                <h5 class="card-text pl-3 border-left"><em>"<%= review.content %>"</em></h5>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
