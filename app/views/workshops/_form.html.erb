@@ -6,7 +6,6 @@
   <%= f.input :level, label: false, collection: ['Débutant', 'Intermédiaire', 'Avancé'], include_blank: false %>
   <%= f.input :price, label: false, placeholder: "Prix par personne" %>
   <%= f.input :duration, label: false, placeholder: "Durée de l'atelier (min)" %>
-  <%= f.input :participants, label: false, placeholder: "Nombre maximum de participants" %>
   <%= f.input :status, label: false, collection: ['En ligne', 'Hors ligne'], include_blank: false %>
   <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Photos de l'atelier" %>
   <div class="form-group select required workshop_profile">
