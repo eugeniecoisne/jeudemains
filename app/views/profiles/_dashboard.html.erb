@@ -146,6 +146,7 @@
               <%= f.input :phone_number, label: false, placeholder: 'Téléphone' %>
             </div>
           </div>
+          <%= f.input :photo, as: :file %>
           <%= f.submit 'Valider', class: 'button btn-white' %>
           <%= link_to 'Annuler', profile_path(@profile), class: 'button btn-transparent' %>
         <% end %>

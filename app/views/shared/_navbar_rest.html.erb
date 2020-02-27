@@ -1,0 +1,51 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-jdm-rest" id="navbar-rest">
+  <div>
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "logo-white.svg", alt: "logo jeu de mains" %>
+    <% end %>
+  </div>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item search-navbar">
+      <%= simple_form_for :filter, url: workshops_path, method: :get, id: "navbar-search-form" do |f| %>
+        <i class="fas fa-search"></i>
+          <%= f.input :address, placeholder: "Code postal / ville", label: false %>
+          <% end %>
+      </li>
+      <li class="nav-item active">
+        <%= link_to "Tous les ateliers", workshops_path, class: "nav-link button btn-navbar", id: "btn-navbar" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "#", class: "nav-link button", id: "menuButton" do %>
+          <i class="fas fa-bars"></i>
+          <span>Menu</span>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
+
+  <div id="sideMenu">
+    <div>
+      <i class="fas fa-times" id="menuClose"></i>
+      <ul class="list-group list-group-flush">
+        <% if user_signed_in? %>
+          <li class="list-group-item"><%= link_to "Tous les ateliers", workshops_path %></li>
+          <li class="list-group-item"><%= link_to "Proposer un atelier", new_workshop_path %></li>
+          <li class="list-group-item"><%= link_to "Mon espace", profile_path(current_user.profile) %></li>
+          <li class="list-group-item"><%= link_to "Mon profil", edit_profile_path(current_user.profile) %></li>
+        <% else %>
+          <li class="list-group-item"><%= link_to "Tous les ateliers", workshops_path %></li>
+          <li class="list-group-item"><%= link_to "Proposer un atelier", new_workshop_path %></li>
+          <li class="list-group-item"><%= link_to "Se connecter", new_user_session_path %></li>
+          <li class="list-group-item"><%= link_to "S'inscrire", new_user_registration_path %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div>
+      <% if user_signed_in? %>
+        <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, id: "log-out-menu" %>
+      <% end %>
+    </div>
+  </div>

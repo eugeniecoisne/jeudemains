@@ -1,4 +1,5 @@
 class Workshop < ApplicationRecord
+  has_many_attached :photos
   belongs_to :place
   belongs_to :profile
   has_many :reviews, dependent: :destroy

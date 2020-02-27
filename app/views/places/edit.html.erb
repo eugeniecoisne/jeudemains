@@ -15,6 +15,7 @@
           </div>
         </div>
         <%= f.input :phone_number, label: false, placeholder: 'Téléphone' %>
+        <%= f.input :photo, as: :file %>
         <%= f.submit 'Valider', class: 'btn btn-primary rounded-pill' %>
         <%= link_to 'Annuler', profile_path(@place.profile), class: 'btn btn-primary rounded-pill' %>
       <% end %>

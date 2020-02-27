@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-jdm" id="navbar-homepage">
+<div class="navbar navbar-expand-sm navbar-light navbar-jdm-home" id="navbar-homepage">
   <div>
     <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "logo-white.svg", alt: "logo jeu de mains" %>
@@ -7,12 +7,6 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item search-navbar">
-      <%= simple_form_for :filter, url: workshops_path, method: :get, id: "navbar-search-form" do |f| %>
-        <i class="fas fa-search"></i>
-          <%= f.input :address, placeholder: "Code postal / ville", label: false %>
-          <% end %>
-      </li>
       <li class="nav-item active">
         <%= link_to "Tous les ateliers", workshops_path, class: "nav-link button btn-navbar", id: "btn-navbar" %>
       </li>
@@ -33,8 +27,12 @@
         <% if user_signed_in? %>
           <li class="list-group-item"><%= link_to "Tous les ateliers", workshops_path %></li>
           <li class="list-group-item"><%= link_to "Proposer un atelier", new_workshop_path %></li>
-          <li class="list-group-item"><%= link_to "Mon espace", profile_path(current_user.profile) %></li>
           <li class="list-group-item"><%= link_to "Mon profil", edit_profile_path(current_user.profile) %></li>
+          <% if current_user.profile.organizer %>
+            <li class="list-group-item"><%= link_to "Mon dashboard", profile_path(current_user.profile) %></li>
+          <% else %>
+            <li class="list-group-item"><%= link_to "Mes réservations", profile_path(current_user.profile) %></li>
+          <% end %>
         <% else %>
           <li class="list-group-item"><%= link_to "Tous les ateliers", workshops_path %></li>
           <li class="list-group-item"><%= link_to "Proposer un atelier", new_workshop_path %></li>
