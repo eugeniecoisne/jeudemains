@@ -22,21 +22,25 @@
         </div>
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
           <%= simple_form_for :filter, url: search_path, method: :get do |f| %>
-            <select class="form-control select2" name="profile">
-              <optgroup label="Animateurs">
-                <% @profiles.sort_by { |profile| profile.last_name }.each do |profile| %>
-                  <option value="<%= profile.id %>"><%= "#{profile.last_name.upcase} #{profile.first_name.capitalize}" %></option>
-                <% end %>
-              </optgroup>
+          <div class="form-group mt-3">
+            <label for="profile">Rechercher un animateur</label>
+            <select class="form-control select2" name="profile" id="profile">
+                <option label=" "></option>
+              <% @profiles.sort_by { |profile| profile.company }.each do |profile| %>
+                <option value="<%= profile.id %>"><%= profile.company %></option>
+              <% end %>
             </select>
-            <select class="form-control select2" name="place">
-              <optgroup label="Lieux">
-                <% @places.sort_by { |place| place.name }.each do |place| %>
-                  <option value="<%= place.id %>"><%= place.name %></option>
-                <% end %>
-              </optgroup>
+          </div>
+          <div class="form-group mt-3">
+            <label for="place">Rechercher un lieu</label>
+            <select class="form-control select2" name="place" id="place">
+              <option label=" "></option>
+              <% @places.sort_by { |place| place.name }.each do |place| %>
+                <option value="<%= place.id %>"><%= place.name %></option>
+              <% end %>
             </select>
-            <%= f.submit 'Rechercher' %>
+          </div>
+            <%= f.submit 'Rechercher', class: 'btn btn-primary' %>
           <% end %>
         </div>
       </div>

@@ -1,5 +1,9 @@
 class PlacesController < ApplicationController
-  before_action :set_place, only: [:edit, :update, :destroy]
+  before_action :set_place, only: [:show, :edit, :update, :destroy]
+
+  def show
+    authorize @place
+  end
 
   def edit
     authorize @place
