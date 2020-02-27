@@ -1,4 +1,5 @@
 class Place < ApplicationRecord
+  has_one_attached :photo
   belongs_to :profile
   has_many :workshops, dependent: :destroy
 
