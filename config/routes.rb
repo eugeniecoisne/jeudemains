@@ -3,11 +3,14 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
+  get 'search', to: 'pages#search'
+
   resources :profiles, only: [:show, :edit, :update] do
     resources :places, only: :create
+    get 'public'
   end
 
-  resources :places, except: [:new, :index, :show, :create]
+  resources :places, except: [:new, :index, :create]
 
   resources :workshops do
     resources :workshop_dates, only: [:new, :create]

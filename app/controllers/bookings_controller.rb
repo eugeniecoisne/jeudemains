@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   def create
-    @date = Booking.find(params[:params{:date])
+    @date = Booking.find(params[:params[:date])
     @workshop = Workshop.find(params[:workshop_id])
     @profile = current_user.profile
     params[:nb_part].times do

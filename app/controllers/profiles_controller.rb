@@ -6,6 +6,11 @@ class ProfilesController < ApplicationController
     @place = Place.new
   end
 
+  def public
+    @profile = Profile.find(params[:profile_id])
+    authorize @profile
+  end
+
   def edit
     authorize @profile
   end

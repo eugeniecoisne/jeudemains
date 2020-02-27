@@ -1,8 +1,23 @@
 <div class="container-big">
   <div class="top-of-show-page col-12 mb-3">
       <h2 class="show-card-name"><%= @workshop.name %></h2>
-      <p class="show-card-organizer">Organisé par: <%= @workshop.profile.first_name %> <%= @workshop.profile.last_name %></p>
-      <p class="show-card-animator">Animé par: <%= @workshop.place.profile.first_name %> <%= @workshop.place.profile.last_name %> </p>
+        <% if @workshop.reviews.present? %>
+          <h5 class="rating"><% @workshop.average_rating.times do %>
+            <i class="fas fa-star"></i>
+          <% end %>
+          <% if @workshop.average_rating %>
+            <% (5 - @workshop.average_rating).times do %>
+              <i class="far fa-star"></i>
+            <% end %>
+          <% end %>
+          </h5>
+        <% end %>
+      <% if @workshop.place.profile.company == @workshop.profile.company %>
+        <p class="show-card-organizer">Organisé par: <%= @workshop.profile.company %></p>
+      <% else  %>
+        <p class="show-card-organizer">Organisé par: <%= @workshop.profile.company %></p>
+        <p class="show-card-animator">Animé par: <%= @workshop.place.profile.company %></p>
+      <% end %>
     <div class="d-flex justify-content-between">
       <div>
         <p class="show-card-address"><i class="fas fa-map-marker-alt"></i> Adresse du lieu: <%= @workshop.place.address %></p>
@@ -42,12 +57,13 @@
         </a>
     </div>
 
-    <div class="card show-card place-booking-card col-4">
+    <div class="card show-card place-booking-card col-3">
       <h3>Book this place !</h3>
         <%= simple_form_for([@workshop, @booking]) do |f| %>
           <div class="form-group select required">
             <label class="select required" for="date_id">Date <abbr title="required">*</abbr></label>
             <select class="form-control select required mt-4" name="date" id="date_id">
+              <option value="" disabled selected>Choose a date</option>
               <% @workshop.workshop_dates.sort_by { |date| date.date }.each do |date| %>
                 <option value="<%= date.id %>"><%= date.date.strftime('%d/%m/%Y - %H : %M') %></option>
               <% end %>
@@ -64,16 +80,14 @@
         <% end %>
         <form class="input">
           <input type="text" id="fname" name="fname" placeholder="AJOUTER AU PANIER">
-          <input type="text" id="lname" name="lname" placeholder="FAIRE UNE CARTE CADEAU">
         </form>
     </div>
+
   </div>
 
     <div class="row">
       <div class="mt-3 col-6 d-flex">
-        <p class="d-inline thematic">Végétal</p>
         <p class="d-inline thematic">Niveau débutant</p>
-        <p class="d-inline thematic">Adultes</p>
         <p class="d-inline thematic">Herbier</p>
       </div>
     </div>
@@ -81,35 +95,44 @@
   <div class="further-information m-3 my-0">
     <h2>Programme de l'atelier</h2>
       <p><%= @workshop.description %></p>
-    <h2>Avis sur l'atelier</h2>
-      <p>Note: 3.5/5 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half"></i> <em>(4 avis)</em></p>
-    <div class="workshop-reviews-card d-flex mb-3">
-      <div class="row">
-        <div class="card show-card col-5">
-          <p><strong>User Rating</strong> : <i class="fas fa-star"></i><i class="fas fa-star"></i></p>
-          <p><%= @workshop.description.first(308) %></p>
+      <% if @workshop.average_rating %>
+        <h2>Avis sur l'atelier</h2>
+        <p>
+          Note: <% @workshop.average_rating.times do %>
+            <i class="fas fa-star"></i>
+          <% end %>
+          <em>(<%= @workshop.reviews.count %> avis)</em>
+        </p>
+      <% end %>
+    <div class="card-reviews mb-3">
+      <% if @workshop.reviews.present? %>
+        <h3>Reviews</h3>
+        <div class="row">
+          <% @workshop.reviews.each do |review| %>
+            <div class="col-5 reviews m-2 ">
+              <p><strong><%= review.profile.first_name %></strong></p>
+              <p class=""><%= review.content %></p>
+              <p class=""><% review.rating.times do %>
+                <i class="fas fa-star"></i>
+                <% end %>
+              </p>
+            </div>
+          <% end %>
         </div>
-        <div class="card show-card col-5">
-          <p><strong>User Rating</strong> : <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
-          <p><%= @workshop.description.first(308) %></p>
         </div>
-        <div class="card show-card col-5">
-          <p><strong>User Rating</strong> : <i class="fas fa-star"></i></p>
-          <p><%= @workshop.description.first(308) %></p>
-        </div>
-        <div class="card show-card col-5">
-          <p><strong>User Rating</strong> : <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
-          <p><%= @workshop.description.first(308) %></p>
-        </div>
-      </div>
+      <% end %>
     </div>
-  <h2>À propos de l'organisateur</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-    <ul>Plus d'infos:
-      <li><i class="fab fa-instagram"></i> Instagram.com/organisateur</li>
-      <li><i class="fab fa-facebook"></i> Facebook.com/organisateur</li>
-    </ul>
-  <h2>À propos de l'animateur</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+    <h2>À propos de l'organisateur</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+      <ul>Plus d'infos:
+        <li><i class="fab fa-instagram"></i> <%= @workshop.place.profile.facebook %></li>
+        <li><i class="fab fa-facebook"></i> <%= @workshop.place.profile.instagram %></li>
+      </ul>
+    <h2>À propos de l'animateur</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+      <ul>Plus d'infos:
+        <li><i class="fab fa-instagram"></i> <%= @workshop.profile.facebook%></li>
+        <li><i class="fab fa-facebook"></i> <%= @workshop.profile.instagram%></li>
+      </ul>
   </div>
 </div>

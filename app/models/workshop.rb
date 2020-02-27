@@ -1,7 +1,7 @@
 class Workshop < ApplicationRecord
   belongs_to :place
   belongs_to :profile
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   has_many :workshop_dates, dependent: :destroy
   has_many :bookings, dependent: :destroy
 
@@ -41,4 +41,13 @@ class Workshop < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
+  def average_rating
+    ratings = []
+    average = 0
+    if reviews.present?
+      reviews.each { |review| ratings << review.rating }
+      average = ratings.sum.fdiv(reviews.count).round(1).to_i
+    end
+  end
 end
