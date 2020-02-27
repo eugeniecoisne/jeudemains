@@ -1,3 +1,4 @@
+require "open-uri"
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -15,22 +16,31 @@ Review.destroy_all
 puts "CREATING 3 PARTICIPANTS"
 #   CAMILLE : PARTICIPANT
 User.create!(email: 'a@a.com', password: '123456')
-Profile.last.update!(
+camille = Profile.last
+camille.update!(
   last_name: 'Bison',
   first_name: 'Camille',
 )
+file = URI.open('https://www.courrierinternational.com/sites/ci_master/files/styles/image_original_1280/public/assets/images/courrier-international-clonage-alpagas.jpg?itok=-ttP0Z1H')
+camille.photo.attach(io: file, filename: 'camille.jpg', content_type: 'image/jpg')
 
 User.create!(email: 'b@b.com', password: '123456')
-Profile.last.update!(
+alexia = Profile.last
+alexia.update!(
   last_name: 'Dupont',
   first_name: 'Alexia',
 )
+file = URI.open('http://www.placedesreseaux.com/img/illustrations-dossiers/soigner-son-image/soigner-son-image-1.jpg')
+alexia.photo.attach(io: file, filename: 'alexia.jpg', content_type: 'image/jpg')
 
 User.create!(email: 'c@c.com', password: '123456')
-Profile.last.update!(
+heloise = Profile.last
+heloise.update!(
   last_name: 'Janin',
   first_name: 'Héloïse',
 )
+file = URI.open('https://dwj199mwkel52.cloudfront.net/assets/lewagon-logo-square-fe76916e1b923ade71e253ae6dc031d936e5e8eebac4e26b0fbac650ea6ee360.png')
+heloise.photo.attach(io: file, filename: 'heloise.png', content_type: 'image/png')
 
 puts "CREATING Les Herbes Hautes"
 # LES HERBES HAUTES : ORGANISATEUR
@@ -53,6 +63,8 @@ Profile.last.update!(
 place1 = Place.new(name: 'Les Herbes Hautes', address: '85 Boulevard Voltaire', zip_code: '75011', city: 'PARIS', phone_number: '0952090027')
 place1.profile = Profile.last
 place1.save!
+file = URI.open('https://www.lesherbeshautes.fr/app/uploads/2019/07/ATELIERS-solo.jpg')
+place1.photo.attach(io: file, filename: 'place1.png', content_type: 'image/jpg')
 
 workshop1 = Workshop.new(
   name: 'Couronne en fleurs éternelles',
@@ -63,11 +75,26 @@ Nous vous guiderons pour réaliser une création esthétique et raffinée. Repar
   level: 'Débutant',
   price: 69,
   duration: 120,
-  participants: 8,
   )
 workshop1.place = Place.last
 workshop1.profile = Profile.last
 workshop1.save!
+
+date1 = WorkshopDate.new(
+  date: Date.today + 15,
+  start_at: '14h00',
+  participants: 8
+)
+date1.workshop = workshop1
+date1.save!
+
+date2 = WorkshopDate.new(
+  date: Date.today + 20,
+  start_at: '9h00',
+  participants: 8
+)
+date2.workshop = workshop1
+date2.save!
 
 workshop2 = Workshop.new(
   name: 'Créez votre terrarium',
@@ -78,11 +105,26 @@ Que vous ayez la main verte ou pas, suivez les conseils de nos passionnées du m
   level: 'Débutant',
   price: 79,
   duration: 90,
-  participants: 8,
   )
 workshop2.place = Place.last
 workshop2.profile = Profile.last
 workshop2.save!
+
+date3 = WorkshopDate.new(
+  date: Date.today + 10,
+  start_at: '15h00',
+  participants: 8
+)
+date3.workshop = workshop2
+date3.save!
+
+date4 = WorkshopDate.new(
+  date: Date.today + 6,
+  start_at: '15h00',
+  participants: 8
+)
+date4.workshop = workshop2
+date4.save!
 
 puts "CREATING Happy Folk"
 # HAPPY FOLK : ORGANISATEUR
@@ -104,6 +146,8 @@ Profile.last.update!(
 place2 = Place.new(name: 'Happy Folk', address: '64 Boulevard Voltaire', zip_code: '75011', city: 'PARIS', phone_number: '0184790117')
 place2.profile = Profile.last
 place2.save!
+file = URI.open('https://www.happyfolk.fr/wp-content/uploads/2019/01/facebook_cover_affiche.jpg')
+place2.photo.attach(io: file, filename: 'place2.jpg', content_type: 'image/jpg')
 
 puts "CREATING Flowrette"
 #   FLOWRETTE : ANIMATEUR
@@ -130,11 +174,27 @@ Tout le matériel est fourni, boisson offerte',
   level: 'Débutant',
   price: 50,
   duration: 120,
-  participants: 6,
   )
+
 workshop3.place = Place.last
 workshop3.profile = Profile.last
 workshop3.save!
+
+date5 = WorkshopDate.new(
+  date: Date.today + 16,
+  start_at: '14h00',
+  participants: 6
+)
+date5.workshop = workshop3
+date5.save!
+
+date6 = WorkshopDate.new(
+  date: Date.today + 17,
+  start_at: '9h00',
+  participants: 6
+)
+date6.workshop = workshop3
+date6.save!
 
 puts "CREATING Ponoie"
 #   PONOIE : ANIMATEUR
@@ -158,11 +218,26 @@ Vous repartez avec votre bougie à la fin de l’atelier !',
   level: 'Débutant',
   price: 45,
   duration: 150,
-  participants: 8,
   )
 workshop4.place = Place.last
 workshop4.profile = Profile.last
 workshop4.save!
+
+date7 = WorkshopDate.new(
+  date: Date.today + 10,
+  start_at: '18h00',
+  participants: 8
+)
+date7.workshop = workshop4
+date7.save!
+
+date8 = WorkshopDate.new(
+  date: Date.today + 12,
+  start_at: '13h00',
+  participants: 8
+)
+date8.workshop = workshop4
+date8.save!
 
 puts "CREATING 11 REVIEWS"
 
