@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_27_115951) do
+ActiveRecord::Schema.define(version: 2020_02_27_124757) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,6 +111,8 @@ ActiveRecord::Schema.define(version: 2020_02_27_115951) do
     t.bigint "workshop_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "participants"
+    t.string "start_at"
     t.index ["workshop_id"], name: "index_workshop_dates_on_workshop_id"
   end
 
@@ -122,7 +124,6 @@ ActiveRecord::Schema.define(version: 2020_02_27_115951) do
     t.string "level"
     t.float "price"
     t.integer "duration"
-    t.integer "participants"
     t.bigint "place_id", null: false
     t.bigint "profile_id", null: false
     t.datetime "created_at", precision: 6, null: false
