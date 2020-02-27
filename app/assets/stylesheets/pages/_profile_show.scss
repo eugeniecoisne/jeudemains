@@ -42,6 +42,7 @@
     width: 120px;
     height: 120px;
     border: solid 1px white;
+    object-fit: cover;
   }
 }
 
@@ -94,6 +95,18 @@
     padding: 2px 10px;
     text-align: left;
   }
+  #booking-date-information {
+    width: auto;
+  }
+  #booking-date-information:hover {
+    opacity: 1;
+  }
+  #booking-date-information-gray {
+    width: auto;
+  }
+  #booking-date-information-gray:hover {
+    opacity: 0.7;
+  }
 }
 
 .public-show-place-name {
@@ -106,10 +119,14 @@
   i {
     color: $green;
     font-size: 20px;
-    padding-left: 3px;
+    padding-left: 8px;
   }
   i:hover {
     color: $blue;
+  }
+  #invite-to-comment {
+    font-size: 13px;
+    font-weight: 600;
   }
 }
 
@@ -126,7 +143,7 @@
   }
   .green-bar {
     padding-left: 15px;
-    border-left: 4px solid $green;
+    border-left: 4px solid $green-online;
   }
   .red-bar {
     padding-left: 15px;
@@ -197,6 +214,15 @@
     color: $white;
     border: 1px solid $white;
     margin-left: 5px;
+  }
+  input[type=file] {
+    color: rgba(255,255,255,0.6);
+  }
+  label {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 16px;
   }
 }
 

@@ -13,15 +13,15 @@
           </h5>
         <% end %>
       <% if @workshop.place.profile.company == @workshop.profile.company %>
-        <p class="show-card-organizer">Organisé par: <%= @workshop.profile.company %></p>
+        <p class="show-card-organizer">Organisé & animé par: <%= @workshop.profile.company %></p>
       <% else  %>
         <p class="show-card-organizer">Organisé par: <%= @workshop.profile.company %></p>
         <p class="show-card-animator">Animé par: <%= @workshop.place.profile.company %></p>
       <% end %>
     <div class="d-flex justify-content-between">
       <div>
-        <p class="show-card-address"><i class="fas fa-map-marker-alt"></i> Adresse du lieu: <%= @workshop.place.address %></p>
-        <p class="show-card-duration"><i class="fas fa-clock"></i> Durée de l'atelier: <%= @workshop.duration %> minutes</p>
+        <p class="show-card-address"><i class="fas fa-map-marker-alt"></i> Adresse du lieu: <%= "#{@workshop.place.address}, #{@workshop.place.zip_code} #{@workshop.place.city.upcase}" %></p>
+        <p class="show-card-duration"><i class="fas fa-clock"></i> Durée de l'atelier: <%= @workshop.duration/60 %>h<%= @workshop.duration%60 %></p>
       </div>
       <div class="price-workshop">
         <p class="btn btn-dark"><%= @workshop.price %>€/pers</p>
@@ -65,13 +65,13 @@
             <select class="form-control select required mt-4" name="date" id="date_id">
               <option value="" disabled selected>Choose a date</option>
               <% @workshop.workshop_dates.sort_by { |date| date.date }.each do |date| %>
-                <option value="<%= date.id %>"><%= date.date.strftime('%d/%m/%Y - %H : %M') %></option>
+                <option value="<%= date.id %>"><%= date.date.strftime('%d/%m/%Y') %> - Début : <%= date.start_at %></option>
               <% end %>
             </select>
           </div>
           <div class="form-group select required">
             <select class="form-control select required" name="nb_part" id="workshop_level">
-              <% (1..@workshop.participants - @workshop.bookings.count).to_a.each do |nb| %>
+              <% (1..5).to_a.each do |nb| %>
                 <option value="<%= nb %>"><%= nb %></option>
               <% end %>
             </select>
@@ -87,8 +87,8 @@
 
     <div class="row">
       <div class="mt-3 col-6 d-flex">
-        <p class="d-inline thematic">Niveau débutant</p>
-        <p class="d-inline thematic">Herbier</p>
+        <p class="d-inline thematic">Niveau : <%= @workshop.level %></p>
+        <p class="d-inline thematic">Thémaique : <%= @workshop.thematic %></p>
       </div>
     </div>
 
