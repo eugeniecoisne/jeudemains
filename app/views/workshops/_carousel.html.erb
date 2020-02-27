@@ -1,0 +1,26 @@
+<div id="showCarouselPlantes" class="carousel slide col-7" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#showCarouselPlantes" data-slide-to="0" class="active col-7"></li>
+    <li data-target="#showCarouselPlantes" data-slide-to="1" class="col-7"></li>
+    <li data-target="#showCarouselPlantes" data-slide-to="2" class="col-7"></li>
+  </ol>
+  <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= cl_image_tag @workshop.photos[0].key, alt: "Jeu de Mains" %>
+      </div>
+      <div class="carousel-item">
+        <%= cl_image_tag @workshop.photos[1].key, alt: "Jeu de Mains" %>
+      </div>
+      <div class="carousel-item">
+        <%= cl_image_tag @workshop.photos[2].key, alt: "Jeu de Mains" %>
+      </div>
+  </div>
+    <a class="carousel-control-prev" href="#showCarouselPlantes" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#showCarouselPlantes" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+</div>
