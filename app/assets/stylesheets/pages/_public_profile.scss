@@ -1,0 +1,96 @@
+.public-card-place {
+  width: 300px;
+  background-color: $green;
+  border-radius: 10px;
+}
+
+.card-profile-header {
+border: none;
+display: flex;
+justify-content: center;
+margin: auto;
+margin-top: 20px;
+  .avatar {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.card-profile-body {
+  border: none;
+  i {
+    color: $orange;
+    margin-right: 5px;
+  }
+  p {
+    margin-bottom: 0;
+    font-size: 16px;
+    text-align: center;
+    color: white;
+  }
+  h4 {
+    text-align: center;
+  }
+  .bookings-and-average-rating {
+    display: flex;
+    justify-content: center;
+    .card-profile-important-info {
+      margin: 0 10px;
+    }
+  }
+
+  h4 {
+    font-size: 24px;
+    font-weight: bolder;
+    color: white;
+  }
+  h6 {
+    margin-bottom: 2px;
+  }
+}
+
+.profile-message-name-place {
+  h5 {
+    font-size: 16px;
+    font-style: italic;
+  }
+  i {
+    color: $green;
+  }
+}
+
+.profile-reviews {
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: bolder;
+  color: $green;
+  margin-bottom: 10px;
+}
+
+.my-dashboard-cards {
+  display: grid;
+  grid-gap: 16px;
+}
+
+.my-dashboard-card {
+  height: 80px;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 0 6px rgba(0,0,0,0.2);
+  align-items: center;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+@media (min-width: 100px) and (max-width: 920px) {
+  .my-reviews-owner-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 920px) {
+  .my-reviews-owner-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}

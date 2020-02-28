@@ -9,25 +9,25 @@
 
       <!-- OWNER AVATER, NUMBER OF BOOKINGS, RATING, MEMBER SINCE **** -->
 
-      <div class="card public-card-owner">
+      <div class="card public-card-place">
 
-        <div class="card-header card-owner-header">
-          <div class="user-card-avatar" >
+        <div class="card-profile-header">
+          <div class="avatar" >
             <% if @profile.photo.attached? %>
-              <%= cl_image_tag @profile.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, height: 150, width: 150, crop: :fill%>
+              <%= cl_image_tag @profile.photo.key, class: "avatar" %>
             <% else %>
-              <%= image_tag "https://i48.servimg.com/u/f48/16/78/05/90/myster10.png", class: "avatar dropdown-toggle avatar_user_navbar", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <%= image_tag "https://i48.servimg.com/u/f48/16/78/05/90/myster10.png", class: "avatar" %>
             <% end %>
           </div>
         </div>
 
-        <div class="card-body card-owner-body mx-3 border-bottom">
+        <div class="card-body card-profile-body mx-3">
           <div class="bookings-and-average-rating">
-            <div class="card-owner-important-info">
+            <div class="card-profile-important-info">
               <h4><i class="fas fa-brush"></i><%= @profile.workshops.count %></h4>
               <p>Ateliers animés</p>
             </div>
-            <div class="card-owner-important-info">
+            <div class="card-profile-important-info">
               <div class="d-flex inline-flex align-items-center">
                 <h4>
                   <i class="fas fa-star"></i><%= @profile.average_rating(@reviews) %>
@@ -37,7 +37,7 @@
               <p>Note moyenne</p>
             </div>
           </div>
-          <div class="member-since-info">
+          <div class="text-center mt-3">
             <h6>Membre depuis <%= @profile.created_at.year %></h6>
           </div>
         </div>
@@ -49,10 +49,10 @@
 
     <!-- RIGHT PART -->
 
-    <div class="col-7">
+    <div class="col-6">
 
       <!-- HELLO MESSAGE & OWNER CITY -->
-      <div class="public-owner-welcome-message">
+      <div class="profile-message-name-place">
         <h2 class="mb-3">Hello ! Je m'apelle <%= @profile.first_name.capitalize %></h2>
         <% if @profile.city.present? %>
           <h5 class="border-bottom pb-4">  <i class="fas fa-home mr-2"></i> De <%= @profile.city %></h5>
@@ -62,8 +62,8 @@
       <!-- OWNER'S REVIEWS -->
 
       <% if @reviews.present? %>
-        <h4 class="public-owner-listing mt-4">Les derniers avis sur mes animations</h4>
-        <div class="my-reviews-owner-cards">
+        <h4 class="profile-reviews mt-4">Les derniers avis sur mes animations</h4>
+        <div class="my-dashboard-cards">
           <% @reviews.sort_by { |review| review.created_at }.reverse.each do |review| %>
             <div class="my-dashboard-card align-items-end">
               <div class="card-body d-flex">
