@@ -2,10 +2,10 @@
   <div class="top-of-show-page col-12 mb-3">
       <h1 class="show-card-name"><%= @workshop.name %></h1>
         <% if @workshop.reviews.present? %>
-          <h5 class="rating mb-3"><% @workshop.average_rating.times do %>
-            <i class="fas fa-star"></i>
-          <% end %>
           <% if @workshop.average_rating %>
+            <h5 class="rating mb-3"><% @workshop.average_rating.times do %>
+              <i class="fas fa-star"></i>
+            <% end %>
             <% (5 - @workshop.average_rating).times do %>
               <i class="far fa-star"></i>
             <% end %>
