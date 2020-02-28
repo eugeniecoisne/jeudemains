@@ -1,19 +1,23 @@
-.public-card-place {
-  width: 300px;
+.public-card-place-show {
+  width: 280px;
   background-color: $green;
+  border: none;
   border-radius: 10px;
+  overflow: hidden;
+  min-height: 200px;
+  height: 100%;
 }
 
 .card-place-header {
-background: white;
 border: none;
 display: flex;
 justify-content: center;
 margin: auto;
-margin-top: 20px;
+margin-top: 40px;
   .avatar {
-    width: 100px;
-    height: 100px;
+    width: 130px;
+    height: 130px;
+    border: 1px solid white
   }
 }
 
@@ -68,6 +72,9 @@ margin-top: 20px;
 }
 
 .public-message-name-place {
+  h2 {
+    font-weight: 700;
+  }
   h5 {
     font-size: 16px;
     font-style: italic;
@@ -114,17 +121,20 @@ margin-top: 20px;
     width: 235px;
     text-align: left;
   }
+  .button:hover {
+    opacity: 1;
+  }
   #check-icon {
     font-size: 23px;
   }
 }
 
-.my-dashboard-cards {
+.our-workshops-cards {
   display: grid;
   grid-gap: 16px;
 }
 
-.my-dashboard-title {
+.our-workshops-title {
   margin-bottom: 0.5em;
   color: white;
   text-transform: uppercase;
@@ -132,7 +142,7 @@ margin-top: 20px;
   font-weight: bolder;
 }
 
-.my-dashboard-card {
+.our-workshops-card {
   height: 120px;
   background: white;
   display: flex;
@@ -142,7 +152,7 @@ margin-top: 20px;
   border-radius: 4px;
   overflow: hidden;
 
-  .my-dashboard-card-place {
+  .our-workshops-card-place {
     display: flex;
     align-items: center;
     img {
@@ -152,12 +162,16 @@ margin-top: 20px;
     }
   }
 
-  h2 {
+  .our-workshops-card-infos {
+    padding-left: 16px;
+  }
+
+  h5 {
     font-size: 16px;
     font-weight: bold;
   }
 
-  h3 {
+  h6 {
     font-size: 14px;
     margin: 0;
   }
@@ -167,15 +181,6 @@ margin-top: 20px;
     line-height: 1.4;
     margin-bottom: 0;
     margin-top: 8px;
-  }
-  .my-dashboard-card-infos {
-    padding: 16px;
-  }
-
-  .my-bookings-card-actions {
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
   }
 }
 

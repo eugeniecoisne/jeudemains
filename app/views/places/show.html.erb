@@ -5,7 +5,7 @@
 
     <div class="col-3">
 
-      <div class="card public-card-place">
+      <div class="card public-card-place-show">
 
         <div class="card-place-header">
           <div class="place-card-avatar" >
@@ -17,26 +17,17 @@
           </div>
         </div>
 
-        <div class="card-body card-place-body mx-3">
-          <div class="bookings-and-average-rating">
-            <div class="card-place-important-info">
-              <h4><i class="fas fa-calendar-check"></i><%= @place.workshops.count %></h4>
-              <p><strong>Ateliers à venir</strong></p>
-            </div>
-          </div>
-        </div>
-
         <div class="card-body place-show-card-body">
             <div class="d-flex">
-              <i class="fas fa-calendar-alt" id="check-icon"></i>
+              <i class="fas fa-brush"></i>
               <div class="button btn-white">
-                <p><strong>20</strong> places restantes</p>
+                <p><strong><%= @place.workshops.count %></strong> ateliers proposés</p>
               </div>
             </div>
             <div class="d-flex">
               <i class="fas fa-clipboard-check"></i>
               <div class="button btn-white">
-                <p><strong>8</strong> ateliers organisés depuis 2016</p>
+                <p><strong>26</strong> réservations passées</p>
               </div>
             </div>
           </div>
@@ -53,7 +44,7 @@
       <div class="public-message-name-place">
         <h2 class="mb-3"><%= @place.name %></h2>
         <% if @place.address.present? %>
-          <h5>  <i class="fas fa-home mr-2"></i> <%= @place.address %>, <%= @place.zip_code %>, <%= @place.city %></h5>
+          <h5>  <i class="fas fa-home mr-2"></i> <%= @place.address %>, <%= @place.zip_code %>, <%= @place.city.capitalize %></h5>
           <h5 class="pb-2">  <i class="fas fa-phone mr-2"></i> <%= @place.phone_number %></h5>
         <% end %>
       </div>
@@ -62,17 +53,27 @@
 
       <% if @place.workshops.present? %>
         <h4 class="public-places mt-4">Nos ateliers</h4>
-        <div class="my-dashboard-cards my-workshop-cards">
+        <div class="our-workshops-cards my-workshop-cards">
           <% @place.workshops.each do |workshop| %>
-            <div class="my-dashboard-card align-items-end">
-              <div class="my-dashboard-card-place">
+            <div class="our-workshops-card align-items-end">
+              <div class="our-workshops-card-place">
                 <% if workshop.photos.attached? %>
                   <%= cl_image_tag workshop.photos[0].key, alt: "Jeu de Mains", crop: :fill %>
                 <% else %>
                   <%= image_tag "profile-picture.png", alt: "Jeu de Mains" %>
                 <% end %>
-                <div class="my-dashboard-card-infos">
-                  <h2><%= link_to workshop.name, workshop_path(workshop)%></h2>
+                <div class="our-workshops-card-infos">
+                  <h5><%= link_to workshop.name, workshop_path(workshop)%></h5>
+                  <h6><%= workshop.workshop_dates.count %> dates proposées</h6>
+                  <% if workshop.average_rating %>
+                    <p class="rating mb-3"><% workshop.average_rating.times do %>
+                      <i class="fas fa-star"></i>
+                      <% end %>
+                      <% (5 - workshop.average_rating).times do %>
+                      <i class="far fa-star"></i>
+                      <% end %>
+                    </p>
+                  <% end %>
                 </div>
               </div>
             </div>
