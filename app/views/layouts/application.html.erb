@@ -17,14 +17,15 @@
     <% else %>
     <%= render 'shared/navbar_rest' %>
     <% end %>
-    <%= render 'shared/flashes' %>
     <!-- NAVBAR ⬆ -->
 
     <!-- La div "fix-footer permet de fixer le footer en bas de la page" -->
+    
     <div class="fix-footer">
       <%= yield %>
     </div>
-
+    
+    <%= render 'shared/flashes' %>
     <%= render 'shared/footer' %>
   </body>
 </html>

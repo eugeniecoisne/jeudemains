@@ -13,20 +13,24 @@
           </h5>
         <% end %>
       <% if @workshop.place.profile.company == @workshop.profile.company %>
-        <p class="show-card-organizer">Organisé & animé par: <%= @workshop.profile.company %></p>
+        <p class="show-card-organizer">Organisé & animé par : <%= link_to @workshop.place.name, place_path(@workshop.place), target: "_blank" %></p>
       <% else  %>
-        <p class="show-card-organizer">Organisé par: <%= @workshop.profile.company %></p>
-        <p class="show-card-animator">Animé par: <%= @workshop.place.profile.company %></p>
+        <p class="show-card-organizer">Organisé par : <%= link_to @workshop.place.name, place_path(@workshop.place), target: "_blank" %></p>
+        <p class="show-card-animator">Animé par : <%= link_to @workshop.profile.company, profile_public_path(@workshop.profile), target: "_blank" %></p>
       <% end %>
     <div class="d-flex justify-content-between">
       <div id="address-and-duration">
         <p class="show-card-address d-flex align-items-center">
           <i class="fas fa-map-marker-alt"></i>
-          Adresse du lieu: <%= "#{@workshop.place.address}, #{@workshop.place.zip_code} #{@workshop.place.city.upcase}" %>
+          <span>Adresse du lieu : <%= link_to "#{@workshop.place.address}, #{@workshop.place.zip_code} #{@workshop.place.city.upcase}", "https://www.google.fr/maps/search/#{@workshop.place.address}, #{@workshop.place.zip_code} #{@workshop.place.city.upcase}", target: "_blank" %></span>
         </p>
         <p class="show-card-duration d-flex align-items-center">
           <i class="fas fa-clock"></i>
-          Durée de l'atelier: <%= @workshop.duration/60 %>h<%= @workshop.duration%60 %>
+          <% if @workshop.duration%60 == 0 %>
+            Durée de l'atelier : <%= @workshop.duration/60 %>h
+          <% else %>
+            Durée de l'atelier : <%= @workshop.duration/60 %>h<%= @workshop.duration%60 %>
+          <% end %>
         </p>
       </div>
       <div class="price-workshop">
@@ -103,49 +107,56 @@
     </div>
 
     <% if @workshop.place.profile.company == @workshop.profile.company %>
-    <h4>À propos de l'organisateur</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+      <h4 class="mt-4">À propos de l'organisateur</h4>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      </p>
       <div class="links-show">
         <p>Plus d'infos:</p>
-          <%= link_to (@workshop.place.profile.instagram) do %>
-            <i class="fab fa-instagram fa-2x"></i>
-          <% end %>
-          <%= link_to (@workshop.place.profile.facebook) do %>
-            <i class="fab fa-facebook fa-2x"></i>
-          <% end %>
-          <%= link_to (@workshop.place.profile.site_web) do %>
-            <i class="fas fa-link fa-2x"></i>
-          <% end %>
-      </div>
-    <% else %>
-    <h4 class="mt-4">À propos de l'organisateur</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-      <div class="links-show mb-4">
-        <p>Plus d'infos:</p>
-          <%= link_to (@workshop.place.profile.instagram) do %>
-            <i class="fab fa-instagram fa-2x"></i>
-          <% end %>
-          <%= link_to (@workshop.place.profile.facebook) do %>
-            <i class="fab fa-facebook fa-2x"></i>
-          <% end %>
-          <%= link_to (@workshop.place.profile.site_web) do %>
-            <i class="fas fa-link fa-2x"></i>
-          <% end %>
-      </div>
-    <h4 class="mt-4">À propos de l'animateur</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-      <p>Plus d'infos:</p>
-      <div class="links-show mb-4">
-        <%= link_to (@workshop.place.profile.instagram) do %>
+        <%= link_to (@workshop.place.profile.instagram), target: "_blank" do %>
           <i class="fab fa-instagram fa-2x"></i>
         <% end %>
-        <%= link_to (@workshop.place.profile.facebook) do %>
+        <%= link_to (@workshop.place.profile.facebook), target: "_blank" do %>
           <i class="fab fa-facebook fa-2x"></i>
         <% end %>
-        <%= link_to (@workshop.place.profile.site_web) do %>
+        <%= link_to (@workshop.place.profile.site_web), target: "_blank" do %>
           <i class="fas fa-link fa-2x"></i>
         <% end %>
       </div>
+    <% else %>
+      <h4 class="mt-4">À propos de l'organisateur</h4>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      </p>
+      <div class="links-show">
+        <p>Plus d'infos:</p>
+        <%= link_to (@workshop.place.profile.instagram), target: "_blank" do %>
+          <i class="fab fa-instagram fa-2x"></i>
+        <% end %>
+        <%= link_to (@workshop.place.profile.facebook), target: "_blank" do %>
+          <i class="fab fa-facebook fa-2x"></i>
+        <% end %>
+        <%= link_to (@workshop.place.profile.site_web), target: "_blank" do %>
+          <i class="fas fa-link fa-2x"></i>
+        <% end %>
+      </div>
+      <h4 class="mt-4">À propos de l'animateur</h4>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      </p>
+      <div class="links-show">
+        <p>Plus d'infos:</p>
+        <%= link_to (@workshop.profile.instagram), target: "_blank" do %>
+          <i class="fab fa-instagram fa-2x"></i>
+        <% end %>
+        <%= link_to (@workshop.profile.facebook), target: "_blank" do %>
+          <i class="fab fa-facebook fa-2x"></i>
+        <% end %>
+        <%= link_to (@workshop.profile.site_web), target: "_blank" do %>
+          <i class="fas fa-link fa-2x"></i>
+        <% end %>
+      </div>
+
     <% end %>
   </div>
 </div>

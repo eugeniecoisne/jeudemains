@@ -1,10 +1,10 @@
-<div class="workshops-index-container">
   <% if @workshops.empty? %>
-    <div class="text-center">
-        <img src="https://media.giphy.com/media/fV8iuSEwLQ6005diSh/giphy.gif" alt="sorry" class="m-3">
-        <h4>Désolé, nous ne sommes pas encore présents dans cette ville</h4>
+    <div class="no-result">
+        <h1>Aucun résultat</h1>
+        <h2>Essayez de lancer une recherche avec d'autres mots-clés.</h2>
     </div>
   <% else %>
+<div class="workshops-index-container">
     <div class="workshops-index-cards">
       <% @workshops.each do |workshop| %>
         <%= link_to workshop_path(workshop), data: { turbolinks: false } do %>
@@ -28,7 +28,6 @@
         <% end %>
       <% end %>
     </div>
-
     <div id="workshops-index-map"
          style="width: 30%;
          height: 100vh;
@@ -37,5 +36,5 @@
          data-markers="<%= @markers.to_json %>"
          data-mapbox-api-key="pk.eyJ1IjoidGhvbWFzLXJvc2U3NiIsImEiOiJjazYyOGRieWgwYWlyM2Zxd29rZ2hiOGJsIn0.uq_GyWQAqSz7DsRV2rLLTg">
     </div>
-  <% end %>
 </div>
+  <% end %>
