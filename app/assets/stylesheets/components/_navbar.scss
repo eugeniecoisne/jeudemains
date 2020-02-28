@@ -25,6 +25,7 @@
 .navbar-jdm-home #btn-navbar, #menuButton {
   background-color: white;
   color: $blue;
+  font-size: 14px;
   font-weight: 600;
   padding: 10px 20px;
   margin-right: 10px;
@@ -65,8 +66,8 @@
     position: absolute;
     color: $blue;
     z-index: 100;
-    font-size: 16px;
-    top: 33px;
+    font-size: 14px;
+    top: 34px;
     margin-left: 12px;
   }
 
@@ -82,12 +83,18 @@
   width: 120px;
 }
 
+.navbar-jdm-rest input::placeholder{
+  font-size: 14px;
+}
+
+
 .navbar-jdm-rest #btn-navbar, #menuButton {
   background-color: white;
   color: $blue;
   font-weight: 600;
   padding: 10px 20px;
   margin-right: 10px;
+  font-size: 14px;
   text-decoration: none;
   display: flex;
   justify-content: center;
@@ -110,11 +117,12 @@
 }
 
 .navbar-jdm-rest .search-navbar #filter_place {
-  height: 44px;
+  height: 41px;
   border-radius: 5px;
   margin-right: 10px;
   width: 250px;
   padding-left: 35px;
+  background-color: $light-green;
 }
 
 .search-navbar .form-group {
