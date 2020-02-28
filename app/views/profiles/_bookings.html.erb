@@ -37,7 +37,7 @@
 
     <h4><strong>Mes réservations</strong></h4>
     <div class="public-show-my-places">
-      <% @profile.bookings.each do |booking| %>
+      <% @profile.bookings.sort_by { |booking| booking.date }.reverse.each do |booking| %>
 
         <!-- ONE BOOKING -->
         <div class="card pb-4">
