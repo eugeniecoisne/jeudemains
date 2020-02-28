@@ -14,9 +14,9 @@
         <div class="card-profile-header">
           <div class="avatar" >
             <% if @profile.photo.attached? %>
-              <%= cl_image_tag @profile.photo.key, class: "avatar" %>
+              <%= cl_image_tag @profile.photo.key, class: "avatar", height: 150, width: 150, crop: :fill %>
             <% else %>
-              <%= image_tag "https://i48.servimg.com/u/f48/16/78/05/90/myster10.png", class: "avatar" %>
+              <%= image_tag "https://i48.servimg.com/u/f48/16/78/05/90/myster10.png", class: "avatar", height: 150, width: 150, crop: :fill %>
             <% end %>
           </div>
         </div>

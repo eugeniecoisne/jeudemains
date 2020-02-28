@@ -6,7 +6,7 @@
       <!-- AVATAR -->
 
       <div class="card-header profile-show-card-header">
-        <%= image_tag "https://www.vanityfair.fr/uploads/images/thumbs/201951/cf/vf_wishlist_sezane_slider_2015.jpeg_north_375x310_.jpg", alt: "profile picture", id: "avatar" %>
+        <%= image_tag "https://www.vanityfair.fr/uploads/images/thumbs/201951/cf/vf_wishlist_sezane_slider_2015.jpeg_north_375x310_.jpg", alt: "profile picture", id: "avatar", height: 150, width: 150, crop: :fill  %>
       </div>
 
       <!-- BODY -->
@@ -15,7 +15,7 @@
         <div class="d-flex">
           <i class="fas fa-calendar-alt" id="check-icon"></i>
           <div class="button btn-white">
-            <p><strong>3</strong> réservations</p>
+            <p><strong><%= @profile.bookings.count %> </strong> réservation(s)</p>
           </div>
         </div>
         <div class="d-flex">
@@ -61,7 +61,7 @@
           <% if booking.date > Date.today %>
             <div class="d-flex">
               <div class="button btn-blue" id="booking-date-information">
-                <span><%= booking.date %></span>
+                <span><%= booking.date.strftime('%d/%m/%Y') %></span>
               </div>
               <div class="button btn-yellow ml-2" id="booking-date-information">
                 <span>chez <%= booking.workshop.place.name %></span>
@@ -70,7 +70,7 @@
           <% else %>
             <div class="d-flex">
               <div class="button btn-green" id="booking-date-information-gray">
-                <span><%= booking.date %></span>
+                <span><%= booking.date.strftime('%d/%m/%Y') %></span>
               </div>
               <div class="button btn-green ml-2" id="booking-date-information-gray">
                 <span>chez <%= booking.workshop.place.name %></span>

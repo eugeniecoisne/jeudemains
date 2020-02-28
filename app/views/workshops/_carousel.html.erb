@@ -7,13 +7,13 @@
   <div class="carousel-inner">
     <% if @workshop.photos.attached? %>
       <div class="carousel-item active">
-        <%= cl_image_tag @workshop.photos[0].key, alt: "Jeu de Mains" %>
+        <%= cl_image_tag @workshop.photos[0].key, alt: "Jeu de Mains", height: 800, width: 1000, crop: :fill %>
       </div>
       <div class="carousel-item">
-        <%= cl_image_tag @workshop.photos[1].key, alt: "Jeu de Mains" %>
+        <%= cl_image_tag @workshop.photos[1].key, alt: "Jeu de Mains", height: 800, width: 1000, crop: :fill %>
       </div>
       <div class="carousel-item">
-        <%= cl_image_tag @workshop.photos[2].key, alt: "Jeu de Mains" %>
+        <%= cl_image_tag @workshop.photos[2].key, alt: "Jeu de Mains", height: 800, width: 1000, crop: :fill %>
       </div>
     <% else %>
       <div class="carousel-item active">

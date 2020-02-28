@@ -10,9 +10,9 @@
         <div class="card-place-header">
           <div class="place-card-avatar" >
             <% if @place.photo.attached? %>
-              <%= cl_image_tag @place.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, height: 150, width: 150, crop: :fill%>
+              <%= cl_image_tag @place.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, height: 170, width: 170, crop: :fill%>
             <% else %>
-              <%= image_tag "profile-picture.png", class: "avatar dropdown-toggle avatar_place_navbar", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, height: 150, width: 150, crop: :fill %>
+              <%= image_tag "profile-picture.png", class: "avatar dropdown-toggle avatar_place_navbar", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, height: 170, width: 170, crop: :fill %>
             <% end %>
           </div>
         </div>
