@@ -11,7 +11,7 @@
         <div class="workshops-index-card">
           <div class="img-workshops-index-card">
             <% if workshop.photos.attached? %>
-              <%= cl_image_tag @workshop.photos.sample.key, alt: "Jeu de Mains", class: "img-workshops-index-card" %>
+              <%= cl_image_tag @workshop.photos[0].key, alt: "Jeu de Mains", class: "img-workshops-index-card" %>
             <% else %>
               <%= image_tag "https://cdn.shopify.com/s/files/1/0135/6627/9738/articles/header_310b8395-f711-42cb-89f9-db495e34012f.jpg?v=1540918920", alt: "image workshop", class: "img-workshops-index-card" %>
             <% end %>
