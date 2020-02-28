@@ -12,7 +12,7 @@
             <% if @place.photo.attached? %>
               <%= cl_image_tag @place.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, height: 150, width: 150, crop: :fill%>
             <% else %>
-              <%= image_tag "homebanner2.jpg", class: "avatar dropdown-toggle avatar_place_navbar", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, height: 150, width: 150, crop: :fill %>
+              <%= image_tag "profile-picture.png", class: "avatar dropdown-toggle avatar_place_navbar", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, height: 150, width: 150, crop: :fill %>
             <% end %>
           </div>
         </div>
@@ -67,9 +67,9 @@
             <div class="my-dashboard-card align-items-end">
               <div class="my-dashboard-card-place">
                 <% if workshop.photos.attached? %>
-                  <%= image_tag @workshop.photos.key, alt: "Jeu de Mains", crop: :fill %>
+                  <%= cl_image_tag workshop.photos[0].key, alt: "Jeu de Mains", crop: :fill %>
                 <% else %>
-                  <%= image_tag "homebanner2.jpg", alt: "Jeu de Mains" %>
+                  <%= image_tag "profile-picture.png", alt: "Jeu de Mains" %>
                 <% end %>
                 <div class="my-dashboard-card-infos">
                   <h2><%= link_to workshop.name, workshop_path(workshop)%></h2>
