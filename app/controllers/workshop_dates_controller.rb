@@ -1,4 +1,6 @@
 class WorkshopDatesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:search_places]
+
   def new
    @workshop_date = WorkshopDate.new
    authorize @workshop_date
@@ -21,6 +23,13 @@ class WorkshopDatesController < ApplicationController
     @workshop_date = WorkshopDate.find(params[:id])
     @workshop_date.destroy
     redirect_to profile_path(@workshop_date.workshop.place.profile)
+  end
+
+  def search_places
+     @workshop_date = WorkshopDate.find(params[:workshop_date_id])
+     authorize @workshop_date
+     @number = @workshop_date.available
+     render json: @number
   end
 
   private

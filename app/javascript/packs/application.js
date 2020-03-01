@@ -12,6 +12,7 @@ import { initFlatpickr } from '../plugins/flatpickr';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initSelect2 } from '../plugins/init_select2';
 import { initStarRating } from '../plugins/init_star_rating';
+import { initSearchPlaces } from '../plugins/search_places';
 
 document.addEventListener('turbolinks:load', () => {
   initNavbarMenu();
@@ -21,6 +22,7 @@ document.addEventListener('turbolinks:load', () => {
   addPlace();
   initSelect2();
   initStarRating();
+  initSearchPlaces();
 });
 
 

@@ -57,9 +57,6 @@
           <div class="form-group select required">
             <select class="form-control select required" name="nb_part" id="workshop_level">
                 <option value="" disabled selected>Nombre de place(s)</option>
-              <% (1..5).to_a.each do |nb| %>
-                <option value="<%= nb %>"><%= nb %></option>
-              <% end %>
             </select>
           </div>
           <%= f.submit 'Réserver', class: 'button btn-white' %>
