@@ -29,15 +29,9 @@
 .price-workshop {
   position: relative;
   bottom: -7px;
+  color: white;
   h5 {
     font-size: 25px;
-  }
-  .button {
-    border-radius: 7px;
-    padding: 6px 12px;
-  }
-  .btn-blue:hover {
-    opacity: 1;
   }
   #small-per-pers {
     font-weight: 300;
@@ -57,21 +51,26 @@
   margin: 0;
   padding: 0;
   background-color: $green;
+  border: 1px solid $green;
   height: 420px;
+  border-radius: 0;
   text-align: center;
   h3 {
     color: black;
     margin: 0.8em;
   }
   .button {
+    background: linear-gradient(to right, $blue 50%, $white 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
     font-weight: bolder;
     border: 1px solid $blue;
     width: auto;
   }
   .button:hover {
     border: 1px solid white;
-    background-color: $blue;
     color: white;
+    background-position: left bottom;
     opacity: 1;
   }
   input {
@@ -82,8 +81,6 @@
 }
 
 .show-card  {
-  border: none;
-  border-radius: 10px;
   color: 1px solid black;
   p {
     padding: 5px;
@@ -106,10 +103,13 @@
 }
 
 .thematic {
+  color: white;
+  border-radius: 4px;
   background-color: $yellow;
-  color: $white;
-  border-radius: 5px;
-  padding: 8px 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 13px;
+  padding: 3px 8px;
   text-align: center;
 }
 
@@ -118,11 +118,12 @@ li {
 }
 
 .workshop-reviews {
-  background-color: $blue;
-  color: white;
-  border-radius: 10px;
+  background-color: $light-blue;
+  // border: 1px solid $blue;
+  color: $blue;
   padding: 15px 20px;
   p {
+    font-size: 14px;
     margin-bottom: 8px;
   }
   i {
@@ -142,4 +143,25 @@ li {
   .fa-link {
     font-size: 27px;
   }
+}
+
+.further-information {
+  padding-left: 0;
+  padding-right: 20px;
+  .fa-tag {
+    color: $yellow;
+    font-size: 20px;
+  }
+}
+
+.card-reviews {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.carousel-and-booking-card {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 25px;
 }

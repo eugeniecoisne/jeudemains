@@ -6,7 +6,11 @@
       <!-- AVATAR -->
 
       <div class="card-header profile-show-card-header">
-        <%= image_tag "https://www.lesherbeshautes.fr/app/uploads/2020/01/MK4_2725-scaled.jpg", alt: "profile picture", id: "avatar" %>
+        <% if @profile.photo.attached? %>
+          <%= cl_image_tag @profile.photo.key, alt: "profile picture", id: "avatar", width: 250, crop: :fill  %>
+        <% else %>
+          <%= image_tag "profile-picture.png", id: "avatar", width: 250, crop: :fill %>
+        <% end %>
       </div>
 
       <!-- BODY -->

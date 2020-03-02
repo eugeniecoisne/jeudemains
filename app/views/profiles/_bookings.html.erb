@@ -6,7 +6,11 @@
       <!-- AVATAR -->
 
       <div class="card-header profile-show-card-header">
-        <%= image_tag "https://www.vanityfair.fr/uploads/images/thumbs/201951/cf/vf_wishlist_sezane_slider_2015.jpeg_north_375x310_.jpg", alt: "profile picture", id: "avatar", width: 250, crop: :fill  %>
+        <% if @profile.photo.attached? %>
+          <%= cl_image_tag @profile.photo.key, alt: "profile picture", id: "avatar", width: 250, crop: :fill  %>
+        <% else %>
+          <%= image_tag "profile-picture.png", id: "avatar", width: 250, crop: :fill %>
+        <% end %>
       </div>
 
       <!-- BODY -->

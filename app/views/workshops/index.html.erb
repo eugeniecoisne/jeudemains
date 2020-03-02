@@ -7,7 +7,7 @@
 <div class="workshops-index-container">
     <div class="workshops-index-cards">
       <% @workshops.each do |workshop| %>
-        <%= link_to workshop_path(workshop) do %>
+        <%= link_to workshop_path(workshop), id: "workshops-index-card" do %>
         <div class="workshops-index-card">
           <div class="img-workshops-index-card">
             <% if workshop.photos.attached? %>
@@ -38,7 +38,7 @@
       <% end %>
     </div>
     <div id="workshops-index-map"
-         style="width: 30%;
+         style="width: 40%;
          height: 100vh;
          position: sticky;
          top: 0;"
