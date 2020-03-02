@@ -12,4 +12,8 @@ class WorkshopDate < ApplicationRecord
     end
     participants - counter
   end
+
+  def places_left_per_workshop
+    @places_left = WorkshopDate.all.order(:date).first(4)
+  end
 end

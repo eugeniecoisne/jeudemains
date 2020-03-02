@@ -96,37 +96,37 @@
     <div>
       <h4 class="mb-3">Les offres de dernière minute</h4>
       <div class="suggestion-cards">
-        <% @workshops.first(4).each do |workshop| %>
-          <%= link_to workshop_path(workshop), id: "suggestion-home-card" do %>
+        <% @places_left.each do |date| %>
+          <%= link_to workshop_path(date.workshop), id: "suggestion-home-card" do %>
           <div class="suggestion-home-card">
             <div class="img-suggestion-home-card">
-              <% if workshop.photos.attached? %>
-                <%= cl_image_tag workshop.photos[0].key, alt: "Jeu de Mains", class: "img-suggestion-home-card", width: 300, crop: :fill %>
+              <% if date.workshop.photos.attached? %>
+                <%= cl_image_tag date.workshop.photos[0].key, alt: "Jeu de Mains", class: "img-suggestion-home-card", width: 300, crop: :fill %>
               <% else %>
                 <%= image_tag "https://cdn.shopify.com/s/files/1/0135/6627/9738/articles/header_310b8395-f711-42cb-89f9-db495e34012f.jpg?v=1540918920", alt: "image workshop", class: "img-suggestion-home-card", width: 300, crop: :fill %>
               <% end %>
               <div class="remaining-places">
                 <i class="fas fa-ticket-alt"></i>
                 <div class="tag">
-                  <p>2 places restantes</p>
+                  <p><%= date.available %> places restantes</p>
                 </div>
               </div>
             </div>
             <div class="suggestion-home-card-infos">
               <div>
-                <h1><%= workshop.name[0..30] %></h1>
+                <h1><%= date.workshop.name[0..30] %></h1>
               </div>
               <div class="d-flex justify-content-between mb-1">
-                <h2><i class="fas fa-map-marker-alt"></i> <%= workshop.place.name %></h2>
+                <h2><i class="fas fa-map-marker-alt"></i> <%= date.workshop.place.name %></h2>
               </div>
               <div class="d-flex justify-content-between">
                 <div class=" rating d-flex">
                   <h3>
-                    <i class="fas fa-star" style="color:$blue"></i><%= workshop.average_rating %>/5
+                    <i class="fas fa-star" style="color:$blue"></i><%= date.workshop.average_rating %>/5
                   </h3>
-                  <p>(<%= workshop.reviews.count %> avis)</p>
+                  <p>(<%= date.workshop.reviews.count %> avis)</p>
                 </div>
-                <h1><%= workshop.price %>€</h1>
+                <h1><%= date.workshop.price %>€</h1>
               </div>
             </div>
           </div>
