@@ -82,7 +82,7 @@ workshop1 = Workshop.new(
 Nous vous guiderons pour réaliser une création esthétique et raffinée. Repartez fièrement avec votre propre création pour orner votre joli minois. Les fleurs stabilisées et séchées se gardent des années… Idéales pour un souvenir impérissable !',
   thematic: 'Couronne de fleurs',
   level: 'Débutant',
-  price: 69,
+  price_cents: 6900,
   duration: 120,
   )
 workshop1.place = Place.last
@@ -112,7 +112,7 @@ workshop2 = Workshop.new(
 Que vous ayez la main verte ou pas, suivez les conseils de nos passionnées du monde végétal et devenez l’artisan de votre propre terrarium. Laissez parler votre créativité en façonnant vous-même votre petit écosystème !',
   thematic: 'Terrarium',
   level: 'Débutant',
-  price: 79,
+  price_cents: 7900,
   duration: 90,
   )
 workshop2.place = Place.last
@@ -195,7 +195,7 @@ La cloche, de belle dimension (23cm de haut), permet de laisser libre court à v
 Tout le matériel est fourni, boisson offerte',
   thematic: 'Cloche florale',
   level: 'Débutant',
-  price: 50,
+  price_cents: 5000,
   duration: 120,
   )
 
@@ -245,7 +245,7 @@ workshop6 = Workshop.new(
 Tout le matériel est fourni, boisson offerte',
   thematic: 'Cadre végétal',
   level: 'Débutant',
-  price: 20,
+  price_cents: 2000,
   duration: 60,
   )
 
@@ -294,7 +294,7 @@ workshop4 = Workshop.new(
 Vous repartez avec votre bougie à la fin de l’atelier !',
   thematic: 'Bougie florale',
   level: 'Débutant',
-  price: 45,
+  price_cents: 4500,
   duration: 150,
   )
 workshop4.place = Place.last
@@ -368,7 +368,7 @@ Au cours de cet atelier de 2h dans un cadre intimiste et en petit comité, nous 
 
 Le prix comprend la réalisation de votre création unique en format A4 ainsi qu'un cadre.",
   level: 'Débutant',
-  price: 65,
+  price_cents: 6500,
   duration: 120,
   )
 workshop5.place = Place.last

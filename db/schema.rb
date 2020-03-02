@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_27_124757) do
+ActiveRecord::Schema.define(version: 2020_03_02_111941) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,11 @@ ActiveRecord::Schema.define(version: 2020_02_27_124757) do
     t.bigint "profile_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "quantity"
+    t.string "status"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "amount_currency", default: "EUR", null: false
+    t.string "checkout_session_id"
     t.index ["profile_id"], name: "index_bookings_on_profile_id"
     t.index ["workshop_id"], name: "index_bookings_on_workshop_id"
   end
@@ -122,13 +127,13 @@ ActiveRecord::Schema.define(version: 2020_02_27_124757) do
     t.string "thematic"
     t.string "subtheme"
     t.string "level"
-    t.float "price"
     t.integer "duration"
     t.bigint "place_id", null: false
     t.bigint "profile_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "status"
+    t.integer "price_cents", default: 0, null: false
     t.index ["place_id"], name: "index_workshops_on_place_id"
     t.index ["profile_id"], name: "index_workshops_on_profile_id"
   end
