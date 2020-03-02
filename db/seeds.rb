@@ -404,7 +404,7 @@ puts "CREATING 11 REVIEWS"
 
 review1 = Review.new(rating: 4, animator_rating: 4, content: "Super atelier couronne de fleurs animé par la douce Hélène, les fleurs étaient de qualité et je suis ravie du résultat")
 review1.workshop = workshop1
-review1.profile = Profile.find_by(last_name: "Bison")
+review1.profile = Profile.find_by(last_name: "Coisne")
 review1.created_at = Date.today - 16
 review1.save!
 
@@ -422,7 +422,7 @@ review3.save!
 
 review4 = Review.new(rating: 5, animator_rating: 5, content: "Je rêvais de créer mon terrarium et c'est chose faite sous les bons conseils de Hélène")
 review4.workshop = workshop2
-review4.profile = Profile.find_by(last_name: "Bison")
+review4.profile = Profile.find_by(last_name: "Coisne")
 review4.created_at = Date.today - 6
 review4.save!
 
@@ -440,7 +440,7 @@ review6.save!
 
 review7 = Review.new(rating: 3, animator_rating: 3, content: "J'avais préféré l'atelier bougie fleurie mais je suis quand même contente de ma cloche")
 review7.workshop = workshop3
-review7.profile = Profile.find_by(last_name: "Bison")
+review7.profile = Profile.find_by(last_name: "Coisne")
 review7.created_at = Date.today - 9
 review7.save!
 
@@ -470,7 +470,7 @@ review11.save!
 
 review12 = Review.new(rating: 5, animator_rating: 5, content: "Super découverte, mon herbier était accroché au mur du salon le soir-même !")
 review12.workshop = workshop5
-review12.profile = Profile.find_by(last_name: "Bison")
+review12.profile = Profile.find_by(last_name: "Coisne")
 review12.created_at = Date.today - 5
 review12.save!
 
