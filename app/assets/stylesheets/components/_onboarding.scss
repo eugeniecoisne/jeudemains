@@ -1,0 +1,53 @@
+.onboarding {
+  height: 720px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  padding: 30px;
+  padding-top: 40px;
+  color: white;
+
+  #onboarding-title {
+    font-weight: 700;
+    margin-bottom: 3px;
+  }
+}
+
+.onboarding-steps {
+  padding: 30px;
+  h1 {
+    font-weight: 700;
+    margin-top: 0;
+  }
+  p {
+    margin-bottom: 0;
+  }
+  strong {
+    background-color: white;
+    color: $blue;
+  }
+}
+
+.onboarding-step-col-right {
+  text-align: right;
+  padding-left: 60%;
+}
+
+.onboarding-step-col-left {
+  width: 40%;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 991px) {
+  .onboarding {
+    background: $green;
+    height: 800px;
+  }
+  .onboarding-step-col-right {
+  text-align: right;
+  padding-left: 0;
+  }
+  .onboarding-step-col-left {
+  width: 100%;
+}
+}
