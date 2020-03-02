@@ -24,8 +24,8 @@
               </td>
               <td><%=booking.workshop.name%><br>Chez : <%= booking.workshop.place.name %></td>
               <td><%=booking.date.strftime('%d/%m/%Y')%> <%= booking.workshop.workshop_dates.find_by(date: booking.date).start_at %></td>
-              <td>1 place</td>
-              <td><%=booking.workshop.price%> €</td>
+              <td><%=booking.quantity%> place(s)</td>
+              <td><%= humanized_money_with_symbol(booking.price) %></td>
               <td>
                 <%= link_to workshop_path(booking.workshop) do %>
                   <i class="fas fa-eye"></i>
@@ -39,10 +39,6 @@
         <% end %>
       </tbody>
     </table>
-
-  </div>
-
-  <div class="tab-pane fade" id="nav-old-bookings" role="tabpanel" aria-labelledby="nav-old-bookings-tab">
 
     <table class="table bookings-table">
       <tbody>
@@ -59,8 +55,8 @@
               </td>
               <td><%=booking.workshop.name%><br>Chez : <%= booking.workshop.place.name %></td>
               <td><%=booking.date.strftime('%d/%m/%Y')%> <%= booking.workshop.workshop_dates.find_by(date: booking.date).start_at %></td>
-              <td>1 place</td>
-              <td><%=booking.workshop.price%> €</td>
+              <td><%=booking.quantity%> place(s)</td>
+              <td><%= humanized_money_with_symbol(booking.price) %></td>
               <td>
                 <%= link_to "Donnez votre avis !", new_workshop_review_path(booking.workshop), id: "invite-to-comment" %>
               </td>

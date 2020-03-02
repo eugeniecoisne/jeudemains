@@ -10,8 +10,7 @@ class Workshop < ApplicationRecord
   # validates :status, inclusion: { in: ['En ligne', 'Hors ligne'] }
 
   validates :name, presence: true, allow_blank: false
-
-  # validates :price, :duration, :participants, numericality: true
+  monetize :price_cents
 
   include PgSearch::Model
   pg_search_scope :search_by_keyword, against: [

@@ -3,6 +3,8 @@
     <div class="col-4">
       <%= simple_form_for([@workshop, @workshop_date]) do |f| %>
         <%= f.input :date, as: :string, required: false, input_html: {class: "datepicker"} %>
+        <%= f.input :start_at, placeholder: 'Exemple : 9h30', label: 'Heure de début' %>
+        <%= f.input :participants, label: 'Nombre de participants' %>
         <%= f.submit 'Valider la date', class: 'btn btn-primary' %>
       <% end %>
     </div>

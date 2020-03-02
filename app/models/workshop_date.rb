@@ -7,7 +7,7 @@ class WorkshopDate < ApplicationRecord
     counter = 0
     workshop.bookings.each do |booking|
       if booking.date == date
-        counter += 1
+        counter += booking.quantity
       end
     end
     participants - counter

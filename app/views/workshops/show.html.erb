@@ -57,7 +57,7 @@
             </select>
           </div>
           <div class="price-workshop">
-            <h5><strong><%= @workshop.price.round %>€</strong><span id="small-per-pers"> /pers</span></h5>
+            <h5><strong><%= humanized_money_with_symbol(@workshop.price) %></strong><span id="small-per-pers"> /pers</span></h5>
           </div>
           <%= f.submit 'Réserver', class: 'button btn-white' %>
         <% end %>

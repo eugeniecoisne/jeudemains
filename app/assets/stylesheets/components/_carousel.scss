@@ -1,3 +1,4 @@
+// CAROUSEL SHOW //
 .carousel-inner {
   display: flex;
   align-items: center;
@@ -29,4 +30,47 @@
   padding-left: 0;
   padding-right: 0;
   overflow: hidden;
+}
+
+// CAROUSEL INDEX //
+.workshops-index-cards {
+  .carousel-slide .carousel-inner a:hover {
+      opacity: 1;
+  }
+
+  .link-workshop > a {
+    left: 0;
+    position: inherit;
+  }
+
+  .carousel.slide{
+    padding-left: 0;
+    padding-right: 0;
+    overflow: hidden;
+
+    .carousel-inner {
+      display: flex;
+      align-items: center;
+      height: 178px;
+      width: 100%;
+      .carousel-control-prev-icon, .carousel-control-next-icon  {
+        position: absolute;
+        left: 47.5%;
+        font-size: 10px;
+        color: white;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+      }
+    }
+
+  .carousel-item {
+      img {
+        object-fit: cover;
+        width: 100%;
+      }
+    }
+  }
+
+  .carousel.slide .carousel-indicators li {
+    display:none;
+  }
 }
