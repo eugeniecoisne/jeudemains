@@ -13,7 +13,7 @@
       <tbody>
         <% @profile.bookings.sort_by { |booking| booking.date }.reverse.each do |booking| %>
           <% if booking.date >= Date.today %>
-            <tr">
+            <tr>
               <td scope="row">Commande n° <%= booking.id %></td>
               <td>
                 <% if booking.workshop.photos.attached? %>
@@ -25,7 +25,7 @@
               <td><%=booking.workshop.name%><br>Chez : <%= booking.workshop.place.name %></td>
               <td><%=booking.date.strftime('%d/%m/%Y')%> <%= booking.workshop.workshop_dates.find_by(date: booking.date).start_at %></td>
               <td><%=booking.quantity%> place(s)</td>
-              <td><%= humanized_money_with_symbol(booking.price) %></td>
+              <td><%= humanized_money_with_symbol(booking.amount) %></td>
               <td>
                 <%= link_to workshop_path(booking.workshop) do %>
                   <i class="fas fa-eye"></i>
@@ -44,7 +44,7 @@
       <tbody>
         <% @profile.bookings.sort_by { |booking| booking.date }.reverse.each do |booking| %>
           <% if booking.date < Date.today %>
-            <tr">
+            <tr>
               <td scope="row">Commande n° <%= booking.id %></td>
               <td>
                 <% if booking.workshop.photos.attached? %>
@@ -56,9 +56,13 @@
               <td><%=booking.workshop.name%><br>Chez : <%= booking.workshop.place.name %></td>
               <td><%=booking.date.strftime('%d/%m/%Y')%> <%= booking.workshop.workshop_dates.find_by(date: booking.date).start_at %></td>
               <td><%=booking.quantity%> place(s)</td>
-              <td><%= humanized_money_with_symbol(booking.price) %></td>
+              <td><%= humanized_money_with_symbol(booking.amount) %></td>
               <td>
-                <%= link_to "Donnez votre avis !", new_workshop_review_path(booking.workshop), id: "invite-to-comment" %>
+                <% if booking.already_commented? %>
+                  <span><i class="fas fa-check"></i> Avis déjà posté !</span>
+                <% else %>
+                  <%= link_to "Donnez votre avis !", new_workshop_review_path(booking.workshop), id: "invite-to-comment" %>
+                <% end %>
               </td>
             </tr>
           <% end %>
