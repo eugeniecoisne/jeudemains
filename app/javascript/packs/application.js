@@ -13,6 +13,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initSelect2 } from '../plugins/init_select2';
 import { initStarRating } from '../plugins/init_star_rating';
 import { initSearchPlaces } from '../plugins/search_places';
+import { showMoreReviews } from '../plugins/show_more_reviews';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -24,6 +25,7 @@ document.addEventListener('turbolinks:load', () => {
   initSelect2();
   initStarRating();
   initSearchPlaces();
+  showMoreReviews();
 });
 
 
