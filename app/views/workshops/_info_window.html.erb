@@ -1,0 +1,20 @@
+<div class="info-pop-up-workshop">
+  <div class="img-popup">
+    <% if place.photo.attached? %>
+    <%= cl_image_tag place.photo.key, alt: "photo du lieu" %>
+    <% else %>
+    <%= image_tag "https://cdn.shopify.com/s/files/1/0135/6627/9738/articles/header_310b8395-f711-42cb-89f9-db495e34012f.jpg?v=1540918920", alt: "image workshop" %>
+    <% end %>
+  </div>
+    <h2><i class="fas fa-map-marker-alt"></i> <%= place.name %></h2>
+</div>
+<div class="workshop-pop-up">
+  <h3><U>Ateliers présents dans ce lieu :</U></h3>
+        <% place.workshops.each do |workshop| %>
+          <%= link_to workshop_path(workshop) do %>
+          <h4>• <%= workshop.name %></h4>
+          <% end %>
+        <% end %>
+</div>
+
+
