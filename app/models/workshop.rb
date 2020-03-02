@@ -51,4 +51,9 @@ class Workshop < ApplicationRecord
       average = ratings.sum.fdiv(reviews.count).round(1).to_i
     end
   end
+
+  def self.first_four_workshops_to_display
+    Workshop.all.sort_by(&:average_rating).first(4).reverse
+  end
+
 end

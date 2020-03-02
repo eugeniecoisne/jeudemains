@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   def home
     @profiles = Profile.where(animator: true)
     @places = Place.joins(:profile).where("profiles.organizer=true")
+    @workshops = Workshop.all
   end
 
   def search
@@ -20,4 +21,6 @@ class PagesController < ApplicationController
       redirect_to workshops_path
     end
   end
+
+
 end

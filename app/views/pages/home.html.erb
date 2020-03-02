@@ -3,6 +3,7 @@
     <h1>
       <span>Réservez un atelier créatif végétal <br>près de chez vous</span>
     </h1>
+
     <div class="col-sm-12 col-md-5 mt-4 bg-white p-3 home-search-form">
       <ul class="nav nav-tabs home-search-form" id="myTab" role="tablist">
         <li class="nav-item">
@@ -50,3 +51,91 @@
     </div>
   </div>
 </div>
+
+
+<div class="mt-4 p-3">
+  <div class="suggestion-home-container justify-content-center">
+    <div>
+      <h4 class="mb-3">Nos suggestions d'ateliers testés et approvés</h4>
+      <div class="suggestion-cards">
+        <% Workshop.first_four_workshops_to_display.each do |workshop| %>
+          <%= link_to workshop_path(workshop), id: "suggestion-home-card" do %>
+          <div class="suggestion-home-card">
+            <div class="img-suggestion-home-card">
+              <% if workshop.photos.attached? %>
+                <%= cl_image_tag workshop.photos[0].key, alt: "Jeu de Mains", class: "img-suggestion-home-card", width: 300, crop: :fill %>
+              <% else %>
+                <%= image_tag "https://cdn.shopify.com/s/files/1/0135/6627/9738/articles/header_310b8395-f711-42cb-89f9-db495e34012f.jpg?v=1540918920", alt: "image workshop", class: "img-suggestion-home-card", width: 300, crop: :fill %>
+              <% end %>
+            </div>
+            <div class="suggestion-home-card-infos">
+              <div>
+                <h1><%= workshop.name[0..30] %></h1>
+              </div>
+              <div class="d-flex justify-content-between mb-1">
+                <h2><i class="fas fa-map-marker-alt"></i> <%= workshop.place.name %></h2>
+              </div>
+              <div class="d-flex justify-content-between">
+                <div class=" rating d-flex">
+                  <h3>
+                    <i class="fas fa-star" style="color:$blue"></i><%= workshop.average_rating %>/5
+                  </h3>
+                  <p>(<%= workshop.reviews.count %> avis)</p>
+                </div>
+                <h1><%= workshop.price %>€</h1>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="suggestion-home-container justify-content-center">
+    <div>
+      <h4 class="mb-3">Les offres de dernière minute</h4>
+      <div class="suggestion-cards">
+        <% @workshops.first(4).each do |workshop| %>
+          <%= link_to workshop_path(workshop), id: "suggestion-home-card" do %>
+          <div class="suggestion-home-card">
+            <div class="img-suggestion-home-card">
+              <% if workshop.photos.attached? %>
+                <%= cl_image_tag workshop.photos[0].key, alt: "Jeu de Mains", class: "img-suggestion-home-card", width: 300, crop: :fill %>
+              <% else %>
+                <%= image_tag "https://cdn.shopify.com/s/files/1/0135/6627/9738/articles/header_310b8395-f711-42cb-89f9-db495e34012f.jpg?v=1540918920", alt: "image workshop", class: "img-suggestion-home-card", width: 300, crop: :fill %>
+              <% end %>
+              <div class="remaining-places">
+                <i class="fas fa-ticket-alt"></i>
+                <div class="tag">
+                  <p>2 places restantes</p>
+                </div>
+              </div>
+            </div>
+            <div class="suggestion-home-card-infos">
+              <div>
+                <h1><%= workshop.name[0..30] %></h1>
+              </div>
+              <div class="d-flex justify-content-between mb-1">
+                <h2><i class="fas fa-map-marker-alt"></i> <%= workshop.place.name %></h2>
+              </div>
+              <div class="d-flex justify-content-between">
+                <div class=" rating d-flex">
+                  <h3>
+                    <i class="fas fa-star" style="color:$blue"></i><%= workshop.average_rating %>/5
+                  </h3>
+                  <p>(<%= workshop.reviews.count %> avis)</p>
+                </div>
+                <h1><%= workshop.price %>€</h1>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
