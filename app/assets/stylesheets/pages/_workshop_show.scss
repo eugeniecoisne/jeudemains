@@ -158,6 +158,12 @@ li {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
+  max-height: 300px;
+  overflow: hidden;
+}
+
+.card-reviews.show {
+  max-height: unset;
 }
 
 .carousel-and-booking-card {

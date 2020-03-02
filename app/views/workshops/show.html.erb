@@ -103,6 +103,12 @@
         <% end %>
       <% end %>
     </div>
+      <% if @workshop.reviews.count >= 4 %>
+      <button type="button" class="btn btn-primary" id="moreReview">Afficher plus de commentaires</button>
+      <% else %>
+      <% end %>
+
+
 
     <% if @workshop.place.profile.company == @workshop.profile.company %>
       <h4 class="mt-4">À propos de l'organisateur <%= @workshop.place.name %></h4>
