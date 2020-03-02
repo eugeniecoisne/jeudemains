@@ -26,7 +26,7 @@
                   </h3>
                   <p>(<%= workshop.reviews.count %> avis)</p>
                 </div>
-                <h1><%= workshop.price %>€</h1>
+                <h1><%= humanized_money_with_symbol(workshop.price) %></h1>
               </div>
             </div>
           <% end %>
