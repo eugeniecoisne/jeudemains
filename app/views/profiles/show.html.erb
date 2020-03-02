@@ -5,12 +5,20 @@
   <!-- WELCOME MESSAGE -->
 
     <div class="profile-show-welcome">
-      <h3 class="pt-3">Bonjour <%= @profile.first_name.capitalize %>,</h3>
-      <h4>bienvenue sur ton espace !</h4>
-
+      <div class="profile-show-avatar">
+        <% if @profile.photo.attached? %>
+          <%= cl_image_tag @profile.photo.key, alt: "profile picture", id: "avatar", width: 250, crop: :fill  %>
+        <% else %>
+          <%= image_tag "profile-picture.png", id: "avatar", width: 250, crop: :fill %>
+        <% end %>
+      </div>
+      <div>
+        <h4>Bonjour <%= @profile.first_name.capitalize %>,</h4>
+        <h5>bienvenue sur votre espace</h5>
+      </div>
     </div>
 
-    <div class="row justify-content-center profile-show-grid">
+    <div class="row d-flex flex-column">
 
       <% if current_user.profile.animator %>
         <%= render "workshops" %>
