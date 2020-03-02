@@ -18,7 +18,10 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
   end
 
-  resources :workshop_dates, only: :destroy
+  resources :workshop_dates, only: :destroy do
+    get 'search-places'
+  end
+
   resources :bookings, only: :destroy
   resources :reviews, except: [:index, :show, :new, :destroy]
 end
