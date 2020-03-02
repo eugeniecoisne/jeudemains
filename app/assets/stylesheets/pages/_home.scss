@@ -75,3 +75,169 @@ body {
     height: 700px;
   }
 }
+
+
+
+
+
+.suggestion-home-container {
+  display: flex;
+}
+
+.suggestion-cards {
+  display: grid;
+  margin-bottom: 20px;
+  grid-gap: 20px;
+}
+
+.img-suggestion-home-card {
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.rating p {
+  margin-top: 3px;
+  margin-left: 6px;
+}
+
+.suggestion-home-card-infos h1 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.no-result {
+  margin:44px;
+}
+
+.no-result h1 {
+  font-size: 22px;
+}
+
+.no-result h2 {
+  font-size: 16px;
+}
+
+
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .suggestion-cards {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+  .suggestion-home-card {
+    width: auto;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) and (max-width: 767px) {
+  .suggestion-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) and (max-width: 991px) {
+  .suggestion-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .suggestion-cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
+// WORKSHOPS CARD ⬇
+
+.suggestion-home-card {
+  width: 270px;
+  height :270px;
+  overflow: hidden;
+  background: white;
+  border-radius: .25rem;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.suggestion-home-card:hover {
+  color: $green;
+}
+
+.suggestion-home-card .img-suggestion-home-card {
+  background-size: cover;
+  height: 170px;
+}
+
+.suggestion-home-card-infos h1 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.suggestion-home-card-infos h2 {
+  font-size: 13px;
+  font-weight: normal;
+  margin: 0;
+  margin-bottom: 4px;
+}
+
+.suggestion-home-card-infos h3 {
+  font-size: 13px;
+  font-weight: normal;
+  margin-top: 2px;
+}
+
+.suggestion-home-card-infos h4 {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.suggestion-home-card-infos p {
+  font-size: 11px;
+  opacity: .7;
+  margin: 0;
+}
+
+.suggestion-home-card-infos {
+  padding: 16px;
+  display: block;
+}
+
+.img-suggestion-home-card {
+  height: 300;
+  width: 300;
+}
+
+.tag {
+  background-color: #E8B535;
+  position: relative;
+  width: 120px;
+  bottom: 188px;
+  left: 140px;
+  border-radius: 3px;
+  border: 1px solid white;
+  p {
+    font-size: 11px;
+    padding: 5px;
+    width: fit-content;
+    color: white;
+    font-weight: bold;
+    margin: auto;
+  }
+}
+
+.fa-ticket-alt {
+  color: #E8B535;
+  font-size: 25px;
+  position: relative;
+  bottom: 160px;
+  left: 100px;
+  transform: rotate(45deg)
+}
+// WORKSHOPS CARD ⬆

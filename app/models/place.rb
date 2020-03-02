@@ -8,7 +8,6 @@ class Place < ApplicationRecord
 
   validates :name, :address, :zip_code, :city, :phone_number, presence: true, allow_blank: false
 
-
   # private
 
   def full_address
