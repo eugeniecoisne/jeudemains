@@ -4,4 +4,8 @@ class Booking < ApplicationRecord
 
   validates :date, presence: true, allow_blank: false
   monetize :amount_cents
+
+  def already_commented?
+    profile.reviews.find_by(workshop_id: workshop.id).present?
+  end
 end
