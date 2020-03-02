@@ -18,11 +18,11 @@ puts "CREATING 3 PARTICIPANTS"
 User.create!(email: 'a@a.com', password: '123456')
 camille = Profile.last
 camille.update!(
-  last_name: 'Bison',
-  first_name: 'Camille',
+  last_name: 'Coisne',
+  first_name: 'Eugénie',
 )
-file = URI.open('https://img.over-blog-kiwi.com/0/52/53/79/20160319/ob_d3bf5a_pomme.JPG')
-camille.photo.attach(io: file, filename: 'camille.jpg', content_type: 'image/jpg')
+file = URI.open('https://pbs.twimg.com/profile_images/707681437286342656/dwZB6Qg__400x400.jpg')
+camille.photo.attach(io: file, filename: 'eugenie.jpg', content_type: 'image/jpg')
 
 User.create!(email: 'b@b.com', password: '123456')
 alexia = Profile.last

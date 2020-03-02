@@ -1,6 +1,7 @@
 <div class="container mt-4">
   <div class="row justify-content-center">
-    <div class="col-8">
+    <div class="col-8 reviews-form">
+      <h3>Notez l'atelier <br><span><%= @workshop.name %></span></h3>
       <%= simple_form_for([@workshop, @review]) do |f| %>
         <%= f.input :rating, collection: [1, 2, 3, 4, 5], label: "Note de l'atelier" %>
         <%= f.input :animator_rating, collection: [1, 2, 3, 4, 5], label: "Note de l'animateur" %>
