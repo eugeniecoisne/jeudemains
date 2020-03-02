@@ -53,10 +53,10 @@
 </div>
 
 
-<div class="mt-4 p-3">
+<div class="mt-1 p-3">
   <div class="suggestion-home-container justify-content-center">
     <div>
-      <h4 class="mb-3">Nos suggestions d'ateliers testés et approvés</h4>
+      <h4 class="mb-3">Les ateliers préférés de nos clients</h4>
       <div class="suggestion-cards">
         <% Workshop.first_four_workshops_to_display.each do |workshop| %>
           <%= link_to workshop_path(workshop), id: "suggestion-home-card" do %>
@@ -92,7 +92,7 @@
     </div>
   </div>
 
-  <div class="suggestion-home-container justify-content-center">
+  <div class="suggestion-home-container justify-content-center mb-4">
     <div>
       <h4 class="mb-3">Les offres de dernière minute</h4>
       <div class="suggestion-cards">
