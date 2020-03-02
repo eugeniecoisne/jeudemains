@@ -5,6 +5,7 @@ class PagesController < ApplicationController
     @profiles = Profile.where(animator: true)
     @places = Place.joins(:profile).where("profiles.organizer=true")
     @workshops = Workshop.all
+    @places_left = WorkshopDate.all.order(:date).first(4)
   end
 
   def search
