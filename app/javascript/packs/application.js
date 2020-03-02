@@ -14,6 +14,7 @@ import { initSelect2 } from '../plugins/init_select2';
 import { initStarRating } from '../plugins/init_star_rating';
 import { initSearchPlaces } from '../plugins/search_places';
 
+
 document.addEventListener('turbolinks:load', () => {
   initNavbarMenu();
   initFlatpickr();

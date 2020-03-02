@@ -21,7 +21,7 @@ camille.update!(
   last_name: 'Bison',
   first_name: 'Camille',
 )
-file = URI.open('https://www.courrierinternational.com/sites/ci_master/files/styles/image_original_1280/public/assets/images/courrier-international-clonage-alpagas.jpg?itok=-ttP0Z1H')
+file = URI.open('https://img.over-blog-kiwi.com/0/52/53/79/20160319/ob_d3bf5a_pomme.JPG')
 camille.photo.attach(io: file, filename: 'camille.jpg', content_type: 'image/jpg')
 
 User.create!(email: 'b@b.com', password: '123456')
@@ -30,8 +30,8 @@ alexia.update!(
   last_name: 'Dupont',
   first_name: 'Alexia',
 )
-file = URI.open('http://www.placedesreseaux.com/img/illustrations-dossiers/soigner-son-image/soigner-son-image-1.jpg')
-alexia.photo.attach(io: file, filename: 'alexia.jpg', content_type: 'image/jpg')
+file = URI.open('https://24.media.tumblr.com/tumblr_m5koiyLN9P1rut9u9o1_500.png')
+alexia.photo.attach(io: file, filename: 'alexia.png', content_type: 'image/png')
 
 User.create!(email: 'c@c.com', password: '123456')
 heloise = Profile.last
@@ -39,8 +39,9 @@ heloise.update!(
   last_name: 'Janin',
   first_name: 'Héloïse',
 )
-file = URI.open('https://dwj199mwkel52.cloudfront.net/assets/lewagon-logo-square-fe76916e1b923ade71e253ae6dc031d936e5e8eebac4e26b0fbac650ea6ee360.png')
+file = URI.open('https://i.pinimg.com/474x/59/86/69/598669c4a978ce3740c7ce61f18a7c23.jpg')
 heloise.photo.attach(io: file, filename: 'heloise.png', content_type: 'image/png')
+
 
 puts "CREATING Les Herbes Hautes"
 # LES HERBES HAUTES : ORGANISATEUR
@@ -59,12 +60,20 @@ Profile.last.update!(
   organizer: true,
   animator: true,
   )
+file = URI.open('https://www.lesherbeshautes.fr/app/uploads/2020/01/MK4_2725-scaled.jpg')
+Profile.last.photo.attach(io: file, filename: 'lesherbeshautes.jpg', content_type: 'image/jpg')
 
-place1 = Place.new(name: 'Les Herbes Hautes', address: '85 Boulevard Voltaire', zip_code: '75011', city: 'PARIS', phone_number: '0952090027', description: "Quibus occurrere bene pertinax miles explicatis ordinibus parans hastisque feriens scuta qui habitus iram pugnantium concitat et dolorem proximos.")
+place1 = Place.new(
+  name: 'Les Herbes Hautes',
+  address: '85 Boulevard Voltaire',
+  zip_code: '75011', city: 'PARIS',
+  phone_number: '0952090027',
+  description: "Les Herbes Hautes est un atelier de création florale, né par amour de la nature. Nous fleurissons avec passion votre mariage et vos événements, en donnant vie à des compositions végétales et fleuries."
+  )
 place1.profile = Profile.last
 place1.save!
-file = URI.open('https://www.lesherbeshautes.fr/app/uploads/2019/07/ATELIERS-solo.jpg')
-place1.photo.attach(io: file, filename: 'place1.png', content_type: 'image/jpg')
+file = URI.open('https://www.lesherbeshautes.fr/app/uploads/2020/01/MK4_2725-scaled.jpg')
+place1.photo.attach(io: file, filename: 'lesherbeshautes.jpg', content_type: 'image/jpg')
 
 workshop1 = Workshop.new(
   name: 'Couronne en fleurs éternelles',
@@ -75,7 +84,6 @@ Nous vous guiderons pour réaliser une création esthétique et raffinée. Repar
   level: 'Débutant',
   price: 69,
   duration: 120,
-  description: "Quibus occurrere bene pertinax miles explicatis ordinibus parans hastisque feriens scuta qui habitus iram pugnantium concitat et dolorem proximos."
   )
 workshop1.place = Place.last
 workshop1.profile = Profile.last
@@ -106,7 +114,6 @@ Que vous ayez la main verte ou pas, suivez les conseils de nos passionnées du m
   level: 'Débutant',
   price: 79,
   duration: 90,
-  description: "Quibus occurrere bene pertinax miles explicatis ordinibus parans hastisque feriens scuta qui habitus iram pugnantium concitat et dolorem proximos."
   )
 workshop2.place = Place.last
 workshop2.profile = Profile.last
@@ -145,11 +152,22 @@ Profile.last.update!(
   organizer: true,
 )
 
-place2 = Place.new(name: 'Happy Folk', address: '64 Boulevard Voltaire', zip_code: '75011', city: 'PARIS', phone_number: '0184790117', description: "Quibus occurrere bene pertinax miles explicatis ordinibus parans hastisque feriens scuta qui habitus iram pugnantium concitat et dolorem proximos.")
+file = URI.open('https://scontent-cdt1-1.xx.fbcdn.net/v/t1.0-9/50862043_773582539675794_2005401804816252928_o.jpg?_nc_cat=106&_nc_sid=7aed08&_nc_ohc=W87Tr4qXyWoAX_6boD5&_nc_ht=scontent-cdt1-1.xx&oh=a9176ef43bca2239cd56ebd9b4915e28&oe=5EF2B4EB')
+Profile.last.photo.attach(io: file, filename: 'happyfolk.jpg', content_type: 'image/jpg')
+
+place2 = Place.new(
+  name: 'Happy Folk',
+  address: '64 Boulevard Voltaire',
+  zip_code: '75011',
+  city: 'PARIS',
+  phone_number: '0184790117',
+  description: "Happy Folk est un projet global d’expériences autour de l’art de vivre, de consommer, de travailler Slow basé sur 4 piliers :
+La sélections de créateurs, d’artisans ou de start-up slow de talents, les pratiques de bien-être et médecines douces, les ateliers créatifs Do It Yourself, les conférences et rencontres avec des experts reconnus."
+  )
 place2.profile = Profile.last
 place2.save!
-file = URI.open('https://www.happyfolk.fr/wp-content/uploads/2019/01/facebook_cover_affiche.jpg')
-place2.photo.attach(io: file, filename: 'place2.jpg', content_type: 'image/jpg')
+file = URI.open('https://scontent-cdt1-1.xx.fbcdn.net/v/t1.0-9/50862043_773582539675794_2005401804816252928_o.jpg?_nc_cat=106&_nc_sid=7aed08&_nc_ohc=W87Tr4qXyWoAX_6boD5&_nc_ht=scontent-cdt1-1.xx&oh=a9176ef43bca2239cd56ebd9b4915e28&oe=5EF2B4EB')
+place2.photo.attach(io: file, filename: 'happyfolk.jpg', content_type: 'image/jpg')
 
 puts "CREATING Flowrette"
 #   FLOWRETTE : ANIMATEUR
@@ -163,7 +181,10 @@ Profile.last.update!(
   facebook: 'https://www.facebook.com/flowretteparis/',
   instagram: 'https://www.instagram.com/flowrette_com/',
   animator: true,
+  description: "Flowrette est une fleuriste dédiée qui se déplace dans plusieurs lieux pour animer des ateliers floraux, avec un large choix des fleurs séchées pour satisfaire toutes les envies, une ambiance bohème et champêtre, et tout le matériel nécessaire à la confection de produits en fleurs séchées."
   )
+file = URI.open('https://scontent-cdt1-1.xx.fbcdn.net/v/t1.0-9/52769502_787858928261755_3674602838241050624_o.png?_nc_cat=105&_nc_sid=7aed08&_nc_ohc=9OeSjl8SvacAX_LNO2e&_nc_ht=scontent-cdt1-1.xx&oh=3a152ac508e98116c2c0166aa09df320&oe=5F002622')
+Profile.last.photo.attach(io: file, filename: 'flowrette.png', content_type: 'image/png')
 
 workshop3 = Workshop.new(
   name: 'Jardin de fleurs séchées sous cloche',
@@ -176,7 +197,6 @@ Tout le matériel est fourni, boisson offerte',
   level: 'Débutant',
   price: 50,
   duration: 120,
-  description: "Quibus occurrere bene pertinax miles explicatis ordinibus parans hastisque feriens scuta qui habitus iram pugnantium concitat et dolorem proximos."
   )
 
 workshop3.place = Place.last
@@ -199,6 +219,57 @@ date6 = WorkshopDate.new(
 date6.workshop = workshop3
 date6.save!
 
+
+puts "CREATING C by Clémence"
+#   FLOWRETTE : ANIMATEUR
+User.create!(email: 'hello@clemence.com', password: '123456')
+Profile.last.update!(
+  last_name: 'XXXX',
+  first_name: 'Clémence',
+  company: 'C by Clémence',
+  phone_number: '0111111113',
+  site_web: 'https://cbyclemence.com/',
+  facebook: 'https://www.facebook.com/cbyclemence',
+  instagram: 'https://www.instagram.com/cbyclemence/',
+  animator: true,
+  description: "Je m’appelle Clémence, j’ai 28 ans. Toulousaine d’origine, je suis installée à Paris depuis octobre 2015.
+Créative et passionnée de DIY (do it yourself ou en français « fais le toi-même »), je suis accro au Chaï Latte, aux paillettes, à la photographie, à Pinterest et beaucoup d’autres choses. Créer de mes mains est une réelle passion que je nourris au quotidien : au détour d’une rue ou encore en m’inspirant sur Pinterest.
+Entrepreneuse créative, mon activité se partage entre la création de contenu créatif digital pour les marques, la scénographie d’évènement, le set design, ainsi que l’animation d’ateliers créatifs."
+  )
+file = URI.open('https://cbyclemence.com/wp-content/uploads/2019/02/CONFETTIS-CLEM3.png')
+Profile.last.photo.attach(io: file, filename: 'cbyclemence.png', content_type: 'image/png')
+
+workshop6 = Workshop.new(
+  name: 'Cadre tropical en mousse',
+  description: 'Venez créer un cadre tendance à base de mousse vétégale stabilisée, à s’offrir ou à offrir !
+Tout le matériel est fourni, boisson offerte',
+  thematic: 'Cadre végétal',
+  level: 'Débutant',
+  price: 20,
+  duration: 60,
+  )
+
+workshop6.place = Place.last
+workshop6.profile = Profile.last
+workshop6.save!
+
+date12 = WorkshopDate.new(
+  date: Date.today + 23,
+  start_at: '16h00',
+  participants: 10
+)
+date12.workshop = workshop6
+date12.save!
+
+date13 = WorkshopDate.new(
+  date: Date.today + 37,
+  start_at: '16h00',
+  participants: 10
+)
+date13.workshop = workshop6
+date13.save!
+
+
 puts "CREATING Ponoie"
 #   PONOIE : ANIMATEUR
 User.create!(email: 'hello@ponoie.com', password: '123456')
@@ -210,7 +281,11 @@ Profile.last.update!(
   site_web: 'https://www.ponoie.com/',
   instagram: 'https://www.instagram.com/ponoie/',
   animator: true,
+  description: "Né en Avignon, Ponoie arrive à Paris en 2016 et engage une volonté de créer un produit s’inspirant des odeurs et couleurs de son Sud natal. C’est au travers d’une bougie en cire végétale que Ponoie réalise son souhait : redonner la parole aux fleurs dans nos intérieurs."
   )
+
+file = URI.open('https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/40112800_717757568577594_3021483405104644096_n.jpg?_nc_cat=111&_nc_sid=85a577&_nc_ohc=ZwnkxJi-vi8AX-Tbo6h&_nc_ht=scontent-cdg2-1.xx&oh=51821ec882122edebf50a8f562157c3d&oe=5EF0821C')
+Profile.last.photo.attach(io: file, filename: 'ponoie.jpg', content_type: 'image/jpg')
 
 workshop4 = Workshop.new(
   name: 'Réalisez votre bougie fleurie',
@@ -221,14 +296,13 @@ Vous repartez avec votre bougie à la fin de l’atelier !',
   level: 'Débutant',
   price: 45,
   duration: 150,
-  description: "Quibus occurrere bene pertinax miles explicatis ordinibus parans hastisque feriens scuta qui habitus iram pugnantium concitat et dolorem proximos."
   )
 workshop4.place = Place.last
 workshop4.profile = Profile.last
 workshop4.save!
 
 date7 = WorkshopDate.new(
-  date: Date.today + 10,
+  date: Date.today - 90,
   start_at: '18h00',
   participants: 8
 )
@@ -243,61 +317,179 @@ date8 = WorkshopDate.new(
 date8.workshop = workshop4
 date8.save!
 
+
+puts "CREATING Herbarium"
+# HERBARIUM : ORGANISATEUR
+User.create!(email: 'hello@herbarium.com', password: '123456')
+Profile.last.update!(
+  last_name: 'Ruilhat',
+  first_name: 'Marion',
+  company: 'Herbarium',
+  address: '155 rue de Belleville',
+  zip_code: '75019',
+  city: 'Paris',
+  phone_number: '0171609171',
+  site_web: 'https://herbarium.fr/',
+  facebook: 'https://www.facebook.com/herbariumparis/',
+  instagram: 'https://www.instagram.com/herbarium/',
+  organizer: true,
+  animator: true
+  )
+file = URI.open('https://www.facebook.com/herbariumparis/photos/a.1684965628419881/2140230512893388/?type=3&theater')
+Profile.last.photo.attach(io: file, filename: 'herbarium.jpg', content_type: 'image/jpg')
+
+place3 = Place.new(
+  name: 'Herbarium',
+  address: '155 rue de Belleville',
+  zip_code: '75019', city: 'PARIS',
+  phone_number: '0171609171',
+  description: "Pressed flowers are forever.
+Parce qu’une fleur pressée dure toujours, 
+Parce que l’artisanat existe encore, 
+Parce que le monde végétal nous apaise, 
+Parce que les plantes ont leur langage, 
+Parce que le made in Paris est possible, 
+Parce qu'internet nous rapproche,
+ Parce qu'on mérite tous de l'exceptionnel, 
+Parce que les rêves se réalisent, 
+Parce que la nature est belle.
+ Nous sommes Herbarium."
+  )
+place3.profile = Profile.last
+place3.save!
+file = URI.open('https://www.facebook.com/herbariumparis/photos/a.1684965628419881/2140230512893388/?type=3&theater')
+place3.photo.attach(io: file, filename: 'herbarium.jpg', content_type: 'image/jpg')
+
+workshop5 = Workshop.new(
+  name: 'Réalisez votre propre herbier',
+  description: "Laissez parler votre imagination et découvrez nos secrets de fabrication avec cette expérience unique !
+
+Au cours de cet atelier de 2h dans un cadre intimiste et en petit comité, nous vous apprendrons les étapes de la réalisation d'un herbier, de la mise sous presse jusqu'au montage sous cadre.
+
+Le prix comprend la réalisation de votre création unique en format A4 ainsi qu'un cadre.",
+  level: 'Débutant',
+  price: 65,
+  duration: 120,
+  )
+workshop5.place = Place.last
+workshop5.profile = Profile.last
+workshop5.save!
+
+date9 = WorkshopDate.new(
+  date: Date.today + 12,
+  start_at: '17h00',
+  participants: 6
+)
+date9.workshop = workshop5
+date9.save!
+
+date10 = WorkshopDate.new(
+  date: Date.today + 16,
+  start_at: '19h00',
+  participants: 6
+)
+date10.workshop = workshop5
+date10.save!
+
+date11 = WorkshopDate.new(
+  date: Date.today + 19,
+  start_at: '18h00',
+  participants: 6
+)
+date11.workshop = workshop5
+date11.save!
+
+
 puts "CREATING 11 REVIEWS"
 
 review1 = Review.new(rating: 4, animator_rating: 4, content: "Super atelier couronne de fleurs animé par la douce Hélène, les fleurs étaient de qualité et je suis ravie du résultat")
 review1.workshop = workshop1
 review1.profile = Profile.find_by(last_name: "Bison")
+review1.created_at = Date.today - 16
 review1.save!
 
 review2 = Review.new(rating: 5, animator_rating: 4, content: "Atelier très sympathique, j'ai appris plein de choses et je suis contente du résultat !")
 review2.workshop = workshop1
 review2.profile = Profile.find_by(last_name: "Dupont")
+review2.created_at = Date.today - 30
 review2.save!
 
 review3 = Review.new(rating: 4, animator_rating: 3, content: "Plutôt cool et bien expliqué")
 review3.workshop = workshop1
 review3.profile = Profile.find_by(last_name: "Janin")
+review3.created_at = Date.today - 45
 review3.save!
 
 review4 = Review.new(rating: 5, animator_rating: 5, content: "Je rêvais de créer mon terrarium et c'est chose faite sous les bons conseils de Hélène")
 review4.workshop = workshop2
 review4.profile = Profile.find_by(last_name: "Bison")
+review4.created_at = Date.today - 6
 review4.save!
 
 review5 = Review.new(rating: 4, animator_rating: 5, content: "Bonne ambiance, un large choix de plantes, je recommande !")
 review5.workshop = workshop2
 review5.profile = Profile.find_by(last_name: "Dupont")
+review5.created_at = Date.today - 16
 review5.save!
 
 review6 = Review.new(rating: 5, animator_rating: 5, content: "J'ai A-DO-RÉ ! C'était top")
 review6.workshop = workshop2
 review6.profile = Profile.find_by(last_name: "Janin")
+review6.created_at = Date.today - 20
 review6.save!
 
 review7 = Review.new(rating: 3, animator_rating: 3, content: "J'avais préféré l'atelier bougie fleurie mais je suis quand même contente de ma cloche")
 review7.workshop = workshop3
 review7.profile = Profile.find_by(last_name: "Bison")
+review7.created_at = Date.today - 9
 review7.save!
 
 review8 = Review.new(rating: 5, animator_rating: 5, content: "Atelier très créatif sous le signe de la bonne humeur")
 review8.workshop = workshop3
 review8.profile = Profile.find_by(last_name: "Dupont")
+review8.created_at = Date.today - 10
 review8.save!
 
 review9 = Review.new(rating: 4, animator_rating: 5, content: "Je remercie Elodie de Flowrette pour son bon goût et ses précieux conseils")
 review9.workshop = workshop3
 review9.profile = Profile.find_by(last_name: "Janin")
+review9.created_at = Date.today - 22
 review9.save!
 
-review10 = Review.new(rating: 5, animator_rating: 4, content: "La cire est végétale et les fleurs toutes mignonnes je recommande")
+review10 = Review.new(rating: 4, animator_rating: 4, content: "La cire est végétale et les fleurs toutes mignonnes je recommande")
 review10.workshop = workshop4
-review10.profile = Profile.find_by(last_name: "Bison")
+review10.profile = Profile.find_by(last_name: "Janin")
+review10.created_at = Date.today - 4
 review10.save!
 
 review11 = Review.new(rating: 3, animator_rating: 3, content: "Un peu cher pour le résultat")
 review11.workshop = workshop4
 review11.profile = Profile.find_by(last_name: "Dupont")
+review11.created_at = Date.today - 5
 review11.save!
+
+review12 = Review.new(rating: 5, animator_rating: 5, content: "Super découverte, mon herbier était accroché au mur du salon le soir-même !")
+review12.workshop = workshop5
+review12.profile = Profile.find_by(last_name: "Bison")
+review12.created_at = Date.today - 5
+review12.save!
+
+review13 = Review.new(rating: 5, animator_rating: 5, content: "Vraiment génial, l'ambiance était chouette et le produit est hyper qualitatif")
+review13.workshop = workshop5
+review13.profile = Profile.find_by(last_name: "Dupont")
+review13.created_at = Date.today - 8
+review13.save!
+
+review14 = Review.new(rating: 5, animator_rating: 5, content: "Juste foncez, l'atelier vaut vraiment le coup et le choix des fleurs est top")
+review14.workshop = workshop5
+review14.profile = Profile.find_by(last_name: "Janin")
+review14.created_at = Date.today - 17
+review14.save!
+
+review15 = Review.new(rating: 4, animator_rating: 4, content: "Clémence a très bon goût et ce petit atelier était sympa !")
+review15.workshop = workshop6
+review15.profile = Profile.find_by(last_name: "Janin")
+review15.created_at = Date.today - 20
+review15.save!
 
 puts "FINISHED"
