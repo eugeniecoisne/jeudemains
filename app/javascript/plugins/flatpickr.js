@@ -4,7 +4,8 @@ import "flatpickr/dist/flatpickr.min.css" // Note this is important!
 
 const initFlatpickr = () => {
   flatpickr(".datepicker", {
-      "enableTime": true,
+      "enableTime": false,
+      "minDate": "today"
   })
 };
 
