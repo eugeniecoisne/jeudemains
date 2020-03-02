@@ -20,7 +20,7 @@ class WorkshopsController < ApplicationController
       {
         lat: place.latitude,
         lng: place.longitude,
-        # infoWindow: render_to_string(partial: "info_window", locals: { workshop.place: workshop.place })
+        infoWindow: render_to_string(partial: "info_window", locals: { place: place })
       }
     end
   end
