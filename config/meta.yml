@@ -1,7 +1,7 @@
 # config/meta.yml
 
 meta_product_name: "Jeu de mains"
-meta_title: "Jeu de mains"
+meta_title: "Jeu de mains | ateliers créatifs"
 meta_description: "Réservez un atelier créatif végétal à Paris! Herbier, couronne de fleurs, bougie florale, terrarium, bouquet de fleurs séchées...découvrez tous nos ateliers."
 meta_image: "cover.jpg" # should exist in `app/assets/images/`
 twitter_account: "@Lewagonparis"   # required for Twitter Cards
