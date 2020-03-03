@@ -29,10 +29,17 @@
     vertical-align: middle;
   }
   i {
-    font-size: 20px;
+    font-size: 18px;
+    color: $blue;
   }
   p {
     margin-bottom: 0;
+  }
+  a {
+    color: $gray;
+  }
+  #review-posted {
+    color: $blue;
   }
   #invite-to-comment {
     font-size: 13px;
@@ -44,6 +51,20 @@
   #invite-to-comment:hover {
     color: $green;
     border-color: $green;
+  }
+  #cancel-booking {
+    font-size: 13px;
+    font-weight: 700;
+    color: $green;
+    padding-bottom: 4px;
+    border-bottom: 2px solid $green;
+  }
+  #cancel-booking:hover {
+    color: $yellow;
+    border-color: $yellow;
+  }
+  #booking-number {
+    font-size: 12px;
   }
 }
 
