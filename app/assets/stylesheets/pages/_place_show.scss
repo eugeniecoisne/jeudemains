@@ -1,8 +1,6 @@
 .public-card-place-show {
   width: 280px;
-  background-color: $green;
   border: none;
-  border-radius: 10px;
   overflow: hidden;
   min-height: 200px;
   height: 100%;
@@ -132,7 +130,6 @@ margin-top: 40px;
   justify-content: space-between;
   box-shadow: 0 0 6px rgba(0,0,0,0.2);
   align-items: center;
-  border-radius: 4px;
   overflow: hidden;
 
   .our-workshops-card-place {
