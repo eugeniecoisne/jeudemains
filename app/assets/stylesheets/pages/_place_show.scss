@@ -4,6 +4,7 @@
   overflow: hidden;
   min-height: 200px;
   height: 100%;
+  background-color: transparent;
 }
 
 .card-place-header {
@@ -15,7 +16,7 @@ margin-top: 40px;
   .avatar {
     width: 130px;
     height: 130px;
-    border: 1px solid white
+    border: 1px solid gray;
   }
 }
 
@@ -91,7 +92,7 @@ margin-top: 40px;
     font-size: 25px;
     padding-top: 9px;
     margin-right: 10px;
-    color: white;
+    color: #205B6B;
   }
   p {
     margin-bottom: 0;
