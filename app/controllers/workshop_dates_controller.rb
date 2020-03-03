@@ -35,6 +35,6 @@ class WorkshopDatesController < ApplicationController
   private
 
   def workshop_date_params
-    params.require(:workshop_date).permit(:date)
+    params.require(:workshop_date).permit(:date, :start_at, :participants)
   end
 end
