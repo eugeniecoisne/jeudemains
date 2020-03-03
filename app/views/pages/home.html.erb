@@ -1,9 +1,9 @@
 <div class="banner", id="homebanner-margintop", style="background-image: url(<%= image_path "homebanner2.jpg" %>)">
   <div class="container banner-container d-flex justify-content-around">
-    <h1>
-      <span>Réservez un atelier créatif végétal <br>près de chez vous</span>
-    </h1>
-
+    <div class="justify-content-around">
+      <h1>Réservez un atelier créatif végétal <br>près de chez vous</h1>
+      <h1 class="mt-4" id="scroll-down"><a href="#onboarding">Les ateliers créatifs, c'est quoi ?</a></h1>
+    </div>
     <div class="col-sm-12 col-md-5 mt-4 bg-white p-3 home-search-form">
       <ul class="nav nav-tabs home-search-form" id="myTab" role="tablist">
         <li class="nav-item">
@@ -137,7 +137,7 @@
   </div>
 </div>
 
-<div class="onboarding" style="background-image: url(<%= image_path "feuille.svg" %>);">
+<div class="onboarding" style="background-image: url(<%= image_path "feuille.svg" %> );" id="onboarding">
   <h3 id="onboarding-title">Les ateliers créatifs, c'est quoi ?</h3>
   <h4>Le plaisir du faire soi-même en boutique concept-store ou chez un artisan.</h4>
   <div class="onboarding-steps">
@@ -160,6 +160,5 @@
     <div>
   </div>
 </div>
-
 
 

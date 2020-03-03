@@ -26,7 +26,8 @@ document.addEventListener('turbolinks:load', () => {
   initStarRating();
   initSearchPlaces();
   showMoreReviews();
+  const scroll = new SmoothScroll('a[href*="#"]', {
+    speed: 1000
+  });
+
 });
-
-
-

@@ -11,7 +11,6 @@ body {
   overflow-x: hidden;
 }
 
-
 .home-search-form {
   #myTab {
     border-bottom-color: $white;
@@ -61,7 +60,6 @@ body {
   background-color: $green !important;
 }
 
-
 // Smallest device
 @media (min-width: 100px) and (max-width: 767px) {
   .banner {
@@ -75,9 +73,6 @@ body {
     height: 700px;
   }
 }
-
-
-
 
 
 .suggestion-home-container {
@@ -246,3 +241,5 @@ body {
   transform: rotate(45deg)
 }
 // WORKSHOPS CARD ⬆
+
+
