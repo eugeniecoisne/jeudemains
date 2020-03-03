@@ -1,10 +1,12 @@
-<div class="banner", id="homebanner-margintop", style="background-image: url(<%= image_path "homebanner2.jpg" %>)">
-  <div class="container banner-container d-flex justify-content-around">
+<div class="banner", id="homebanner-margintop", style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(<%= image_path "homebanner2.jpg" %>)">
+  <div class="container banner-container d-flex justify-content-around mt-4">
     <div class="justify-content-around">
       <h1>Réservez un atelier créatif végétal <br>près de chez vous</h1>
-      <h1 class="mt-4" id="scroll-down"><a href="#onboarding">Les ateliers créatifs, c'est quoi ?</a></h1>
+      <div class="mt-4" id="scroll-down">
+        <a class="d-flex align-items-end button btn-transparent" href="#onboarding">Découvrir</a>
+      </div>
     </div>
-    <div class="col-sm-12 col-md-5 mt-4 bg-white p-3 home-search-form">
+    <div class="col-sm-12 col-md-5 bg-white p-3 home-search-form">
       <ul class="nav nav-tabs home-search-form" id="myTab" role="tablist">
         <li class="nav-item">
           <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Chercher un atelier</a>
@@ -19,15 +21,14 @@
             <%= f.input :keyword, class: "form-control", required: false, label: false, placeholder: "Que cherchez-vous ?" %>
             <%= f.input :place, class: "form-control", required: false, label: false, placeholder: "Code postal / Ville" %>
             <div class="form-group string optional filter_date">
-              <label for="filter_date">Date souhaitée</label>
-              <input class="form-control string optional datepicker flatpickr-input" type="text" name="filter[date]" id="filter_date" readonly="readonly">
+              <input class="form-control string optional datepicker flatpickr-input" type="text" name="filter[date]" id="filter_date" readonly="readonly" placeholder="Choisir une date ?">
             </div>
             <%= submit_tag "Rechercher", class: "button btn-blue" %>
           <% end %>
         </div>
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
           <%= simple_form_for :filter, url: search_path, method: :get do |f| %>
-          <div class="form-group mt-3">
+          <div class="form-group mt-3" id="searching-animator">
             <label for="profile">Rechercher un animateur</label>
             <select class="form-control select2" name="profile" id="profile">
                 <option></option>
@@ -45,7 +46,7 @@
               <% end %>
             </select>
           </div>
-            <%= f.submit 'Rechercher', class: 'btn btn-primary' %>
+            <%= f.submit 'Rechercher', class: 'button btn-blue' %>
           <% end %>
         </div>
       </div>
