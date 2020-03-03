@@ -1,3 +1,33 @@
+.title-form {
+  h3 {
+    font-weight: 700;
+    color: $blue;
+    margin-bottom: 20px;
+    line-height: 37px;
+  }
+}
+
+.form-background {
+  background-size: cover;
+  background-position: center;
+  padding-right: 0;
+  padding-left: 0;
+  height: 100vh;
+}
+
+.edit-profile-form {
+  label {
+    font-weight: 600;
+  }
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 767px) {
+  .log-in-background {
+    background: none;
+  }
+}
+
 .workshop-form-page {
   margin-top: 50px;
   margin-bottom: 50px;
