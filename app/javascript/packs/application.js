@@ -4,6 +4,7 @@ require("turbolinks").start()
 require("channels")
 
 import "bootstrap";
+import Typed from 'typed.js';
 
 import { initNavbarMenu } from '../plugins/navbarmenu';
 import { ShowWorkshops } from '../plugins/show_workshops';
@@ -26,6 +27,14 @@ document.addEventListener('turbolinks:load', () => {
   initStarRating();
   initSearchPlaces();
   showMoreReviews();
+  const options = {
+    strings: ["Les ateliers créatifs, c'est quoi ?"],
+    typeSpeed: 40,
+    loop: true,
+    backDelay: 2000
+  };
+
+  const typed = new Typed('.element', options);
 });
 
 
