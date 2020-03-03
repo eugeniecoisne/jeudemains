@@ -4,6 +4,8 @@
   overflow: hidden;
   min-height: 200px;
   height: 100%;
+  background-color: $blue;
+  border-radius: 5px;
 }
 
 .card-place-header {
@@ -15,7 +17,7 @@ margin-top: 40px;
   .avatar {
     width: 130px;
     height: 130px;
-    border: 1px solid white
+    border: 1px solid white;
   }
 }
 
