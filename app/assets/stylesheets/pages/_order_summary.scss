@@ -1,0 +1,51 @@
+.container-order-summary {
+  text-align: center;
+}
+
+.paiement-card {
+  border-bottom: solid 1px $green;
+  border-top: solid 1px $green;
+  text-align: center;
+  margin: auto;
+  padding: 24px;
+  width: 540px;
+}
+
+.container-order-summary .workshop-name {
+  margin: auto;
+  text-align: left;
+}
+
+.container-order-summary .workshop-info {
+  display: flex;
+} img {
+  width: 160px;
+  margin-left: 16px;
+}
+
+.container-order-summary h1 {
+  font-weight: 600;
+  color: $blue;
+  margin:32px;
+  font-size: 26px;
+}
+
+.container-order-summary h2 {
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.container-order-summary h3 {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.container-order-summary h4 {
+  font-weight: 500;
+  color: $blue;
+  font-size: 26px;
+  text-align: right;
+  margin-right: 70px;
+}
+
+
