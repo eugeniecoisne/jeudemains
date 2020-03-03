@@ -1,20 +1,42 @@
-<div class="container">
-  <div class="row py-4">
-    <div class="col-md-3"></div>
-    <div class="col">
-      <h1>Checkout summary</h1>
-      <p>Purchase of <strong><%= @booking.workshop.name %></strong> for <strong><%= humanized_money_with_symbol @booking.amount %></strong></p>
-      <button id="pay" class="btn btn-primary">Pay</button>
-      <script src="https://js.stripe.com/v3/"></script>
-      <script>
-        const paymentButton = document.getElementById('pay');
-        paymentButton.addEventListener('click', () => {
-          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
-          stripe.redirectToCheckout({
-            sessionId: '<%= @booking.checkout_session_id %>'
+<div class="paiement-background", style="background-image: url(<%= image_path "background-form.svg" %>);">
+  <div class="container-order-summary">
+      <h1>Recapitulatif de votre commande</h1>
+        <div class="paiement-card">
+          <div class="workshop-info">
+            <% if @booking.workshop.photos.attached? %>
+            <%= cl_image_tag booking.workshop.photos[0].key, alt: "workshop-photo", width: 200, crop: :fill %>
+            <% else %>
+            <%= image_tag "https://images.unsplash.com/photo-1557677514-666eb39d6d23?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80", width: 100, crop: :fill, alt: "Jeu de Mains" %>
+            <% end %>
+            <div class="workshop-name">
+              <h2><%= @booking.workshop.name%></h2>
+              <h3>Chez : <%= @booking.workshop.place.name %></h3>
+            <h3>le <%= @booking.date.strftime('%d/%m/%Y')%> à <%= @booking.workshop.workshop_dates.find_by(date: @booking.date).start_at %></h3>
+            <h3><% if @booking.quantity == 1 %>
+                <%= @booking.quantity%> place
+                <% else %>
+                <%= @booking.quantity%> place(s)
+                <% end %></h3>
+            </div>
+          </div>
+          <div class="mt-3">
+            <h4>Prix total : <%= humanized_money_with_symbol(@booking.amount) %></h4>
+          </div>
+        </div>
+        <button id="pay" class="btn btn-primary mt-4 mr-3">Accéder au paiement</button>
+        <script src="https://js.stripe.com/v3/"></script>
+        <script>
+          const paymentButton = document.getElementById('pay');
+          paymentButton.addEventListener('click', () => {
+            const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+            stripe.redirectToCheckout({
+              sessionId: '<%= @booking.checkout_session_id %>'
+            });
           });
-        });
-      </script>
-    </div>
+        </script>
+        <%= link_to workshop_path(@booking.workshop) do %>
+        <button type="button" class="btn btn-outline-primary mt-4">Annuler</button>
+        <% end %>
+      </div>
   </div>
 </div>

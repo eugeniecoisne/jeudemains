@@ -17,5 +17,4 @@ class Profile < ApplicationRecord
       "-"
     end
   end
-
 end

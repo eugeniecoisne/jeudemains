@@ -15,6 +15,7 @@ import { initSelect2 } from '../plugins/init_select2';
 import { initStarRating } from '../plugins/init_star_rating';
 import { initSearchPlaces } from '../plugins/search_places';
 import { showMoreReviews } from '../plugins/show_more_reviews';
+import { initScroll } from '../plugins/scroll_down';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -27,6 +28,7 @@ document.addEventListener('turbolinks:load', () => {
   initStarRating();
   initSearchPlaces();
   showMoreReviews();
+  initScroll();
   const options = {
     strings: ["Les ateliers créatifs, c'est quoi ?"],
     typeSpeed: 40,
@@ -36,6 +38,3 @@ document.addEventListener('turbolinks:load', () => {
 
   const typed = new Typed('.element', options);
 });
-
-
-
