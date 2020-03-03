@@ -4,7 +4,8 @@
   overflow: hidden;
   min-height: 200px;
   height: 100%;
-  background-color: transparent;
+  background-color: $blue;
+  border-radius: 5px;
 }
 
 .card-place-header {
@@ -92,7 +93,7 @@ margin-top: 40px;
     font-size: 25px;
     padding-top: 9px;
     margin-right: 10px;
-    color: #205B6B;
+    color: white;
   }
   p {
     margin-bottom: 0;
