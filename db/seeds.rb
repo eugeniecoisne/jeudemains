@@ -13,17 +13,18 @@ Place.destroy_all
 Workshop.destroy_all
 Review.destroy_all
 
-puts "CREATING 3 PARTICIPANTS"
-#   CAMILLE : PARTICIPANT
+puts "CREATING 5 PARTICIPANTS"
+#   EUGENIE : PARTICIPANTE
 User.create!(email: 'a@a.com', password: '123456')
-camille = Profile.last
-camille.update!(
+eugenie = Profile.last
+eugenie.update!(
   last_name: 'Coisne',
   first_name: 'Eugénie',
 )
 file = URI.open('https://pbs.twimg.com/profile_images/707681437286342656/dwZB6Qg__400x400.jpg')
-camille.photo.attach(io: file, filename: 'eugenie.jpg', content_type: 'image/jpg')
+eugenie.photo.attach(io: file, filename: 'eugenie.jpg', content_type: 'image/jpg')
 
+#   ALEXIA : PARTICIPANTE
 User.create!(email: 'b@b.com', password: '123456')
 alexia = Profile.last
 alexia.update!(
@@ -33,6 +34,7 @@ alexia.update!(
 file = URI.open('https://24.media.tumblr.com/tumblr_m5koiyLN9P1rut9u9o1_500.png')
 alexia.photo.attach(io: file, filename: 'alexia.png', content_type: 'image/png')
 
+#   HELOISE : PARTICIPANTE
 User.create!(email: 'c@c.com', password: '123456')
 heloise = Profile.last
 heloise.update!(
@@ -41,6 +43,26 @@ heloise.update!(
 )
 file = URI.open('https://i.pinimg.com/474x/59/86/69/598669c4a978ce3740c7ce61f18a7c23.jpg')
 heloise.photo.attach(io: file, filename: 'heloise.png', content_type: 'image/png')
+
+#   PAUL : PARTICIPANT
+User.create!(email: 'd@d.com', password: '123456')
+paul = Profile.last
+paul.update!(
+  last_name: 'Potin',
+  first_name: 'Paul',
+)
+file = URI.open('https://news.sen360.sn/uploads/2020/02/penn-badgley-you-bientot-papa-apres-deux-fausses-couches-de-son-epouse-1447111.jpg')
+paul.photo.attach(io: file, filename: 'paul.jpg', content_type: 'image/jpg')
+
+#   ZOÉ : PARTICIPANTE
+User.create!(email: 'e@e.com', password: '123456')
+zoe = Profile.last
+zoe.update!(
+  last_name: 'Damart',
+  first_name: 'Zoé',
+)
+file = URI.open('https://fr.web.img3.acsta.net/newsv7/19/10/23/12/10/2270700.jpg')
+zoe.photo.attach(io: file, filename: 'zoe.jpg', content_type: 'image/jpg')
 
 
 puts "CREATING Les Herbes Hautes"
@@ -120,7 +142,7 @@ workshop2.profile = Profile.last
 workshop2.save!
 
 date3 = WorkshopDate.new(
-  date: Date.today + 10,
+  date: Date.today + 25,
   start_at: '15h00',
   participants: 8
 )
@@ -128,7 +150,7 @@ date3.workshop = workshop2
 date3.save!
 
 date4 = WorkshopDate.new(
-  date: Date.today + 6,
+  date: Date.today + 10,
   start_at: '15h00',
   participants: 8
 )
@@ -335,8 +357,8 @@ Profile.last.update!(
   organizer: true,
   animator: true
   )
-file = URI.open('https://www.facebook.com/herbariumparis/photos/a.1684965628419881/2140230512893388/?type=3&theater')
-Profile.last.photo.attach(io: file, filename: 'herbarium.jpg', content_type: 'image/jpg')
+file = URI.open('https://res.cloudinary.com/eugcoi/image/upload/v1583254679/logo_herbarium_wko9n2.png')
+Profile.last.photo.attach(io: file, filename: 'herbarium.png', content_type: 'image/png')
 
 place3 = Place.new(
   name: 'Herbarium',
@@ -357,8 +379,8 @@ Parce que la nature est belle.
   )
 place3.profile = Profile.last
 place3.save!
-file = URI.open('https://www.facebook.com/herbariumparis/photos/a.1684965628419881/2140230512893388/?type=3&theater')
-place3.photo.attach(io: file, filename: 'herbarium.jpg', content_type: 'image/jpg')
+file = URI.open('https://res.cloudinary.com/eugcoi/image/upload/v1583254679/logo_herbarium_wko9n2.png')
+place3.photo.attach(io: file, filename: 'herbarium.png', content_type: 'image/png')
 
 workshop5 = Workshop.new(
   name: 'Réalisez votre propre herbier',
@@ -400,11 +422,151 @@ date11.workshop = workshop5
 date11.save!
 
 
-puts "CREATING 11 REVIEWS"
+puts "CREATING La Petite Epicerie"
+# LA PETITE EPICERIE : ORGANISATEUR
+User.create!(email: 'hello@epicerie.com', password: '123456')
+Profile.last.update!(
+  last_name: 'Nicoulaud',
+  first_name: 'Laura',
+  company: 'La Petite Epicerie',
+  address: '74 Rue de la Verrerie',
+  zip_code: '75004',
+  city: 'Paris',
+  phone_number: '0173756518',
+  site_web: 'https://la-petite-epicerie.fr/fr/',
+  facebook: 'https://www.facebook.com/lapetiteepicerieFR/',
+  instagram: 'https://www.instagram.com/lapetiteepicerie/',
+  organizer: true
+  )
+file = URI.open('https://res.cloudinary.com/eugcoi/image/upload/v1583255493/la_petite_epicerie_x7mcpd.png')
+Profile.last.photo.attach(io: file, filename: 'la-petite-epicerie.png', content_type: 'image/png')
+
+place4 = Place.new(
+  name: 'La Petite Epicerie, Paris 4e',
+  address: '74 Rue de la Verrerie',
+  zip_code: '75004', city: 'PARIS',
+  phone_number: '0173756518',
+  description: "♥ la Petite épicerie ♥ est une boutique de fournitures de loisirs créatifs.
+Vous y retrouverez tout un tas de cane en pâte Fimo à découper, de chaines, supports bagues ou boucles d'oreille, de vaisselles ou des gourmandises en miniature, de la papeterie, des kits DIY, et bien d'autres produits encore !
+Venez partager un moment convivial et créatif avec d'autres passionnés à l'occasion d'un atelier créatif !"
+  )
+place4.profile = Profile.last
+place4.save!
+file = URI.open('https://res.cloudinary.com/eugcoi/image/upload/v1583255493/la_petite_epicerie_x7mcpd.png')
+place4.photo.attach(io: file, filename: 'la-petite-epicerie.png', content_type: 'image/png')
+
+place5 = Place.new(
+  name: "La Petite Epicerie, Chaussée d'Antin",
+  address: "47 Rue de la Chaussée d'Antin",
+  zip_code: '75009', city: 'PARIS',
+  phone_number: '0171379844',
+  description: "♥ la Petite épicerie ♥ est une boutique de fournitures de loisirs créatifs.
+Vous y retrouverez tout un tas de cane en pâte Fimo à découper, de chaines, supports bagues ou boucles d'oreille, de vaisselles ou des gourmandises en miniature, de la papeterie, des kits DIY, et bien d'autres produits encore !
+Venez partager un moment convivial et créatif avec d'autres passionnés à l'occasion d'un atelier créatif !"
+  )
+place5.profile = Profile.last
+place5.save!
+file = URI.open('https://res.cloudinary.com/eugcoi/image/upload/v1583255493/la_petite_epicerie_x7mcpd.png')
+place5.photo.attach(io: file, filename: 'la-petite-epicerie.png', content_type: 'image/png')
+
+puts "CREATING Gina & cie"
+#   GINA & CIE : ANIMATEUR
+User.create!(email: 'hello@gina.com', password: '123456')
+Profile.last.update!(
+  last_name: 'XXXXXX',
+  first_name: 'Melanie',
+  company: 'Gina & cie',
+  phone_number: '0111111114',
+  site_web: 'http://ginacie.blogspot.com/',
+  facebook: 'https://www.facebook.com/byginaetcie/',
+  instagram: 'https://www.instagram.com/ginacie/',
+  animator: true,
+  description: "Collectionneuse de souvenirs & passeuse d'histoires. Passionnée de crochet et de broderie."
+  )
+file = URI.open('https://res.cloudinary.com/eugcoi/image/upload/v1583256854/gina_jqqkm3.png')
+Profile.last.photo.attach(io: file, filename: 'ginacie.png', content_type: 'image/png')
+
+workshop7 = Workshop.new(
+  name: 'Votre trousse en fleurs brodées',
+  description: "Nous vous proposons de découvrir la broderie. Durant cet atelier de 1h30, vous apprendrez à réaliser un dessin, vous pourrez choisir le motif… Nous allons broder sur une petite pochette en coton recyclé. Vous aurez même le choix de la couleur du tissu et du fil.
+
+La broderie, c’est un réel moment de plaisir!",
+  level: 'Débutant',
+  price_cents: 3000,
+  duration: 90,
+  )
+workshop7.place = place4
+workshop7.profile = Profile.last
+workshop7.save!
+
+date14 = WorkshopDate.new(
+  date: Date.today + 10,
+  start_at: '17h00',
+  participants: 6
+)
+date14.workshop = workshop7
+date14.save!
+
+date15 = WorkshopDate.new(
+  date: Date.today + 40,
+  start_at: '16h00',
+  participants: 6
+)
+date15.workshop = workshop7
+date15.save!
+
+
+puts "CREATING L'Atelier Lutèce"
+#   ATELIER LUTECE : ANIMATEUR
+User.create!(email: 'hello@lutece.com', password: '123456')
+Profile.last.update!(
+  last_name: 'Baka Gueguen',
+  first_name: 'Veronique',
+  company: "L'Atelier Lutèce",
+  phone_number: '0111111115',
+  site_web: 'https://www.latelierlutece.com/',
+  facebook: 'https://www.facebook.com/byginaetcie/',
+  instagram: 'https://www.instagram.com/l_atelier_lutece_/',
+  animator: true,
+  description: "Des ateliers créatifs DIY qui conviennent à tous, pour toutes les occasions…"
+  )
+file = URI.open('https://res.cloudinary.com/eugcoi/image/upload/v1583257607/atelier_lutece_vz67xn.png')
+Profile.last.photo.attach(io: file, filename: 'ginacie.png', content_type: 'image/png')
+
+workshop8 = Workshop.new(
+  name: 'Tambour de fleurs séchées',
+  description: "Créez votre tambour de fleurs séchées étape par étape. Vous apprendrez à équilibrer votre création et jouer des couleurs complémentaires, du mouvement pour un rendu unique et romantique.",
+  level: 'Débutant',
+  price_cents: 3000,
+  duration: 60,
+  )
+workshop8.place = place5
+workshop8.profile = Profile.last
+workshop8.save!
+
+date16 = WorkshopDate.new(
+  date: Date.today + 35,
+  start_at: '10h00',
+  participants: 12
+)
+date16.workshop = workshop8
+date16.save!
+
+date17 = WorkshopDate.new(
+  date: Date.today + 48,
+  start_at: '10h00',
+  participants: 12
+)
+date17.workshop = workshop8
+date17.save!
+
+
+
+puts "CREATING 17 REVIEWS"
 
 review1 = Review.new(rating: 4, animator_rating: 4, content: "Super atelier couronne de fleurs animé par la douce Hélène, les fleurs étaient de qualité et je suis ravie du résultat")
 review1.workshop = workshop1
-review1.profile = Profile.find_by(last_name: "Coisne")
+review1.profile = Profile.find_by(last_name: "Damart")
 review1.created_at = Date.today - 16
 review1.save!
 
@@ -422,7 +584,7 @@ review3.save!
 
 review4 = Review.new(rating: 5, animator_rating: 5, content: "Je rêvais de créer mon terrarium et c'est chose faite sous les bons conseils de Hélène")
 review4.workshop = workshop2
-review4.profile = Profile.find_by(last_name: "Coisne")
+review4.profile = Profile.find_by(last_name: "Damart")
 review4.created_at = Date.today - 6
 review4.save!
 
@@ -440,7 +602,7 @@ review6.save!
 
 review7 = Review.new(rating: 3, animator_rating: 3, content: "J'avais préféré l'atelier bougie fleurie mais je suis quand même contente de ma cloche")
 review7.workshop = workshop3
-review7.profile = Profile.find_by(last_name: "Coisne")
+review7.profile = Profile.find_by(last_name: "Damart")
 review7.created_at = Date.today - 9
 review7.save!
 
@@ -470,7 +632,7 @@ review11.save!
 
 review12 = Review.new(rating: 5, animator_rating: 5, content: "Super découverte, mon herbier était accroché au mur du salon le soir-même !")
 review12.workshop = workshop5
-review12.profile = Profile.find_by(last_name: "Coisne")
+review12.profile = Profile.find_by(last_name: "Damart")
 review12.created_at = Date.today - 5
 review12.save!
 
@@ -491,5 +653,17 @@ review15.workshop = workshop6
 review15.profile = Profile.find_by(last_name: "Janin")
 review15.created_at = Date.today - 20
 review15.save!
+
+review16 = Review.new(rating: 4, animator_rating: 5, content: "Mélanie est adorable et j'adore son accent du sud, sinon j'ai appris des bonnes astuces de broderie florale !")
+review16.workshop = workshop7
+review16.profile = Profile.find_by(last_name: "Damart")
+review16.created_at = Date.today - 3
+review16.save!
+
+review17 = Review.new(rating: 3, animator_rating: 2, content: "Sympa mais ambiance très moyenne et enthousiasme absent")
+review17.workshop = workshop8
+review17.profile = Profile.find_by(last_name: "Damart")
+review17.created_at = Date.today - 42
+review17.save!
 
 puts "FINISHED"
