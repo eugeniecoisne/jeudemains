@@ -4,7 +4,7 @@
         <div class="paiement-card">
           <div class="workshop-info">
             <% if @booking.workshop.photos.attached? %>
-            <%= cl_image_tag booking.workshop.photos[0].key, alt: "workshop-photo", width: 200, crop: :fill %>
+            <%= cl_image_tag @booking.workshop.photos[0].key, alt: "workshop-photo", width: 200, crop: :fill %>
             <% else %>
             <%= image_tag "https://images.unsplash.com/photo-1557677514-666eb39d6d23?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80", width: 100, crop: :fill, alt: "Jeu de Mains" %>
             <% end %>
