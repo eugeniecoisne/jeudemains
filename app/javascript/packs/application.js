@@ -14,6 +14,7 @@ import { initSelect2 } from '../plugins/init_select2';
 import { initStarRating } from '../plugins/init_star_rating';
 import { initSearchPlaces } from '../plugins/search_places';
 import { showMoreReviews } from '../plugins/show_more_reviews';
+import { scroll } from '../plugins/scroll_down';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -26,8 +27,5 @@ document.addEventListener('turbolinks:load', () => {
   initStarRating();
   initSearchPlaces();
   showMoreReviews();
-  const scroll = new SmoothScroll('a[href*="#"]', {
-    speed: 1000
-  });
-
+  scroll();
 });
