@@ -81,12 +81,20 @@
       <p class="mb-4"><%= @workshop.description %></p>
 
       <% if @workshop.average_rating %>
-        <h4 class="mt-2">Avis sur l'atelier</h4>
+        <h4 class="mt-2">Avis sur l'atelier </h4>
         <p>
-          Note: <% @workshop.average_rating.times do %>
-            <i class="fas fa-star"></i>
+          Note: <% if @workshop.reviews.present? %>
+          <% if @workshop.average_rating %>
+            <h5 class="rating mb-3"><% @workshop.average_rating.times do %>
+              <i class="fas fa-star"></i>
+            <% end %>
+            <% (5 - @workshop.average_rating).times do %>
+              <i class="far fa-star"></i>
+            <% end %>
           <% end %>
-          <em>(<%= @workshop.reviews.count %> avis)</em>
+        (<%= @workshop.reviews.count %> avis)
+          </h5>
+        <% end %>
         </p>
       <% end %>
     <div class="card-reviews mb-3">
@@ -95,9 +103,17 @@
           <div class="workshop-reviews">
             <p><strong><%= review.profile.first_name %></strong><span id="created-at-little">, le <%= review.created_at.strftime("%d/%m/%Y") %><span></p>
             <p class=""><%= review.content %></p>
-            <p class=""><% review.rating.times do %>
+            <p class=""><% if review.rating.present? %>
+          <% if review.rating %>
+            <h5 class="rating mb-3"><% review.rating.times do %>
               <i class="fas fa-star"></i>
-              <% end %>
+            <% end %>
+            <% (5 - review.rating).times do %>
+              <i class="far fa-star"></i>
+            <% end %>
+          <% end %>
+          </h5>
+        <% end %>
             </p>
           </div>
         <% end %>
