@@ -19,7 +19,8 @@
             <%= f.input :keyword, class: "form-control", required: false, label: false, placeholder: "Que cherchez-vous ?" %>
             <%= f.input :place, class: "form-control", required: false, label: false, placeholder: "Code postal / Ville" %>
             <div class="form-group string optional filter_date">
-              <input type="date" name="filter[date]" class="form-control optional" placeholder="Date souhaitée" id="filter_date" min="<%= Date.today %>">
+              <label for="filter_date">Date souhaitée</label>
+              <input class="form-control string optional datepicker flatpickr-input" type="text" name="filter[date]" id="filter_date" readonly="readonly">
             </div>
             <%= submit_tag "Rechercher", class: "button btn-blue" %>
           <% end %>

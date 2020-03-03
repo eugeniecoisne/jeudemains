@@ -13,10 +13,10 @@
           </h5>
         <% end %>
       <% if @workshop.place.profile.company == @workshop.profile.company %>
-        <p class="show-card-organizer">Organisé & animé par : <%= link_to @workshop.place.name, place_path(@workshop.place), target: "_blank" %></p>
+        <p class="show-card-organizer">Organisé & animé par : <%= link_to @workshop.place.name, place_path(@workshop.place)%></p>
       <% else  %>
-        <p class="show-card-organizer">Organisé par : <%= link_to @workshop.place.name, place_path(@workshop.place), target: "_blank" %></p>
-        <p class="show-card-animator">Animé par : <%= link_to @workshop.profile.company, profile_public_path(@workshop.profile), target: "_blank" %></p>
+        <p class="show-card-organizer">Organisé par : <%= link_to @workshop.place.name, place_path(@workshop.place) %></p>
+        <p class="show-card-animator">Animé par : <%= link_to @workshop.profile.company, profile_public_path(@workshop.profile) %></p>
       <% end %>
     <div class="d-flex justify-content-between">
       <div id="address-and-duration">
@@ -91,7 +91,7 @@
       <% end %>
     <div class="card-reviews mb-3">
       <% if @workshop.reviews.present? %>
-        <% @workshop.reviews.each do |review| %>
+        <% @workshop.reviews.sort_by { |review| review.created_at }.reverse.each do |review| %>
           <div class="workshop-reviews">
             <p><strong><%= review.profile.first_name %></strong><span id="created-at-little">, le <%= review.created_at.strftime("%d/%m/%Y") %><span></p>
             <p class=""><%= review.content %></p>

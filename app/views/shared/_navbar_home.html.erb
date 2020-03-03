@@ -27,11 +27,7 @@
           <li class="list-group-item"><%= link_to "Tous les ateliers", workshops_path %></li>
           <li class="list-group-item"><%= link_to "Proposer un atelier", new_workshop_path %></li>
           <li class="list-group-item"><%= link_to "Mon profil", edit_profile_path(current_user.profile) %></li>
-          <% if current_user.profile.organizer %>
-            <li class="list-group-item"><%= link_to "Mon dashboard", profile_path(current_user.profile) %></li>
-          <% else %>
-            <li class="list-group-item"><%= link_to "Mes réservations", profile_path(current_user.profile) %></li>
-          <% end %>
+          <li class="list-group-item"><%= link_to "Mon espace", profile_path(current_user.profile) %></li>
         <% else %>
           <li class="list-group-item"><%= link_to "Tous les ateliers", workshops_path %></li>
           <li class="list-group-item"><%= link_to "Proposer un atelier", new_workshop_path %></li>
