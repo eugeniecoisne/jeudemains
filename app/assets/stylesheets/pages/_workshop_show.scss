@@ -121,7 +121,7 @@ li {
   background-color: $light-blue;
   // border: 1px solid $blue;
   color: $blue;
-  padding: 15px 20px;
+  padding: 12px 15px;
   p {
     font-size: 14px;
     margin-bottom: 8px;
@@ -131,6 +131,9 @@ li {
   }
   #created-at-little {
     font-weight: 300;
+  }
+  h5 {
+    margin-bottom: 0;
   }
 }
 
@@ -158,12 +161,25 @@ li {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
-  max-height: 300px;
+  max-height: 350px;
   overflow: hidden;
 }
 
 .card-reviews.show {
   max-height: unset;
+}
+
+#moreReview {
+  font-weight: 600;
+  color: $green;
+  border-bottom: 2px solid $green;
+  font-size: 14px;
+}
+
+#moreReview:hover {
+  color: $blue;
+  border-bottom: 2px solid $blue;
+  cursor: pointer;
 }
 
 .carousel-and-booking-card {

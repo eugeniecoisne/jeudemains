@@ -218,11 +218,11 @@ body {
 }
 
 .tag {
-  background-color: #E8B535;
+  background-color: $yellow;
   position: relative;
-  width: 120px;
+  width: 130px;
   bottom: 188px;
-  left: 140px;
+  left: 130px;
   border-radius: 3px;
   border: 1px solid white;
   p {
@@ -240,7 +240,7 @@ body {
   font-size: 25px;
   position: relative;
   bottom: 160px;
-  left: 100px;
+  left: 95px;
   transform: rotate(45deg);
   text-shadow: 1px 1px white;
 }
