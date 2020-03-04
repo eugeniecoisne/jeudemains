@@ -82,8 +82,8 @@
 
       <% if @workshop.average_rating %>
         <h4 class="mt-2">Avis sur l'atelier </h4>
-        <p>
-          Note: <% if @workshop.reviews.present? %>
+          <% if @workshop.reviews.present? %>
+          <p> Note : <%= @workshop.average_rating %> / 5
             <% if @workshop.average_rating %>
               <h5 class="rating mb-3">
                 <% @workshop.average_rating.times do %>
