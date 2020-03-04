@@ -14,7 +14,6 @@ import { initSelect2 } from '../plugins/init_select2';
 import { initStarRating } from '../plugins/init_star_rating';
 import { initSearchPlaces } from '../plugins/search_places';
 import { showMoreReviews } from '../plugins/show_more_reviews';
-import { initScroll } from '../plugins/scroll_down';
 import { initFilter } from '../plugins/init_filter';
 
 
@@ -27,7 +26,6 @@ document.addEventListener('turbolinks:load', () => {
   initStarRating();
   initSearchPlaces();
   showMoreReviews();
-  initScroll();
   initFilter();
   initMapbox();
 });
