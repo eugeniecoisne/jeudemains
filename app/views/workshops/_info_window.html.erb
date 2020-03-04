@@ -9,12 +9,14 @@
     <h2><i class="fas fa-map-marker-alt"></i> <%= place.name %></h2>
 </div>
 <div class="workshop-pop-up">
-  <h3><U>Ateliers présents dans ce lieu :</U></h3>
+  <% if place.workshops.count <= 1 %>
+    <h3>Atelier présent dans ce lieu :</h3>
+  <% else %>
+    <h3>Ateliers présents dans ce lieu :</h3>
+  <% end %>
         <% place.workshops.each do |workshop| %>
           <%= link_to workshop_path(workshop) do %>
-          <h4>• <%= workshop.name %></h4>
+          <button class="btn-window"><em><%= workshop.name %></em></button>
           <% end %>
         <% end %>
 </div>
-
-

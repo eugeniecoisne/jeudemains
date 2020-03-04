@@ -11,8 +11,8 @@
 }
 
 .mapboxgl-popup {
-  max-width: 320px;
-  min-width: 220px;
+  max-width: 340px;
+  min-width: 240px;
 }
 
 .mapboxgl-popup-content {
@@ -31,6 +31,7 @@
   font-size: 13px;
   font-weight: normal;
   margin-top: 10px;
+  margin-bottom: auto;
   color: $blue;
 }
 .mapboxgl-popup-content h4 {
@@ -40,12 +41,28 @@
   color: $blue;
 }
 
+.btn-window {
+  width: 220px;
+  text-align: center;
+  border: 1px solid $blue;
+  color: $blue;
+  border-radius: 50rem;
+  padding: 4px 8px;
+  margin-top: 8px;
+  &:hover {
+    cursor: pointer;
+    background-color: $blue;
+    color: $white;
+  }
+}
+
 .img-popup img {
   object-fit: cover;
   height: 50px;
   width: 50px;
   border-radius: 50%;
   margin-right: 12px;
+  border: solid 1px $light-blue;
 }
 
 .workshop-pop-up {
