@@ -52,7 +52,7 @@ class Workshop < ApplicationRecord
   end
 
   def self.first_four_workshops_to_display
-    Workshop.all.sort_by(&:average_rating).first(4).reverse
+    Workshop.all.sort_by(&:average_rating).reverse.first(4)
   end
 
 end

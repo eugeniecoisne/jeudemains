@@ -6,9 +6,9 @@ const showMoreReviews = () => {
       document.querySelector('.card-reviews').classList.toggle('show')
 
       if (document.querySelector('.card-reviews').classList.contains('show')) {
-        event.currentTarget.innerText = 'Afficher moins de commentaires'
+        event.currentTarget.innerText = "Afficher moins d'avis"
       } else {
-        event.currentTarget.innerText = 'Afficher plus de commentaires'
+        event.currentTarget.innerText = "Afficher plus d'avis"
       }
     });
   }

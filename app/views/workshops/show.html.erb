@@ -107,7 +107,7 @@
             <p class="">
               <% if review.rating.present? %>
                 <% if review.rating %>
-                  <h5 class="rating mb-3"><% review.rating.times do %>
+                  <h5 class="rating"><% review.rating.times do %>
                     <i class="fas fa-star"></i>
                   <% end %>
                   <% (5 - review.rating).times do %>
@@ -122,7 +122,7 @@
       <% end %>
     </div>
       <% if @workshop.reviews.count > 4 %>
-      <button type="button" class="btn btn-primary" id="moreReview">Afficher plus de commentaires</button>
+      <a id="moreReview">Afficher plus d'avis</a>
       <% else %>
       <% end %>
 
