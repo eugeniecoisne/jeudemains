@@ -13,7 +13,7 @@ Place.destroy_all
 Workshop.destroy_all
 Review.destroy_all
 
-puts "CREATING 5 PARTICIPANTS"
+puts "CREATING 8 PARTICIPANTS"
 #   EUGENIE : PARTICIPANTE
 User.create!(email: 'a@a.com', password: '123456')
 eugenie = Profile.last
@@ -63,6 +63,37 @@ zoe.update!(
 )
 file = URI.open('https://fr.web.img3.acsta.net/newsv7/19/10/23/12/10/2270700.jpg')
 zoe.photo.attach(io: file, filename: 'zoe.jpg', content_type: 'image/jpg')
+
+# PHILIPPINE : PARTICIPANTE
+User.create!(email: 'f@f.com', password: '123456')
+philippine = Profile.last
+philippine.update!(
+  last_name: 'Manaud',
+  first_name: 'Philippine',
+)
+file = URI.open('https://i.pinimg.com/originals/14/02/8b/14028b867601906bf2b401a67348e67f.jpg')
+philippine.photo.attach(io: file, filename: 'philippine.jpg', content_type: 'image/jpg')
+
+# LENA : PARTICIPANTE
+User.create!(email: 'g@g.com', password: '123456')
+lena = Profile.last
+lena.update!(
+  last_name: 'Pauwels',
+  first_name: 'Lena',
+)
+file = URI.open('https://twilightvampires.e-monsite.com/medias/album/images/kristen.jpg?fx=r_550_550')
+lena.photo.attach(io: file, filename: 'lena.jpg', content_type: 'image/jpg')
+
+# ELISABETTA : PARTICIPANTE
+User.create!(email: 'h@h.com', password: '123456')
+elisabetta = Profile.last
+elisabetta.update!(
+  last_name: 'Sartori',
+  first_name: 'Elisabetta',
+)
+file = URI.open('https://res.cloudinary.com/eugcoi/image/upload/v1583313728/betti_ihmbf6.png')
+elisabetta.photo.attach(io: file, filename: 'elisabetta.png', content_type: 'image/png')
+
 
 
 puts "CREATING Les Herbes Hautes"
@@ -156,6 +187,38 @@ date4 = WorkshopDate.new(
 )
 date4.workshop = workshop2
 date4.save!
+
+
+workshop9 = Workshop.new(
+  name: 'Bouquet de fleurs séchées',
+  description: 'Vous souhaitez créer votre propre bouquet en fleurs éternelles pour donner une touche déco et durable à votre maison? Cet atelier DIY d’1h30 est fait pour vous !
+
+Nous vous guiderons pour réaliser une création esthétique et raffinée. Repartez fièrement avec votre propre bouquet durable pour sublimer votre intérieur.',
+  thematic: 'Bouquet',
+  level: 'Débutant',
+  price_cents: 5900,
+  duration: 90,
+  )
+workshop9.place = Place.last
+workshop9.profile = Profile.last
+workshop9.save!
+
+date18 = WorkshopDate.new(
+  date: Date.today + 3,
+  start_at: '16h00',
+  participants: 10
+)
+date18.workshop = workshop9
+date18.save!
+
+date19 = WorkshopDate.new(
+  date: Date.today + 15,
+  start_at: '16h00',
+  participants: 10
+)
+date19.workshop = workshop9
+date19.save!
+
 
 puts "CREATING Happy Folk"
 # HAPPY FOLK : ORGANISATEUR
@@ -562,108 +625,181 @@ date17.save!
 
 
 
-puts "CREATING 17 REVIEWS"
+puts "CREATING 28 REVIEWS"
 
-review1 = Review.new(rating: 4, animator_rating: 4, content: "Super atelier couronne de fleurs animé par la douce Hélène, les fleurs étaient de qualité et je suis ravie du résultat")
+review1 = Review.new(rating: 4, animator_rating: 5, content: "Super atelier couronne de fleurs animé par la douce Hélène, les fleurs étaient de qualité et je suis ravie du résultat")
 review1.workshop = workshop1
 review1.profile = Profile.find_by(last_name: "Damart")
-review1.created_at = Date.today - 16
+review1.created_at = Date.today - 9
 review1.save!
 
-review2 = Review.new(rating: 5, animator_rating: 4, content: "Atelier très sympathique, j'ai appris plein de choses et je suis contente du résultat !")
+review2 = Review.new(rating: 5, animator_rating: 5, content: "Atelier très sympathique, j'ai appris plein de choses et je suis ravie du résultat !")
 review2.workshop = workshop1
 review2.profile = Profile.find_by(last_name: "Dupont")
-review2.created_at = Date.today - 30
+review2.created_at = Date.today - 15
 review2.save!
 
-review3 = Review.new(rating: 4, animator_rating: 3, content: "Plutôt cool et bien expliqué")
+review3 = Review.new(rating: 5, animator_rating: 5, content: "Très chouette expérience avec Hélène et les autres participants, on plaisante, on apprend et on se sent tellement fiers de rentrer avec notre oeuvre !")
 review3.workshop = workshop1
-review3.profile = Profile.find_by(last_name: "Janin")
-review3.created_at = Date.today - 45
+review3.profile = Profile.find_by(last_name: "Sartori")
+review3.created_at = Date.today - 24
 review3.save!
 
-review4 = Review.new(rating: 5, animator_rating: 5, content: "Je rêvais de créer mon terrarium et c'est chose faite sous les bons conseils de Hélène")
-review4.workshop = workshop2
-review4.profile = Profile.find_by(last_name: "Damart")
-review4.created_at = Date.today - 6
+review4 = Review.new(rating: 4, animator_rating: 5, content: "J’ai beaucoup apprécié l’atelier. Bon accueil. Tout a été fait pour que je sois à l’aise. Explications claires et simples.")
+review4.workshop = workshop1
+review4.profile = Profile.find_by(last_name: "Manaud")
+review4.created_at = Date.today - 25
 review4.save!
 
-review5 = Review.new(rating: 4, animator_rating: 5, content: "Bonne ambiance, un large choix de plantes, je recommande !")
-review5.workshop = workshop2
-review5.profile = Profile.find_by(last_name: "Dupont")
-review5.created_at = Date.today - 16
+review5 = Review.new(rating: 5, animator_rating: 5, content: "Très sympa cet atelier créatif qui nous plonge dans l’univers d’une boutique charmante. Je suis repartie avec une magnifique couronne de fleurs que j’ai portée à mon mariage :)")
+review5.workshop = workshop1
+review5.profile = Profile.find_by(last_name: "Pauwels")
+review5.created_at = Date.today - 30
 review5.save!
 
-review6 = Review.new(rating: 5, animator_rating: 5, content: "J'ai A-DO-RÉ ! C'était top")
-review6.workshop = workshop2
+review6 = Review.new(rating: 5, animator_rating: 5, content: "Excellent moment ! La réalisation de la couronne de fleurs est très bien expliquée et le résultat est à la hauteur de mes attentes, merci Hélène !")
+review6.workshop = workshop1
 review6.profile = Profile.find_by(last_name: "Janin")
-review6.created_at = Date.today - 20
+review6.created_at = Date.today - 32
 review6.save!
 
-review7 = Review.new(rating: 3, animator_rating: 3, content: "J'avais préféré l'atelier bougie fleurie mais je suis quand même contente de ma cloche")
-review7.workshop = workshop3
-review7.profile = Profile.find_by(last_name: "Damart")
-review7.created_at = Date.today - 9
+review7 = Review.new(rating: 5, animator_rating: 5, content: "Je rêvais de créer mon terrarium et c'est chose faite sous les bons conseils de Hélène")
+review7.workshop = workshop2
+review7.profile = Profile.find_by(last_name: "Manaud")
+review7.created_at = Date.today - 6
 review7.save!
 
-review8 = Review.new(rating: 5, animator_rating: 5, content: "Atelier très créatif sous le signe de la bonne humeur")
-review8.workshop = workshop3
-review8.profile = Profile.find_by(last_name: "Dupont")
-review8.created_at = Date.today - 10
+review8 = Review.new(rating: 4, animator_rating: 5, content: "Merci à Hélène pour ce super atelier qui s’est déroulé dans la bonne humeur ! :) J’ai appris beaucoup de choses sur les terrariums !")
+review8.workshop = workshop2
+review8.profile = Profile.find_by(last_name: "Janin")
+review8.created_at = Date.today - 20
 review8.save!
 
-review9 = Review.new(rating: 4, animator_rating: 5, content: "Je remercie Elodie de Flowrette pour son bon goût et ses précieux conseils")
-review9.workshop = workshop3
-review9.profile = Profile.find_by(last_name: "Janin")
-review9.created_at = Date.today - 22
+review9 = Review.new(rating: 5, animator_rating: 5, content: "Super atelier, merci à Hélène qui sait bien transmettre sa passion.")
+review9.workshop = workshop2
+review9.profile = Profile.find_by(last_name: "Potin")
+review9.created_at = Date.today - 15
 review9.save!
 
-review10 = Review.new(rating: 4, animator_rating: 4, content: "La cire est végétale et les fleurs toutes mignonnes je recommande")
-review10.workshop = workshop4
-review10.profile = Profile.find_by(last_name: "Janin")
-review10.created_at = Date.today - 4
+review10 = Review.new(rating: 5, animator_rating: 5, content: "Moment très sympathique ! Hélène est très amicale et installe une bonne ambiance, tout en étant très didactique. Je recommande :)")
+review10.workshop = workshop2
+review10.profile = Profile.find_by(last_name: "Pauwels")
+review10.created_at = Date.today - 22
 review10.save!
 
-review11 = Review.new(rating: 3, animator_rating: 3, content: "Un peu cher pour le résultat")
-review11.workshop = workshop4
-review11.profile = Profile.find_by(last_name: "Dupont")
-review11.created_at = Date.today - 5
+review11 = Review.new(rating: 5, animator_rating: 5, content: "Moment très agréable grâce à Elodie et aux participantes qui étaient vraiment top, je suis très contente du résultat !")
+review11.workshop = workshop3
+review11.profile = Profile.find_by(last_name: "Damart")
+review11.created_at = Date.today - 9
 review11.save!
 
-review12 = Review.new(rating: 5, animator_rating: 5, content: "Super découverte, mon herbier était accroché au mur du salon le soir-même !")
-review12.workshop = workshop5
-review12.profile = Profile.find_by(last_name: "Damart")
-review12.created_at = Date.today - 5
+review12 = Review.new(rating: 5, animator_rating: 5, content: "Atelier très créatif sous le signe de la bonne humeur")
+review12.workshop = workshop3
+review12.profile = Profile.find_by(last_name: "Dupont")
+review12.created_at = Date.today - 10
 review12.save!
 
-review13 = Review.new(rating: 5, animator_rating: 5, content: "Vraiment génial, l'ambiance était chouette et le produit est hyper qualitatif")
-review13.workshop = workshop5
-review13.profile = Profile.find_by(last_name: "Dupont")
-review13.created_at = Date.today - 8
+review13 = Review.new(rating: 4, animator_rating: 5, content: "Je remercie Elodie de Flowrette pour son bon goût et ses précieux conseils")
+review13.workshop = workshop3
+review13.profile = Profile.find_by(last_name: "Sartori")
+review13.created_at = Date.today - 22
 review13.save!
 
-review14 = Review.new(rating: 5, animator_rating: 5, content: "Juste foncez, l'atelier vaut vraiment le coup et le choix des fleurs est top")
-review14.workshop = workshop5
-review14.profile = Profile.find_by(last_name: "Janin")
-review14.created_at = Date.today - 17
+review14 = Review.new(rating: 5, animator_rating: 5, content: "Merci Justine pour ce partage de savoir-faire. C'était un agréable moment et tout était parfait. J'en parlerai autour de moi sans hésiter.")
+review14.workshop = workshop4
+review14.profile = Profile.find_by(last_name: "Pauwels")
+review14.created_at = Date.today - 10
 review14.save!
 
-review15 = Review.new(rating: 4, animator_rating: 4, content: "Clémence a très bon goût et ce petit atelier était sympa !")
-review15.workshop = workshop6
-review15.profile = Profile.find_by(last_name: "Janin")
-review15.created_at = Date.today - 20
+review15 = Review.new(rating: 4, animator_rating: 5, content: "Merci Justine pour cet atelier très poétique et ta bonne humeur !")
+review15.workshop = workshop4
+review15.profile = Profile.find_by(last_name: "Sartori")
+review15.created_at = Date.today - 4
 review15.save!
 
-review16 = Review.new(rating: 4, animator_rating: 5, content: "Mélanie est adorable et j'adore son accent du sud, sinon j'ai appris des bonnes astuces de broderie florale !")
-review16.workshop = workshop7
-review16.profile = Profile.find_by(last_name: "Damart")
-review16.created_at = Date.today - 3
+review16 = Review.new(rating: 5, animator_rating: 5, content: "C'était un atelier très créatif et agréable. Justine rend les choses simples et nous en ressortons avec une jolie bougie qui sent bon :)")
+review16.workshop = workshop4
+review16.profile = Profile.find_by(last_name: "Dupont")
+review16.created_at = Date.today - 18
 review16.save!
 
-review17 = Review.new(rating: 3, animator_rating: 2, content: "Sympa mais ambiance très moyenne et enthousiasme absent")
-review17.workshop = workshop8
-review17.profile = Profile.find_by(last_name: "Damart")
-review17.created_at = Date.today - 42
+review17 = Review.new(rating: 5, animator_rating: 5, content: "Super découverte, mon herbier était accroché au mur du salon le soir-même !")
+review17.workshop = workshop5
+review17.profile = Profile.find_by(last_name: "Janin")
+review17.created_at = Date.today - 5
 review17.save!
+
+review18 = Review.new(rating: 5, animator_rating: 5, content: "Vraiment génial, l'ambiance était chouette et le produit est hyper qualitatif")
+review18.workshop = workshop5
+review18.profile = Profile.find_by(last_name: "Dupont")
+review18.created_at = Date.today - 8
+review18.save!
+
+review19 = Review.new(rating: 5, animator_rating: 5, content: "Juste foncez, l'atelier vaut vraiment le coup et le choix des fleurs est top")
+review19.workshop = workshop5
+review19.profile = Profile.find_by(last_name: "Manaud")
+review19.created_at = Date.today - 17
+review19.save!
+
+review20 = Review.new(rating: 4, animator_rating: 4, content: "Clémence a très bon goût et ce petit atelier était sympa !")
+review20.workshop = workshop6
+review20.profile = Profile.find_by(last_name: "Damart")
+review20.created_at = Date.today - 20
+review20.save!
+
+review21 = Review.new(rating: 4, animator_rating: 4, content: "Atelier très sympa ! Je recommande pour un moment détente et créatif !")
+review21.workshop = workshop6
+review21.profile = Profile.find_by(last_name: "Sartori")
+review21.created_at = Date.today - 30
+review21.save!
+
+review22 = Review.new(rating: 4, animator_rating: 4, content: "Nous avons passé un très bon moment entres amies ! Atelier super, accessible à tous grâce aux conseils de Véronique, je recommande fortement :)")
+review22.workshop = workshop7
+review22.profile = Profile.find_by(last_name: "Pauwels")
+review22.created_at = Date.today - 10
+review22.save!
+
+review23 = Review.new(rating: 4, animator_rating: 5, content: "Mélanie est adorable et j'adore son accent du sud, sinon j'ai appris des bonnes astuces de broderie florale !")
+review23.workshop = workshop7
+review23.profile = Profile.find_by(last_name: "Janin")
+review23.created_at = Date.today - 22
+review23.save!
+
+review24 = Review.new(rating: 4, animator_rating: 5, content: "J'ai hâte de personnaliser mes vêtements avec mes nouvelles skills en broderie florale !")
+review24.workshop = workshop7
+review24.profile = Profile.find_by(last_name: "Sartori")
+review24.created_at = Date.today - 30
+review24.save!
+
+review24 = Review.new(rating: 4, animator_rating: 4, content: "Merci pour cet atelier très sympathique, j'ai beaucoup aimé réaliser cette broderie florale avec de jolies fleurs séchées !")
+review24.workshop = workshop8
+review24.profile = Profile.find_by(last_name: "Manaud")
+review24.created_at = Date.today - 10
+review24.save!
+
+review25 = Review.new(rating: 3, animator_rating: 3, content: "Très bon atelier et de précieux conseils, mais le choix des fleurs était malheureusemet très restreint...")
+review25.workshop = workshop8
+review25.profile = Profile.find_by(last_name: "Dupont")
+review25.created_at = Date.today - 12
+review25.save!
+
+review26 = Review.new(rating: 5, animator_rating: 5, content: "Très bon moment passé avec Hélène qui est agréable et pédagogue! Nous sommes reparties ravies avec de magnifiques bouquets :)")
+review26.workshop = workshop9
+review26.profile = Profile.find_by(last_name: "Janin")
+review26.created_at = Date.today - 10
+review26.save!
+
+review27 = Review.new(rating: 5, animator_rating: 5, content: "Bel accueil, ambiance très sympa, beaucoup de choix de fleurs ! Au top, nous sommes plus que ravies, merci pour ce beau moment.")
+review27.workshop = workshop9
+review27.profile = Profile.find_by(last_name: "Pauwels")
+review27.created_at = Date.today - 13
+review27.save!
+
+review28 = Review.new(rating: 5, animator_rating: 5, content: "Une expérience très agréable avec des personnes chaleureuses et conviviales ! C'est sympa et détendant de pouvoir laisser parler sa créativité :)")
+review28.workshop = workshop9
+review28.profile = Profile.find_by(last_name: "Damart")
+review28.created_at = Date.today - 13
+review28.save!
+
 
 puts "FINISHED"
