@@ -13,7 +13,7 @@
         <div class="card public-card-place">
 
           <div class="card-profile-header">
-            <div class="avatar" >
+            <div class="avatar-profile" >
               <% if @profile.photo.attached? %>
                 <%= cl_image_tag @profile.photo.key, class: "avatar", width: 250, crop: :fill %>
               <% else %>
