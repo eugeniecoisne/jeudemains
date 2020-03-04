@@ -2,16 +2,12 @@ const initNavbarMenu = () => {
   const menuButton = document.querySelector("#menuButton");
   const menu = document.querySelector("#sideMenu");
   const menuClose = document.querySelector("#menuClose");
-  const menuClose2 = document.querySelector("#close-navbar");
 
   menuButton.addEventListener("click", (event) => {
     event.preventDefault();
     menu.classList.add("open");
   });
   menuClose.addEventListener("click", (event) => {
-    menu.classList.remove("open");
-  });
-  menuClose2.addEventListener('click', (event) => {
     menu.classList.remove("open");
   });
 }
