@@ -2,8 +2,8 @@
 <!-- MY BOOKINGS -->
 <nav class="mt-4 my-bookings-nav">
   <div class="nav nav-tabs" id="myTab" role="tablist">
-    <a class="nav-item nav-link active" id="nav-bookings-tab" data-toggle="tab" href="#nav-bookings" role="tab" aria-controls="nav-bookings" aria-selected="true">Mes réservations à venir</a>
-    <a class="nav-item nav-link" id="nav-old-bookings-tab" data-toggle="tab" href="#nav-old-bookings" role="tab" aria-controls="nav-old-bookings" aria-selected="false">Mes réservations passées</a>
+    <a class="nav-item nav-link active" id="nav-bookings-tab" data-toggle="tab" href="#nav-bookings" role="tab" aria-controls="nav-bookings" aria-selected="true">Mes réservations à venir <div class="badge-nombre-bookings"><%= @profile.bookings.where("date >= ?", Date.today).count %></div></a>
+    <a class="nav-item nav-link" id="nav-old-bookings-tab" data-toggle="tab" href="#nav-old-bookings" role="tab" aria-controls="nav-old-bookings" aria-selected="false">Mes réservations passées <div class="badge-nombre-bookings"><%= @profile.bookings.where("date < ?", Date.today).count %></div></a>
   </div>
 </nav>
 
