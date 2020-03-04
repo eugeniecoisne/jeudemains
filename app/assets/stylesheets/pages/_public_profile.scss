@@ -1,7 +1,12 @@
 .public-card-place {
   width: 300px;
-  background-color: $green;
-  border-radius: 10px;
+  background-color: transparent;
+  height: auto;
+  border-right: 1px solid $blue;
+  border-left: none;
+  border-top: none;
+  border-bottom: none;
+
 }
 
 .card-profile-header {
@@ -19,17 +24,14 @@ margin-top: 20px;
 .card-profile-body {
   border: none;
   i {
-    color: $orange;
+    color: $blue;
     margin-right: 5px;
   }
   p {
     margin-bottom: 0;
-    font-size: 16px;
+    font-size: 14px;
     text-align: center;
-    color: white;
-  }
-  h4 {
-    text-align: center;
+    color: $blue;
   }
   .bookings-and-average-rating {
     display: flex;
@@ -42,20 +44,22 @@ margin-top: 20px;
   h4 {
     font-size: 24px;
     font-weight: bolder;
-    color: white;
+    color: $blue;
+    text-align: center;
   }
   h6 {
+    color: $blue;
     margin-bottom: 2px;
   }
 }
 
 .profile-message-name-place {
+  h2 {
+    font-size: 25px;
+    font-weight: 600;
+  }
   h5 {
     font-size: 16px;
-    font-style: italic;
-  }
-  i {
-    color: $green;
   }
 }
 
@@ -81,6 +85,28 @@ margin-top: 20px;
   align-items: center;
   border-radius: 4px;
   overflow: hidden;
+}
+
+.rating-in-card-review-public {
+  font-size: 14px;
+  i {
+    font-size: 16px;
+  }
+  span {
+    font-size: 11px;
+  }
+}
+
+.my-public-owner-cards {
+  display: grid;
+  grid-gap: 16px;
+}
+
+.my-public-owner-card {
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  background-color: white;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
 }
 
 @media (min-width: 100px) and (max-width: 920px) {
