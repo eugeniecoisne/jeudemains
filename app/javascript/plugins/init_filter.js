@@ -1,5 +1,5 @@
 const initFilter = () => {
-  const form = document.querySelector('.workshops-index-container .filter form');
+  const form = document.querySelector('.workshops-index-container form');
 
   if (form) {
     form.addEventListener('change', (e) => {
