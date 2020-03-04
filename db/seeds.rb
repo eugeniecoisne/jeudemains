@@ -181,7 +181,7 @@ date3.workshop = workshop2
 date3.save!
 
 date4 = WorkshopDate.new(
-  date: Date.today + 10,
+  date: Date.today + 6,
   start_at: '15h00',
   participants: 8
 )
@@ -289,7 +289,7 @@ workshop3.profile = Profile.last
 workshop3.save!
 
 date5 = WorkshopDate.new(
-  date: Date.today + 16,
+  date: Date.today + 7,
   start_at: '14h00',
   participants: 6
 )
@@ -339,7 +339,7 @@ workshop6.profile = Profile.last
 workshop6.save!
 
 date12 = WorkshopDate.new(
-  date: Date.today + 23,
+  date: Date.today + 4,
   start_at: '16h00',
   participants: 10
 )
@@ -395,7 +395,7 @@ date7.workshop = workshop4
 date7.save!
 
 date8 = WorkshopDate.new(
-  date: Date.today + 12,
+  date: Date.today + 15,
   start_at: '13h00',
   participants: 8
 )
@@ -563,7 +563,7 @@ workshop7.profile = Profile.last
 workshop7.save!
 
 date14 = WorkshopDate.new(
-  date: Date.today + 10,
+  date: Date.today + 6,
   start_at: '17h00',
   participants: 6
 )
