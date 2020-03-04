@@ -7,10 +7,14 @@ class WorkshopsController < ApplicationController
       keyword = params[:filter][:keyword]
       place = params[:filter][:place]
       date = params[:filter][:date]
+      price = params[:filter][:price].to_i
+      rating = params[:filter][:rating].to_i
       @workshops = policy_scope(Workshop)
       @workshops = @workshops.search_by_keyword(keyword) if keyword.present?
       @workshops = @workshops.search_by_place(place) if place.present?
       @workshops = @workshops.search_by_date(date) if date.present?
+      @workshops = @workshops.sort_by { |workshop| workshop.price } if price == 1
+      @workshops = @workshops.sort_by { |workshop| workshop.average_rating }.reverse if rating == 1
     else
       @workshops = policy_scope(Workshop)
     end
