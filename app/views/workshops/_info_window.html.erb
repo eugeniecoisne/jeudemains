@@ -14,9 +14,11 @@
   <% else %>
     <h3>Ateliers présents dans ce lieu :</h3>
   <% end %>
-        <% place.workshops.each do |workshop| %>
-          <%= link_to workshop_path(workshop) do %>
-          <button class="btn-window"><em><%= workshop.name %></em></button>
-          <% end %>
+    <% @workshops.each do |workshop| %>
+      <% if workshop.place == place %>
+        <%= link_to workshop_path(workshop) do %>
+        <button class="btn-window"><em><%= workshop.name %></em></button>
         <% end %>
+      <% end %>
+    <% end %>
 </div>
