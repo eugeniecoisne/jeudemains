@@ -15,7 +15,9 @@ class WorkshopsController < ApplicationController
       @workshops = policy_scope(Workshop)
     end
 
-    @places_geo = Place.all.map { |place| place if place.workshops.count > 0 }
+    # @places_geo = Place.all.map { |place| place if place.workshops.count > 0 }
+    @places_geo = Place.where(id: @workshops.pluck(:place_id))
+
     @markers = @places_geo.map do |place|
       {
         lat: place.latitude,
