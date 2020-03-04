@@ -7,12 +7,15 @@ const initNavbarMenu = () => {
   menuButton.addEventListener("click", (event) => {
     event.preventDefault();
     menu.classList.add("open");
+    menuClose2.classList.add("catch-cursor");
   });
   menuClose.addEventListener("click", (event) => {
     menu.classList.remove("open");
+    menuClose2.classList.remove("catch-cursor");
   });
   menuClose2.addEventListener('click', (event) => {
     menu.classList.remove("open");
+    menuClose2.classList.remove("catch-cursor");
   });
 }
 
