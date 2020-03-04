@@ -25,7 +25,7 @@
             <div class="img-workshops-index-card">
               <%= render "carousel_index", workshop: workshop %>
             </div>
-            <%= link_to(workshop) do  %>
+            <%= link_to(workshop, data: { turbolinks: false }) do  %>
               <div class="workshops-index-card-infos">
                 <div>
                   <h1><%= workshop.name[0..30] %></h1>
