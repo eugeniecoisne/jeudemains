@@ -16,7 +16,6 @@ import { initSearchPlaces } from '../plugins/search_places';
 import { showMoreReviews } from '../plugins/show_more_reviews';
 import { initScroll } from '../plugins/scroll_down';
 import { initFilter } from '../plugins/init_filter';
-import { initTyped } from '../plugins/init_typedjs';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -30,13 +29,5 @@ document.addEventListener('turbolinks:load', () => {
   showMoreReviews();
   initScroll();
   initFilter();
-  const options = {
-    strings: ["Les ateliers créatifs, c'est quoi ?"],
-    typeSpeed: 40,
-    loop: true,
-    backDelay: 2000
-  };
-  const typed = new Typed('.element', options);
-  initTyped();
   initMapbox();
 });
