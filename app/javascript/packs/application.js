@@ -6,7 +6,6 @@ require("channels")
 import "bootstrap";
 
 import { initNavbarMenu } from '../plugins/navbarmenu';
-import { ShowWorkshops } from '../plugins/show_workshops';
 import { addPlace } from '../plugins/add_place';
 import { initFlatpickr } from '../plugins/flatpickr';
 import { initMapbox } from '../plugins/init_mapbox';
@@ -21,7 +20,6 @@ import { initFilter } from '../plugins/init_filter';
 document.addEventListener('turbolinks:load', () => {
   initNavbarMenu();
   initFlatpickr();
-  ShowWorkshops();
   addPlace();
   initSelect2();
   initStarRating();
