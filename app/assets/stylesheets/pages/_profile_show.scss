@@ -68,7 +68,6 @@
   }
 }
 
-
 // CONTAINER & GRID & WELCOME MESSAGE
 
 .profile-show-grid {
@@ -316,6 +315,25 @@
 
 .display-form-place {
   display: block;
+}
+
+.badge-nombre-bookings {
+  border-radius: 50%;
+  background-color: white;
+  color: $blue;
+  font-size: 12px;
+  padding: 2px;
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  margin-left: 8px;
+}
+
+#myTab {
+  a {
+    display: flex;
+    align-items: center;
+  }
 }
 
 // RESPONSIVE DESIGN
