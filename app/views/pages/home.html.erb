@@ -1,7 +1,7 @@
 <div class="banner", id="homebanner-margintop", style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(<%= image_path "homebanner2.jpg" %>)">
   <div class="container banner-container d-flex justify-content-around mt-4">
-      <h1>Réservez un atelier créatif végétal <br>près de chez vous</h1>
-    <div class="col-sm-12 col-md-5 bg-white p-3 home-search-form">
+    <h1>Réservez un atelier créatif végétal <br>près de chez vous</h1>
+    <div class="col-sm-12 col-md-8 col-lg-5 bg-white p-3 home-search-form">
       <ul class="nav nav-tabs home-search-form" id="myTab" role="tablist">
         <li class="nav-item">
           <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Chercher un atelier</a>
@@ -50,7 +50,7 @@
 </div>
 
 
-<div class="mt-1 p-3">
+<div class="p-3 suggestions-background", style="background-image: url(<%= image_path "background-suggestions.svg" %>);">
   <div class="suggestion-home-container justify-content-center">
     <div>
       <h4 class="mb-3">Les ateliers préférés de nos clients</h4>
@@ -91,11 +91,14 @@
 
   <div class="suggestion-home-container justify-content-center mb-4">
     <div>
-      <h4 class="mb-3">Les offres de dernière minute</h4>
+      <h4 class="mb-3">
+        <i class="fas fa-ticket-alt" id="icon-ticket"></i>
+        Les offres de dernière minute
+      </h4>
       <div class="suggestion-cards">
         <% @places_left.each do |date| %>
           <%= link_to workshop_path(date.workshop), id: "suggestion-home-card" do %>
-          <div class="suggestion-home-card">
+          <div class="suggestion-home-card" id="suggestion-card-yellow">
             <div class="img-suggestion-home-card">
               <% if date.workshop.photos.attached? %>
                 <%= cl_image_tag date.workshop.photos[0].key, alt: "Jeu de Mains", class: "img-suggestion-home-card", width: 300, crop: :fill %>
@@ -103,7 +106,7 @@
                 <%= image_tag "https://cdn.shopify.com/s/files/1/0135/6627/9738/articles/header_310b8395-f711-42cb-89f9-db495e34012f.jpg?v=1540918920", alt: "image workshop", class: "img-suggestion-home-card", width: 300, crop: :fill %>
               <% end %>
               <div class="remaining-places">
-                <i class="fas fa-ticket-alt"></i>
+                <i class="fas fa-ticket-alt" id="icon-ticket-little"></i>
                 <div class="tag">
                   <p><%= date.available %> places restantes</p>
                 </div>

@@ -10,12 +10,20 @@
   align-items: center;
 }
 
+.logo-and-title {
+  margin-left: 30px;
+  img {
+    width: 400px;
+    object-fit: cover;
+  }
+}
+
 .banner h1 {
   margin: 0;
   color: white;
   font-weight: bold;
-  margin-left: 30px;
   font-size: 32px;
+  margin-left: 30px;
 }
 
 .banner {
@@ -32,4 +40,17 @@
     color: $blue;
   }
 }
+
+@media (min-width: 100px) and (max-width: 991px) {
+  .banner-container {
+    flex-direction: column-reverse;
+    padding-top: 120px;
+  }
+  .banner h1 {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+}
+
 
