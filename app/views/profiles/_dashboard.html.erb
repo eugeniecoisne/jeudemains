@@ -54,13 +54,7 @@
             </div>
           </div>
 
-          <%= link_to "#", id: "buttonWorkshops", class: "button btn-blue" do %>
-            <span>Voir les ateliers de ce lieu</span>
-          <% end %>
-
-          <!-- HIDDEN ASSOCIATED WORKSHOPS -->
-
-          <ul id="listOfWorkshops" class="hidden-list list-group list-group-flush list-of-place-workshops">
+          <ul id="listOfWorkshops" class="list-group list-group-flush list-of-place-workshops">
             <% place.workshops.each do |workshop| %>
 
                 <li class="list-group-item">
