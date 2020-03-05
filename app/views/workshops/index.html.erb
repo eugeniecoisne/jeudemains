@@ -8,7 +8,7 @@
     <div id="index-main-container">
       <div class="filter-index-workshop">
         <span>Filtrer les ateliers par : </span>
-        <%= simple_form_for :filter, url: workshops_path, method: :get do |f| %>
+        <%= simple_form_for :filter, url: workshops_path, method: :get, remote: true do |f| %>
           <%= f.input :price, as: :boolean, label: 'Prix' %>
           <%= f.input :rating, as: :boolean, label: 'Avis' %>
           <% if params[:filter].present? %>
