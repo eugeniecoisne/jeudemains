@@ -70,16 +70,16 @@
                 <h1><%= workshop.name[0..30] %></h1>
               </div>
               <div class="d-flex justify-content-between mb-1">
-                <h2><i class="fas fa-map-marker-alt"></i> <%= workshop.place.name %></h2>
+                <h2><i class="fas fa-map-marker-alt"> </i> <%= workshop.place.name %></h2>
               </div>
               <div class="d-flex justify-content-between">
                 <div class=" rating d-flex">
                   <h3>
-                    <i class="fas fa-star" style="color:$blue"></i><%= workshop.average_rating %>/5
+                    <i class="fas fa-star" style="color:$blue"> </i> <%= workshop.average_rating %>/5
                   </h3>
                   <p>(<%= workshop.reviews.count %> avis)</p>
                 </div>
-                <h1><%= workshop.price %>€</h1>
+                <h1><%= humanized_money_with_symbol(workshop.price) %></h1>
               </div>
             </div>
           </div>
@@ -117,16 +117,16 @@
                 <h1><%= date.workshop.name[0..30] %></h1>
               </div>
               <div class="d-flex justify-content-between mb-1">
-                <h2><i class="fas fa-map-marker-alt"></i> <%= date.workshop.place.name %></h2>
+                <h2><i class="fas fa-map-marker-alt"> </i> <%= date.workshop.place.name %></h2>
               </div>
               <div class="d-flex justify-content-between">
                 <div class=" rating d-flex">
                   <h3>
-                    <i class="fas fa-star" style="color:$blue"></i><%= date.workshop.average_rating %>/5
+                    <i class="fas fa-star" style="color:$blue"> </i> <%= date.workshop.average_rating %>/5
                   </h3>
                   <p>(<%= date.workshop.reviews.count %> avis)</p>
                 </div>
-                <h1><%= date.workshop.price %>€</h1>
+                <h1><%= humanized_money_with_symbol(date.workshop.price) %></h1>
               </div>
             </div>
           </div>
