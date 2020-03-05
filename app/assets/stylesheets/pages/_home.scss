@@ -173,11 +173,17 @@ body {
 // WORKSHOPS CARD ⬇
 
 .suggestion-home-card {
+  position: relative;
   height :280px;
   overflow: hidden;
   background: white;
   border-radius: .25rem;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  .remaining-places {
+    position: absolute;
+    bottom: 54px;
+    right: 140px;
+  }
 }
 
 .suggestion-home-card:hover {
