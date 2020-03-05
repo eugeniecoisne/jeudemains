@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
     @review.workshop = @workshop
     @review.profile = @profile
     if @review.save
-      redirect_to workshop_path(@workshop)
+      redirect_to profile_path(@profile)
     else
       render :new
     end
@@ -28,7 +28,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     @review.update(review_params)
     if @review.save
-      redirect_to workshop_path(@review.workshop)
+      redirect_to profile_path(current_user.profile)
     else
       render :edit
     end
