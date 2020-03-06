@@ -20,7 +20,7 @@
         <% end %>
       </div>
       <div class="workshops-index-cards">
-        <% @workshops.sort_by { |workshop| workshop.name }.reverse.each do |workshop| %>
+        <% @workshops.each do |workshop| %>
           <div class="workshops-index-card">
             <%= link_to(workshop, data: { turbolinks: false }) do  %>
             <div class="img-workshops-index-card">
