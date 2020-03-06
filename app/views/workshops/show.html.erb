@@ -127,7 +127,7 @@
       <% end %>
 
     <% if @workshop.place.profile.company == @workshop.profile.company %>
-      <h4 class="mt-4">À propos de l'organisateur <%= link_to @workshop.place.name, place_path(@workshop.place) %></h4>
+      <h4 class="mt-4 link-page-organizer">À propos de l'organisateur <%= link_to @workshop.place.name, place_path(@workshop.place) %></h4>
       <p><%= @workshop.place.description %></p>
       <div class="links-show">
         <p>Plus d'infos:</p>
@@ -142,7 +142,7 @@
         <% end %>
       </div>
     <% else %>
-      <h4 class="mt-4">À propos de l'organisateur <%= link_to @workshop.place.name, place_path(@workshop.place) %></h4>
+      <h4 class="mt-4 link-page-organizer">À propos de l'organisateur <%= link_to @workshop.place.name, place_path(@workshop.place) %></h4>
       <p><%= @workshop.place.description %></p>
       <div class="links-show">
         <p>Plus d'infos:</p>
@@ -156,7 +156,7 @@
           <i class="fas fa-link fa-2x"></i>
         <% end %>
       </div>
-      <h4 class="mt-4">À propos de l'animateur <%= link_to @workshop.profile.company, profile_public_path(@workshop.profile) %></h4>
+      <h4 class="mt-4 link-page-organizer">À propos de l'animateur <%= link_to @workshop.profile.company, profile_public_path(@workshop.profile) %></h4>
       <p><%= @workshop.profile.description %></p>
       <div class="links-show">
         <p>Plus d'infos:</p>
