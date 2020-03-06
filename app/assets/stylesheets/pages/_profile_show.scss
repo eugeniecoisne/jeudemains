@@ -38,6 +38,11 @@
   a {
     color: $gray;
   }
+  img {
+    width: 100px;
+    height: 80px;
+    object-fit: cover;
+  }
   #review-posted {
     color: $blue;
   }
