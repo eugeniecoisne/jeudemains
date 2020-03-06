@@ -20,7 +20,7 @@
         <% end %>
       </div>
       <div class="workshops-index-cards">
-        <% @workshops.each do |workshop| %>
+        <% @workshops.sort_by { |workshop| workshop.name }.reverse.each do |workshop| %>
           <div class="workshops-index-card">
             <%= link_to(workshop, data: { turbolinks: false }) do  %>
             <div class="img-workshops-index-card">
@@ -40,7 +40,7 @@
                   </h3>
                   <p>(<%= workshop.reviews.count %> avis)</p>
                  </div>
-                 <h1><%= humanized_money_with_symbol(workshop.price) %></h1>
+                 <h1><%= humanized_money(workshop.price) %>€</h1>
                </div>
              </div>
            <% end %>

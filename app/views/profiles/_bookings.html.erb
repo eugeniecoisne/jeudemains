@@ -32,7 +32,7 @@
             </td>
             <td><%=booking.date.strftime('%d/%m/%Y')%> <%= booking.workshop.workshop_dates.find_by(date: booking.date).start_at %></td>
             <td><%=booking.quantity%> place(s)</td>
-            <td><%= humanized_money_with_symbol(booking.amount) %></td>
+            <td><%= humanized_money(booking.amount) %>€</td>
             <td>
               <%= link_to "Annuler la commande", booking_path(booking), method: :delete, data: { confirm: 'Confirmez-vous la suppression ?' }, id: "cancel-booking" %>
             </td>
@@ -66,7 +66,7 @@
             </td>
             <td><%=booking.date.strftime('%d/%m/%Y')%> <%= booking.workshop.workshop_dates.find_by(date: booking.date).start_at %></td>
             <td><%=booking.quantity%> place(s)</td>
-            <td><%= humanized_money_with_symbol(booking.amount) %></td>
+            <td><%= humanized_money(booking.amount) %>€</td>
             <td>
               <% if booking.already_commented? %>
                 <span id="review-posted"><i class="fas fa-check"></i> Avis déjà posté !</span>
