@@ -16,7 +16,7 @@ class WorkshopsController < ApplicationController
       @workshops = @workshops.sort_by { |workshop| workshop.price } if price == 1
       @workshops = @workshops.sort_by { |workshop| workshop.average_rating }.reverse if rating == 1
     else
-      @workshops = policy_scope(Workshop)
+      @workshops = policy_scope(Workshop).order(:name).reverse_order
     end
 
     # @places_geo = Place.all.map { |place| place if place.workshops.count > 0 }
