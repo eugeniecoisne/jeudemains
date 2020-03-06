@@ -4,7 +4,7 @@
       <h2>Essayez de lancer une recherche avec d'autres mots-clés.</h2>
   </div>
 <% else %>
-  <div class="workshops-index-container">
+  <div class="workshops-index-container" data-active="<%= params[:filter].select {|k, v| v == '1'}.keys.first if params[:filter] %>">
     <div id="index-main-container">
       <div class="filter-index-workshop">
         <span>Filtrer les ateliers par : </span>

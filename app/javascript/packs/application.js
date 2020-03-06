@@ -14,6 +14,7 @@ import { initStarRating } from '../plugins/init_star_rating';
 import { initSearchPlaces } from '../plugins/search_places';
 import { showMoreReviews } from '../plugins/show_more_reviews';
 import { initFilter } from '../plugins/init_filter';
+import { initBtnsIndex } from '../plugins/toogle_btn';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -26,4 +27,5 @@ document.addEventListener('turbolinks:load', () => {
   showMoreReviews();
   initFilter();
   initMapbox();
+  initBtnsIndex();
 });
