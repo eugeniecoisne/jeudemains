@@ -75,7 +75,10 @@
   }
 }
 
-
+.active-btn-index {
+  background-color: $blue;
+  color: $white !important;
+}
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
